@@ -20,6 +20,11 @@ const ApplicationStyles = {
     },
     container: {
       flex: 1,
+      paddingTop: Metrics.navBarHeight,
+      backgroundColor: Colors.transparent
+    },
+    innerContainer: {
+      flex: 1,
       paddingTop: Metrics.baseMargin,
       backgroundColor: Colors.transparent
     },

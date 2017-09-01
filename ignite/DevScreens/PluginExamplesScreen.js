@@ -8,6 +8,12 @@ import { Images } from './DevTheme'
 
 // Examples Render Engine
 import ExamplesRegistry from '../../App/Services/ExamplesRegistry'
+import '../Examples/Components/ElementsExample.js'
+
+
+
+import RoundedButton from '../../App/Components/RoundedButton'
+import '../Examples/Components/MapsExample.js'
 import '../Examples/Components/animatableExample.js'
 import '../Examples/Components/i18nExample.js'
 import '../Examples/Components/vectorExample.js'
@@ -44,6 +50,12 @@ class PluginExamplesScreen extends React.Component {
 
           <View style={styles.screenButtons} />
 
+
+
+
+
+
+
         </ScrollView>
       </View>
     )
@@ -51,6 +63,9 @@ class PluginExamplesScreen extends React.Component {
 }
 
 export default StackNavigator({
+
+
+
   PluginExamplesScreen: {screen: PluginExamplesScreen}
 }, {
   cardStyle: {

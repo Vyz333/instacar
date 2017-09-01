@@ -133,6 +133,25 @@ android {
 }
 
 dependencies {
+    /*compile 'com.google.android.gms:play-services-base:10.2.0'
+    compile 'com.google.android.gms:play-services-maps:10.2.0'*/
+
+    compile(project(':react-native-maps')) {
+        exclude group: 'com.google.android.gms', module: 'play-services-base'
+        exclude group: 'com.google.android.gms', module: 'play-services-maps'
+    }
+    compile project(':react-native-fetch-blob')
+    compile "com.google.android.gms:play-services-base:+"
+    compile 'com.google.android.gms:play-services-location:+'
+    compile 'com.google.android.gms:play-services-maps:+'
+
+    compile project(':react-native-linear-gradient')
+    compile project(':react-native-keychain')
+    compile project(':react-native-orientation-locker')
+    compile project(':react-native-splash-screen')
+    compile project(':react-native-config')
+    compile project(':react-native-push-notification')
+
     compile project(':react-native-i18n')
     compile project(':react-native-vector-icons')
     compile project(':react-native-device-info')

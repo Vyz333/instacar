@@ -35,6 +35,10 @@ local.properties
 node_modules/
 npm-debug.log
 yarn-error.log
+ignite/
+
+#API Keys
+App/Config/APIKeys.js
 
 # BUCK
 buck-out/

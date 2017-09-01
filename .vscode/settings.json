@@ -1,0 +1,7 @@
+{
+    "eslint.enable": false,
+    "standard.enable": true,
+    "tslint.enable": false,
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "editor.tabSize": 2
+}

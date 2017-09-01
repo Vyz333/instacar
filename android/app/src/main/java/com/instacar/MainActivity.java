@@ -1,6 +1,10 @@
 package com.instacar;
 
 import com.facebook.react.ReactActivity;
+import android.content.Intent; // <--- import
+import android.content.res.Configuration; // <--- import
+import android.os.Bundle;
+import com.cboy.rn.splashscreen.SplashScreen; // here
 
 public class MainActivity extends ReactActivity {
 
@@ -12,4 +16,19 @@ public class MainActivity extends ReactActivity {
     protected String getMainComponentName() {
         return "instacar";
     }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        SplashScreen.show(this);  // here
+        super.onCreate(savedInstanceState);
+    }
+    
+    @Override
+      public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        Intent intent = new Intent("onConfigurationChanged");
+        intent.putExtra("newConfig", newConfig);
+        this.sendBroadcast(intent);
+    }
+
 }
