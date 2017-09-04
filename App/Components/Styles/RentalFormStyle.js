@@ -29,4 +29,9 @@ export default StyleSheet.create({
   gradient: {
     ...StyleSheet.absoluteFillObject
 },
+buttonsContainer:{
+  flexDirection:'column',
+  flex:6
+},
+
 })

@@ -3,7 +3,6 @@ import { reduxForm } from 'redux-form/immutable'
 import validate from './RentalFormPage1Validation'
 import {
   ActionsContainer,
-  Button,
   FieldsContainer,
   Fieldset,
   FormGroup,
@@ -19,7 +18,7 @@ import {
 import {Sae} from 'react-native-textinput-effects'
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import { View,Text,Dimensions } from 'react-native'
-import {ButtonGroup, Card} from 'react-native-elements'
+import {ButtonGroup, Card,Button} from 'react-native-elements'
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import Moment from 'moment';
 import CarSwiper from '../CarSwiper'
@@ -70,7 +69,8 @@ class RentalFormPage3 extends Component {
     <Form onSubmit={handleSubmit}>  
     <View style={{flex:2}}>
       <ActionsContainer style={styles.datetimeButtonView}>
-      <Button onPress={this._showDateTimePicker1} theme={Theme} icon="md-calendar" iconPlacement="left"  className="next">
+      <Button onPress={this._showDateTimePicker1} theme={Theme} 
+      icon="md-calendar" iconPlacement="left"  className="next">
         ENTREGA: Fecha y Hora
       </Button>
       </ActionsContainer>

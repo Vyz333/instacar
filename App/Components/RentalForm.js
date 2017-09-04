@@ -47,8 +47,8 @@ export default class RentalForm extends Component {
     return (
       <View style={{flex:1}}>
         { this.gradient }
-        {page === 1 && <RentalFormPage1 onSubmit={this.nextPage}/>}
-        {page === 2 && <RentalFormPage2 previousPage={this.previousPage} onSubmit={this.nextPage}/>}
+        {page === 2 && <RentalFormPage1 onSubmit={this.nextPage}/>}
+        {page === 1 && <RentalFormPage2 previousPage={this.previousPage} onSubmit={this.nextPage}/>}
         {page === 3 && <RentalFormPage3 previousPage={this.previousPage} onSubmit={this.nextPage}/>}
       </View>
     )

@@ -1,19 +1,23 @@
-import { Platform } from 'react-native'
+import {
+  Platform
+} from 'react-native'
 import R from 'ramda'
 
-export const removeEmpty = (markers: Array<Object>) => {
-  let filteredMarkers = R.filter((item) => {
-    return item.latitude && item.longitude
-  }, markers)
-  return filteredMarkers
+export const removeEmpty = (markers) => {
+  if (markers) {
+    let filteredMarkers = R.filter((item) => {
+      return item.latitude && item.longitude
+    }, markers)
+    return filteredMarkers
+  }
 }
 
-export const calculateRegion = (locations: Array<Object>, options: Object) => {
+export const calculateRegion = (locations, options) => {
   const latPadding = options && options.latPadding ? options.latPadding : 0.1
   const longPadding = options && options.longPadding ? options.longPadding : 0.1
   const mapLocations = removeEmpty(locations)
   // Only do calculations if there are locations
-  if (mapLocations.length > 0) {
+  if (mapLocations && mapLocations.length > 0) {
     let allLatitudes = R.map((l) => {
       if (l.latitude && !l.latitude.isNaN) return l.latitude
     }, mapLocations)
@@ -48,7 +52,7 @@ const replaceEscapedCRLF = R.replace(/\\n/g)
 const nullifyNewlines = R.compose(replaceEscapedCRLF(' '), nullToEmpty)
 
 // Correct Map URIs
-export const locationURL = (address: string) => {
+export const locationURL = (address) => {
   let cleanAddress = nullifyNewlines(address)
   // https://developer.apple.com/library/ios/featuredarticles/iPhoneURLScheme_Reference/MapLinks/MapLinks.html
   let url = `http://maps.apple.com/?address=${cleanAddress}`
@@ -57,7 +61,7 @@ export const locationURL = (address: string) => {
 
   return url
 }
-export const directionsURL = (address: string) => {
+export const directionsURL = (address) => {
   let cleanAddress = nullifyNewlines(address)
   // https://developer.apple.com/library/ios/featuredarticles/iPhoneURLScheme_Reference/MapLinks/MapLinks.html
   let url = `http://maps.apple.com/?daddr=${cleanAddress}&dirflg=d`
