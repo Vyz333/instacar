@@ -41,7 +41,6 @@ export default class CarSwiper extends Component {
 
     get carousel () {
         const { slider1ActiveSlide } = this.state;
-        console.log(this.props)
         const category = this.props.category;
         const dataset = all_cars[category];
         return (

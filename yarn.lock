@@ -4430,6 +4430,10 @@ react-native-clean-form@^0.4.2:
     react-native-vector-icons ">=4.0.0"
     styled-components ">=1.4"
 
+react-native-conekta@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-native-conekta/-/react-native-conekta-2.0.0.tgz#2ddf2e145b704bd9d9166af48b16687ae96138d5"
+
 react-native-config@^0.2.1:
   version "0.2.5"
   resolved "https://registry.yarnpkg.com/react-native-config/-/react-native-config-0.2.5.tgz#1d804b77de381a02aa35974c95e1bec0c8286485"
@@ -4637,15 +4641,7 @@ react-native-textinput-effects@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/react-native-textinput-effects/-/react-native-textinput-effects-0.4.0.tgz#96c27e8fb8a5e95a0e3fc46aaa23c071c4e8be15"
 
-react-native-vector-icons@4.1.1:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-4.1.1.tgz#9ac75bde77d9243346668c51dca7756775428087"
-  dependencies:
-    lodash "^4.0.0"
-    prop-types "^15.5.8"
-    yargs "^6.3.0"
-
-react-native-vector-icons@>=4.0.0:
+react-native-vector-icons@>=4.0.0, react-native-vector-icons@^4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-4.3.0.tgz#49eab845fbcde6354cb3dbcb62c1abd1f6abc866"
   dependencies:
@@ -6046,7 +6042,7 @@ yargs-parser@^7.0.0:
   dependencies:
     camelcase "^4.1.0"
 
-yargs@^6.3.0, yargs@^6.4.0:
+yargs@^6.4.0:
   version "6.6.0"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-6.6.0.tgz#782ec21ef403345f830a808ca3d513af56065208"
   dependencies:

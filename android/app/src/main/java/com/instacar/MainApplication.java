@@ -3,7 +3,6 @@ package com.instacar;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import com.airbnb.android.react.maps.MapsPackage;
 import com.RNFetchBlob.RNFetchBlobPackage;
 import com.airbnb.android.react.maps.MapsPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
@@ -35,7 +34,6 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new MapsPackage(),
             new RNFetchBlobPackage(),
             new MapsPackage(),
             new LinearGradientPackage(),
