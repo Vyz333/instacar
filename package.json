@@ -48,7 +48,7 @@
     "react-native-img-cache": "^1.4.0",
     "react-native-keychain": "^1.2.1",
     "react-native-linear-gradient": "^2.3.0",
-    "react-native-maps": "0.13.0",
+    "react-native-maps": "^0.16.3",
     "react-native-modal-datetime-picker": "^4.11.0",
     "react-native-orientation-locker": "^1.0.3",
     "react-native-progress": "^3.4.0",
