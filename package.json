@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "apisauce": "^0.14.0",
+    "conekta": "^3.1.6",
     "fb-watchman": "^2.0.0",
     "format-json": "^1.0.3",
     "immutable": "^3.8.1",
@@ -52,6 +53,7 @@
     "react-native-maps": "^0.16.3",
     "react-native-modal-datetime-picker": "^4.11.0",
     "react-native-orientation-locker": "^1.0.3",
+    "react-native-payments": "^0.3.1",
     "react-native-progress": "^3.4.0",
     "react-native-push-notification": "^3.0.1",
     "react-native-slide-down-panel": "^1.0.6",
@@ -133,5 +135,5 @@
       "FormData",
       "React$Element"
     ]
-  }
+  },
 }

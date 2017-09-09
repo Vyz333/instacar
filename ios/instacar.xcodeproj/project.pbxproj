@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -59,6 +58,8 @@
 		F260AAAA3F4F4374B37EDD51 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75912A0483C84413A648A9C2 /* EvilIcons.ttf */; };
 		FC055C3DD4854DA2BEDD8CFD /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 234439F4DFE14A00995E3199 /* Foundation.ttf */; };
 		FD30B7C3266D4697AA9129CF /* libReactNativeConfig.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A4244EEF8134E21A4254BA5 /* libReactNativeConfig.a */; };
+		B2141079B0D041F9936D8B5A /* libRNConekta.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3441D6B726604B569CE240D3 /* libRNConekta.a */; };
+		495501127353413B8FC2272E /* libReactNativePayments.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E803F9EDFC8A483CB72D93A9 /* libReactNativePayments.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -409,6 +410,10 @@
 		D3FC90D4C6F24F54882CAD38 /* RNDeviceInfo.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNDeviceInfo.xcodeproj; path = "../node_modules/react-native-device-info/RNDeviceInfo.xcodeproj"; sourceTree = "<group>"; };
 		E89D21CFB7E14C1F964A711C /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		FF3F1E904CFB4CD6B33FB0A1 /* libRNKeychain.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNKeychain.a; sourceTree = "<group>"; };
+		ACA29B9E63CA42C58A95C521 /* RNConekta.xcodeproj */ = {isa = PBXFileReference; name = "RNConekta.xcodeproj"; path = "../node_modules/react-native-conekta/RNConekta/RNConekta.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		3441D6B726604B569CE240D3 /* libRNConekta.a */ = {isa = PBXFileReference; name = "libRNConekta.a"; path = "libRNConekta.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		680A6CFE2AFC47A28812540D /* ReactNativePayments.xcodeproj */ = {isa = PBXFileReference; name = "ReactNativePayments.xcodeproj"; path = "../node_modules/react-native-payments/lib/ios/ReactNativePayments.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		E803F9EDFC8A483CB72D93A9 /* libReactNativePayments.a */ = {isa = PBXFileReference; name = "libReactNativePayments.a"; path = "libReactNativePayments.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -448,6 +453,8 @@
 				1A176B3A3E78408B993C5210 /* libBVLinearGradient.a in Frameworks */,
 				C69EC0200F5C4BBA81F925C1 /* libAirMaps.a in Frameworks */,
 				36D3D9BF354245AAAEC2B160 /* libRNFetchBlob.a in Frameworks */,
+				B2141079B0D041F9936D8B5A /* libRNConekta.a in Frameworks */,
+				495501127353413B8FC2272E /* libReactNativePayments.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -708,6 +715,8 @@
 				A6AD6ED7DAEF4051AE30CF58 /* BVLinearGradient.xcodeproj */,
 				03AD8CADC8774A33973B140E /* AirMaps.xcodeproj */,
 				41A2EABF0B9B494B9F087648 /* RNFetchBlob.xcodeproj */,
+				ACA29B9E63CA42C58A95C521 /* RNConekta.xcodeproj */,
+				680A6CFE2AFC47A28812540D /* ReactNativePayments.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1396,12 +1405,16 @@
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-maps/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-fetch-blob/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-conekta/RNConekta/**",
+					"$(SRCROOT)/../node_modules/react-native-payments/lib/ios",
 				);
 				INFOPLIST_FILE = instacarTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -1433,12 +1446,16 @@
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-maps/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-fetch-blob/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-conekta/RNConekta/**",
+					"$(SRCROOT)/../node_modules/react-native-payments/lib/ios",
 				);
 				INFOPLIST_FILE = instacarTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -1472,6 +1489,8 @@
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-maps/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-fetch-blob/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-conekta/RNConekta/**",
+					"$(SRCROOT)/../node_modules/react-native-payments/lib/ios",
 				);
 				INFOPLIST_FILE = instacar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1505,6 +1524,8 @@
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-maps/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-fetch-blob/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-conekta/RNConekta/**",
+					"$(SRCROOT)/../node_modules/react-native-payments/lib/ios",
 				);
 				INFOPLIST_FILE = instacar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1543,11 +1564,15 @@
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-maps/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-fetch-blob/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-conekta/RNConekta/**",
+					"$(SRCROOT)/../node_modules/react-native-payments/lib/ios",
 				);
 				INFOPLIST_FILE = "instacar-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -1588,11 +1613,15 @@
 					"$(SRCROOT)/../node_modules/react-native-linear-gradient/BVLinearGradient",
 					"$(SRCROOT)/../node_modules/react-native-maps/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-fetch-blob/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-conekta/RNConekta/**",
+					"$(SRCROOT)/../node_modules/react-native-payments/lib/ios",
 				);
 				INFOPLIST_FILE = "instacar-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
@@ -1625,6 +1654,8 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.instacar-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1649,6 +1680,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);

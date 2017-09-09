@@ -133,6 +133,9 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-payments')
+    compile project(':react-native-maps')
+    compile project(':react-native-conekta')
     /*compile 'com.google.android.gms:play-services-base:10.2.0'
     compile 'com.google.android.gms:play-services-maps:10.2.0'
 */
