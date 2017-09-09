@@ -8,6 +8,9 @@ import Colors from '../Themes/Colors'
 import RentalFormPage1 from './RentalFormPages/RentalFormPage1'
 import RentalFormPage2 from './RentalFormPages/RentalFormPage2'
 import RentalFormPage3 from './RentalFormPages/RentalFormPage3'
+import RentalFormPage4 from './RentalFormPages/RentalFormPage4'
+import RentalFormPage5 from './RentalFormPages/RentalFormPage5'
+import RentalFormPage6 from './RentalFormPages/RentalFormPage6'
 
 export default class RentalForm extends Component {
   constructor(props) {
@@ -50,6 +53,9 @@ export default class RentalForm extends Component {
         {page === 1 && <RentalFormPage1 onSubmit={this.nextPage}/>}
         {page === 2 && <RentalFormPage2 previousPage={this.previousPage} onSubmit={this.nextPage}/>}
         {page === 3 && <RentalFormPage3 previousPage={this.previousPage} onSubmit={this.nextPage}/>}
+        {page === 4 && <RentalFormPage4 previousPage={this.previousPage} onSubmit={this.nextPage}/>}
+        {page === 5 && <RentalFormPage5 previousPage={this.previousPage} onSubmit={this.nextPage}/>}
+        {page === 6 && <RentalFormPage6 previousPage={this.previousPage} onSubmit={this.nextPage}/>}
       </View>
     )
   }

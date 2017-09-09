@@ -91,7 +91,7 @@ def enableProguardInReleaseBuilds = false
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    buildToolsVersion '25.0.0'
 
     defaultConfig {
         applicationId "com.instacar"
@@ -133,8 +133,11 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-fs')
+    compile project(':react-native-image-resizer')
+    compile project(':react-native-image-picker')
     compile project(':react-native-payments')
-    compile project(':react-native-maps')
+    //compile project(':react-native-maps')
     compile project(':react-native-conekta')
     /*compile 'com.google.android.gms:play-services-base:10.2.0'
     compile 'com.google.android.gms:play-services-maps:10.2.0'

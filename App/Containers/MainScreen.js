@@ -21,9 +21,9 @@ class MainScreen extends React.Component {
     console.log(this.state)
     return (
       <View style={styles.mainContainer}>
-        <KeyboardAvoidingView style={styles.container} behavior='padding'>
+        <View style={styles.container}>
           <RentalForm />
-        </KeyboardAvoidingView>
+        </View>
       </View>
     )
   }
