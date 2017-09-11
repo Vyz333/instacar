@@ -3,6 +3,11 @@ package com.instacar;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.rnfs.RNFSPackage;
+import fr.bamlab.rnimageresizer.ImageResizerPackage;
+import com.imagepicker.ImagePickerPackage;
+import com.reactnativepayments.ReactNativePaymentsPackage;
+import com.dieam.reactnativeconekta.ReactNativeConektaPackage;
 import com.RNFetchBlob.RNFetchBlobPackage;
 import com.airbnb.android.react.maps.MapsPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
@@ -34,6 +39,11 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNFSPackage(),
+            new ImageResizerPackage(),
+            new ImagePickerPackage(),
+            new ReactNativePaymentsPackage(),
+            new ReactNativeConektaPackage(),
             new RNFetchBlobPackage(),
             new MapsPackage(),
             new LinearGradientPackage(),

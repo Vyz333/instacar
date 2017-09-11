@@ -1,4 +1,5 @@
 import Colors from './Colors'
+
 const Theme = {
   Button: {
     backgroundColor: Colors.secondaryDark,

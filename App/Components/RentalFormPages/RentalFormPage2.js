@@ -93,7 +93,7 @@ class RentalFormPage2 extends Component {
           raised
           icon={{name: 'my-location'}}
           buttonStyle={{backgroundColor: Colors.primaryLight}}
-          textStyle={{textAlign: 'center'}}
+          textStyle={{textAlign: 'center',padding:5}}
           title={`Dirección de Entrega${deliveryAddress?':\n '+deliveryAddress.description:''}`}
           onPress={this._showAddressPicker1}
         />
@@ -105,7 +105,7 @@ class RentalFormPage2 extends Component {
           icon={{name: 'date-range'}}
           buttonStyle={{backgroundColor: Colors.primaryLight}}
           textStyle={{textAlign: 'center'}}
-          title={`Hora y Fecha de Entrega${deliveryDateTime?':\n '+Moment(deliveryDateTime).format('d MMM'):''}`}
+          title={`Hora y Fecha de Entrega${deliveryDateTime?':\n '+Moment(deliveryDateTime).format('DD MMM hh:mm'):''}`}
           onPress={this._showDateTimePicker1}
         />
         </View>
@@ -115,7 +115,7 @@ class RentalFormPage2 extends Component {
           raised
           icon={{name: 'directions'}}
           buttonStyle={{backgroundColor: Colors.primaryLight,flex:2}}
-          textStyle={{textAlign: 'center'}}
+          textStyle={{textAlign: 'center',padding:5}}
           title={`Dirección de Retorno${returnAddress?':\n '+returnAddress.description:''}`}
           onPress={this._showAddressPicker2}
         />
@@ -126,7 +126,7 @@ class RentalFormPage2 extends Component {
           icon={{name: 'date-range'}}
           buttonStyle={{backgroundColor: Colors.primaryLight,flex:2}}
           textStyle={{textAlign: 'center'}}
-          title={`Hora y Fecha de Retorno${returnDateTime?':\n '+Moment(returnDateTime).format('d MMM'):''}`}
+          title={`Hora y Fecha de Retorno${returnDateTime?':\n '+Moment(returnDateTime).format('DD MMM hh:mm'):''}`}
           onPress={this._showDateTimePicker2}
         />
         </View>

@@ -4,6 +4,7 @@ import { View, ScrollView, Text, StatusBar, Platform, Dimensions } from 'react-n
 import styles from './Styles/CarSwiperStyle'
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 
+
 import SliderEntry from './SliderEntry';
 //import styles, { colors } from 'example/src/styles/index.style';
 import { SEDANS, SUVS, PASSENGER_CARS } from '../static/entries';
@@ -16,6 +17,7 @@ export default class CarSwiper extends Component {
         super(props);
         this.state = {
             slider1ActiveSlide: SLIDER_1_FIRST_ITEM,
+            quantity: 1,
         };
     }
 
@@ -41,7 +43,6 @@ export default class CarSwiper extends Component {
 
     get carousel () {
         const { slider1ActiveSlide } = this.state;
-        console.log(this.props)
         const category = this.props.category;
         const dataset = all_cars[category];
         return (
@@ -77,6 +78,11 @@ export default class CarSwiper extends Component {
     }
 
     render () {
+        const { slider1ActiveSlide,quantity } = this.state;
+        const category = this.props.category;
+        const dataset = all_cars[category];
+        const car = dataset[slider1ActiveSlide]
+
         return (
             <View style={styles.container}>
                 <ScrollView
@@ -87,6 +93,8 @@ export default class CarSwiper extends Component {
                   directionalLockEnabled={true}
                 >
                     { this.carousel }
+                    <Text style={{textAlign:'center', color:'green'}}>${car.rate}.00/hr.</Text>
+                    
                 </ScrollView>
             </View>
         );

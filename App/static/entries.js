@@ -35,4 +35,4 @@ export const PASSENGER_CARS = [{
   subtitle: '8 Asientos',
   rate: 900,
   illustration: "http://instacar.bismarck.space/wp-content/uploads/2017/cars/urvan.jpg",
-}, ];
+}];
