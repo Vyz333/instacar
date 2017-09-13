@@ -15,7 +15,6 @@ import '../Examples/Components/ElementsExample.js'
 import RoundedButton from '../../App/Components/RoundedButton'
 import '../Examples/Components/MapsExample.js'
 import '../Examples/Components/animatableExample.js'
-import '../Examples/Components/i18nExample.js'
 import '../Examples/Components/vectorExample.js'
 
 // Styles

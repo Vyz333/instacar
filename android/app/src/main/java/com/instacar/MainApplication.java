@@ -3,20 +3,19 @@ package com.instacar;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.horcrux.svg.SvgPackage;
 import com.rnfs.RNFSPackage;
 import fr.bamlab.rnimageresizer.ImageResizerPackage;
 import com.imagepicker.ImagePickerPackage;
 import com.reactnativepayments.ReactNativePaymentsPackage;
-import com.dieam.reactnativeconekta.ReactNativeConektaPackage;
 import com.RNFetchBlob.RNFetchBlobPackage;
 import com.airbnb.android.react.maps.MapsPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
 import com.oblador.keychain.KeychainPackage;
 import org.wonday.orientation.OrientationPackage;
-import com.cboy.rn.splashscreen.SplashScreenReactPackage;
+import org.devio.rn.splashscreen.SplashScreenReactPackage;
 import com.lugg.ReactNativeConfig.ReactNativeConfigPackage;
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
-import com.i18n.reactnativei18n.ReactNativeI18n;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.learnium.RNDeviceInfo.RNDeviceInfo;
 import com.facebook.react.ReactNativeHost;
@@ -39,11 +38,11 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new SvgPackage(),
             new RNFSPackage(),
             new ImageResizerPackage(),
             new ImagePickerPackage(),
             new ReactNativePaymentsPackage(),
-            new ReactNativeConektaPackage(),
             new RNFetchBlobPackage(),
             new MapsPackage(),
             new LinearGradientPackage(),
@@ -52,7 +51,6 @@ public class MainApplication extends Application implements ReactApplication {
             new SplashScreenReactPackage(),
             new ReactNativeConfigPackage(),
             new ReactNativePushNotificationPackage(),
-            new ReactNativeI18n(),
             new VectorIconsPackage(),
             new RNDeviceInfo()
       );
