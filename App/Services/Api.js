@@ -1,23 +1,24 @@
 // a library to wrap and simplify api calls
 import apisauce from 'apisauce'
+import AppConfig from '../Config/AppConfig'
 
 // our "constructor"
-const create = (baseURL = 'https://api.github.com/') => {
+const create = (baseURL = AppConfig.RESTUrl) => {
   // ------
   // STEP 1
   // ------
   //
   // Create and configure an apisauce-based api object.
   //
-  const api = apisauce.create({
+  let api = apisauce.create({
     // base URL is read from the "constructor"
     baseURL,
     // here are some default headers
-    headers: {
-      'Cache-Control': 'no-cache'
-    },
+    // headers: {
+    //   'Cache-Control': 'no-cache'
+    // },
     // 10 second timeout...
-    timeout: 10000
+    timeout: 10000,
   })
 
   // ------
@@ -36,8 +37,52 @@ const create = (baseURL = 'https://api.github.com/') => {
   //
   const getRoot = () => api.get('')
   const getRate = () => api.get('rate_limit')
+  const getCars = () => api.get('vehicles')
+  const getOrders = () => api.get('orders')
   const getUser = (username) => api.get('search/users', {q: username})
+  const loginUser = (username,password) => {
+    api = apisauce.create({
+      // base URL is read from the "constructor"
+      baseURL,
+      Authorization:'Basic ' + btoa( username + ':' + password ),
+      timeout: 10000,
+    })
+  }
 
+  const postOrder = (order) => {
+    return api.post('order',order)
+  }
+  const createUser = (user) => {
+    return api.post('users',user)
+  }
+  // const loginUser = (user) => {
+  //   return api.post('order',order)
+  // }
+  const postUser = () => api.post('users',user)
+  const uploadImage= (image)=> {
+    //http://instacar.bismarck.space/wp-content/uploads/2017/09/TABLET-X81C_URVAN-W_Brilliantsilver-2014.jpg.ximg_.m_12_h.smart_.jpg
+    AppConfig.UPLOADSUrl
+  }
+  // site.posts().create({
+  //   title: 'This post has media, tags & categories!',
+  //   content: 'Excellent and compelling demonstration',
+  //   categories: [ 7, 42 ],
+  //   tags: [ 33, 71, 193 ]
+  // }).then(function( post ) {
+  //   // Create the media record & upload your image file
+  //   var filePath = '/path/to/the/image/to/upload.jpg';
+  //   return wp.media().file( filePath ).create({
+  //     title: 'Amazing featured image',
+  //     post: post.id
+  //   }).then(function( media ) {
+  
+  //     // Set the new media record as the post's featured media
+  //     return wp.posts().id( post.id ).update({
+  //       featured_media: media.id
+  //     });
+    
+  //   });
+  // });
   // ------
   // STEP 3
   // ------
@@ -54,7 +99,13 @@ const create = (baseURL = 'https://api.github.com/') => {
     // a list of the API functions from step 2
     getRoot,
     getRate,
-    getUser
+    getUser,
+    getCars,
+    getOrders,
+    postOrder,
+    postUser,
+    loginUser,
+    createUser,
   }
 }
 

@@ -20,24 +20,23 @@ export default class AddressPicker extends Component {
   }
   render(){
   const {
-    mode,
     modalVisible,
-    deliveryAddress,
-    returnAddress,
+    placeholder,
+    address,
     pickAddressHandler,
   } = this.props
-  displayAddress = mode===0?deliveryAddress:returnAddress
+  console.log(placeholder)
   return ( 
     <View style={{flex:1}}>
           <Modal
           animationType="slide"
           transparent={false}
           visible={modalVisible}
-          onRequestClose={() => {alert("Dirección Seleccionada:\n"+displayAddress)}}
+          onRequestClose={() => {alert("Dirección Seleccionada:\n"+address)}}
           >
           <Retrieval/>
         <GooglePlacesAutocomplete
-          placeholder={mode==0?'Lugar de Entrega':'Lugar de Retorno'}
+          placeholder={placeholder}
           minLength={2} // minimum length of text to search
           autoFocus={false}
           returnKeyType={'search'} // Can be left out for default return key https://facebook.github.io/react-native/docs/textinput.html#returnkeytype
@@ -50,14 +49,14 @@ export default class AddressPicker extends Component {
             pickAddressHandler(data)
           }}
           getDefaultValue={() => {
-            return displayAddress; // text input default value
+            return address; // text input default value
           }}
           container={<View style={{flex:1,padding:5}}></View>}
           query={{
             // available options: https://developers.google.com/places/web-service/autocomplete
             key: 'AIzaSyAOnTpO_hIrjvE1KgMqYjBc9IXUwuHezbI',
             language: 'es', // language of the results
-            types: 'geocode' // default: 'geocode'
+            types: 'address' // default: 'geocode'
           }}
           styles={{
             position:'fixed',
@@ -77,7 +76,7 @@ export default class AddressPicker extends Component {
           }}
 
           currentLocation={true} // Will add a 'Current location' button at the top of the predefined places list
-          currentLocationLabel="Lugar Actual"
+          currentLocationLabel='Lugar Actual'
           nearbyPlacesAPI='GoogleReverseGeocoding' // Which API to use: GoogleReverseGeocoding or GooglePlacesSearch
           GoogleReverseGeocodingQuery={{
             language:'es'//language:'en'

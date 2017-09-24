@@ -7,11 +7,13 @@ import DebugConfig from '../Config/DebugConfig'
 
 import { StartupTypes } from '../Redux/StartupRedux'
 import { GithubTypes } from '../Redux/GithubRedux'
+import { RentalFormTypes } from '../Redux/RentalFormRedux'
 
 /* ------------- Sagas ------------- */
 
 import { startup } from './StartupSagas'
 import { getUserAvatar } from './GithubSagas'
+import {getCars,postOrder,createUser,loginUser} from './RentalFormSagas'
 
 /* ------------- API ------------- */
 
@@ -27,6 +29,14 @@ export default function * root () {
     takeLatest(StartupTypes.STARTUP, startup),
 
     // some sagas receive extra parameters in addition to an action
-    takeLatest(GithubTypes.USER_REQUEST, getUserAvatar, api)
+    takeLatest(GithubTypes.USER_REQUEST, getUserAvatar, api),
+    
+    takeLatest(RentalFormTypes.CARS_REQUEST,getCars,api),
+    
+    takeLatest(RentalFormTypes.POST_ORDER_REQUEST,postOrder,api),
+
+    takeLatest(RentalFormTypes.CREATE_USER_REQUEST,createUser,api),
+
+    takeLatest(RentalFormTypes.LOGIN_USER_REQUEST,loginUser,api),
   ]
 }

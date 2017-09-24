@@ -8,10 +8,10 @@ import React from 'react'
 import Colors from '../Themes/Colors'
 import {Header} from 'react-native-elements'
 const head = <Header
-backgroundColor ={Colors.primary}
+backgroundColor ={Colors.transparent}
 statusBarProps={{ barStyle: 'light-content' }}
-leftComponent={{ icon: 'menu', color: '#fff' }}
-centerComponent={{ text: 'INSTACAR', style: { color: '#fff' } }} 
+leftComponent={{ icon: 'menu', color: Colors.primary }}
+centerComponent={{ numberOfLines:1,text: 'INSTACAR', style: { color: Colors.primary,fontWeight:'bold' } }} 
 outerContainerStyles={styles.header}
 />;
 

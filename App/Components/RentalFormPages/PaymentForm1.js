@@ -24,7 +24,7 @@ import {Button as FButton} from 'react-native-clean-form'
 import styles from '../Styles/RentalFormStyle'
 import Colors from '../../Themes/Colors'
 import {Theme} from '../../Themes/FormTheme'
-class RentalFormPage3 extends Component {
+class PaymentForm1 extends Component {
   constructor (props) {
     super(props);
 
@@ -38,14 +38,14 @@ class RentalFormPage3 extends Component {
   }
   render () {
     const {     
-      handleSubmit,
+      nextPage,
       previousPage, 
     } = this.props
 
 
     return (
     <View style={{flex:1}}>
-    <Form onSubmit={handleSubmit}>  
+    <Form onSubmit={nextPage}>  
     <View style={{flex:5,marginTop:60,flexDirection: 'column',
         justifyContent: 'space-around'}}>
         <View style={{flex:1}}>
@@ -65,7 +65,7 @@ class RentalFormPage3 extends Component {
           icon={{name: 'store'}}
           buttonStyle={{backgroundColor: Colors.primaryLight}}
           textStyle={{textAlign: 'center'}}
-          title={`OXXO Pay`}
+          title={`Pago en Establecimientos`}
           onPress={this._showDateTimePicker1}
         />
         
@@ -76,7 +76,7 @@ class RentalFormPage3 extends Component {
             <FButton onPress={previousPage} theme={getThemeWithButtonBackground(Colors.secondary)} icon="md-arrow-dropleft" iconPlacement="left" type="submit" className="next">Atrás</FButton>
         </ActionsContainer>        
         <ActionsContainer>
-            <FButton onPress={handleSubmit} theme={Theme} icon="md-arrow-dropright" iconPlacement="right" type="submit" className="next">Siguiente</FButton>
+            <FButton onPress={nextPage} theme={Theme} icon="md-arrow-dropright" iconPlacement="right" type="submit" className="next">Siguiente</FButton>
         </ActionsContainer>
       </Form>
       </View>
@@ -89,4 +89,4 @@ export default reduxForm({
   destroyOnUnmount: false,        // <------ preserve form data
   forceUnregisterOnUnmount: true,  // <------ unregister fields on unmount
   validate
-})(RentalFormPage3)
+})(PaymentForm1)

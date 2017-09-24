@@ -7,7 +7,9 @@ export default () => {
   const rootReducer = combineReducers({
     nav: require('./NavigationRedux').reducer,
     github: require('./GithubRedux').reducer,
+    rental: require('./RentalFormRedux').reducer,
     search: require('./SearchRedux').reducer,
+    wp: require('./WpRedux').reducer,
     form: formReducer
   })
 

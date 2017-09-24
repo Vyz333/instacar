@@ -33,5 +33,10 @@ buttonsContainer:{
   flexDirection:'column',
   flex:6
 },
-
+input: {
+  
+},
+password: {
+  
+},
 })

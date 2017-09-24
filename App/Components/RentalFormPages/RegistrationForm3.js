@@ -21,13 +21,13 @@ import { View,Text,Dimensions,Platform } from 'react-native'
 import {ButtonGroup, Card,Button,SocialIcon,FormLabel, FormInput} from 'react-native-elements'
 import {Button as FButton} from 'react-native-clean-form'
 import PhotoUpload from 'react-native-photo-upload'
-
+import fs from 'react-native-fs'
 import styles from '../Styles/RentalFormStyle'
 import Colors from '../../Themes/Colors'
 import {Theme} from '../../Themes/FormTheme'
 
 const { width, height } = Dimensions.get('window')
-class RentalFormPage6 extends Component {
+class RegistrationForm3 extends Component {
   constructor (props) {
     super(props);
     this._uploadLicense = this._uploadLicense.bind(this)
@@ -42,17 +42,26 @@ class RentalFormPage6 extends Component {
 
   }
   _uploadLicense(img){
+    // fs.writeFile("../../Images/license.jpg", img, 'base64', function(err) {
+    //   console.log(err);
+    // });
     this.setState({license:img})
   }
   _uploadINE(img){
+    // fs.writeFile("../../Images/ine.jpg", base64Data, 'base64', function(err) {
+    //   console.log(err);
+    // });
     this.setState({ine:img})
   }
   _uploadAddress(img){
+    // fs.writeFile("../../Images/address.jpg", base64Data, 'base64', function(err) {
+    //   console.log(err);
+    // });
     this.setState({address:img}) 
   }
   render () {
     const {     
-      handleSubmit,
+      nextPage,
       previousPage, 
     } = this.props
 
@@ -63,7 +72,7 @@ class RentalFormPage6 extends Component {
     } = this.state
     return (
     <View style={{flex:1}}>
-    <Form onSubmit={handleSubmit}>  
+    <Form onSubmit={nextPage}>  
       <Text style={{paddingTop:5,textAlign:'center'}}>Documentos</Text>
 
     <View style={{flex:5,marginTop:5,flexDirection: 'column',
@@ -100,7 +109,7 @@ class RentalFormPage6 extends Component {
         <FButton onPress={previousPage} theme={getThemeWithButtonBackground(Colors.secondary)} icon="md-arrow-dropleft" iconPlacement="left" type="submit" className="next">Atrás</FButton>
     </ActionsContainer>        
     <ActionsContainer>
-        <FButton disabled={true} onPress={handleSubmit} theme={Theme} icon="md-arrow-dropright" iconPlacement="right" type="submit" className="next">Siguiente</FButton>
+        <FButton onPress={nextPage} theme={Theme} icon="md-arrow-dropright" iconPlacement="right" type="submit" className="next">Siguiente</FButton>
     </ActionsContainer>
       </Form>
       </View>
@@ -113,4 +122,4 @@ export default reduxForm({
   destroyOnUnmount: false,        // <------ preserve form data
   forceUnregisterOnUnmount: true,  // <------ unregister fields on unmount
   validate
-})(RentalFormPage6)
+})(RegistrationForm3)

@@ -24,7 +24,7 @@ import {Button as FButton} from 'react-native-clean-form'
 import styles from '../Styles/RentalFormStyle'
 import Colors from '../../Themes/Colors'
 import {Theme} from '../../Themes/FormTheme'
-class RentalFormPage5 extends Component {
+class BillForm extends Component {
   constructor (props) {
     super(props);
 
@@ -41,14 +41,14 @@ class RentalFormPage5 extends Component {
   }
   render () {
     const {     
-      handleSubmit,
+      nextPage,
       previousPage, 
     } = this.props
 
     
     return (
     <View style={{flex:1}}>
-    <Form onSubmit={handleSubmit}>  
+    <Form onSubmit={nextPage}>  
       <Text style={{paddingTop:5,textAlign:'center'}}>Datos de Facturación</Text>
       <FormLabel>Razón Social</FormLabel>
       <FormInput onChangeText={this._onTermChange}/>
@@ -65,7 +65,7 @@ class RentalFormPage5 extends Component {
         <FButton onPress={previousPage} theme={getThemeWithButtonBackground(Colors.secondary)} icon="md-arrow-dropleft" iconPlacement="left" type="submit" className="next">Atrás</FButton>
     </ActionsContainer>        
     <ActionsContainer>
-        <FButton onPress={handleSubmit} theme={Theme} icon="md-arrow-dropright" iconPlacement="right" type="submit" className="next">Siguiente</FButton>
+        <FButton onPress={nextPage} theme={Theme} icon="md-arrow-dropright" iconPlacement="right" type="submit" className="next">Siguiente</FButton>
     </ActionsContainer>
       </Form>
       </View>
@@ -78,4 +78,4 @@ export default reduxForm({
   destroyOnUnmount: false,        // <------ preserve form data
   forceUnregisterOnUnmount: true,  // <------ unregister fields on unmount
   validate
-})(RentalFormPage5)
+})(BillForm)
