@@ -13,12 +13,6 @@ const { Types, Creators } = createActions({
   postOrderRequest: ['data'],
   postOrderSuccess: ['payload'],
   postOrderFailure: null,
-  createUserRequest: ['data'],
-  createUserSuccess: ['payload'],
-  createUserFailure: null,
-  loginUserRequest: ['data'],
-  loginUserSuccess: ['payload'],
-  loginUserFailure: null,
 })
 
 export const RentalFormTypes = Types
@@ -79,10 +73,4 @@ export const reducer = createReducer(INITIAL_STATE, {
   [Types.POST_ORDER_REQUEST]: request,
   [Types.POST_ORDER_SUCCESS]: success,
   [Types.POST_ORDER_FAILURE]: failure,
-  [Types.CREATE_USER_REQUEST]: request,
-  [Types.CREATE_USER_SUCCESS]: success,
-  [Types.CREATE_USER_FAILURE]: failure,
-  [Types.LOGIN_USER_REQUEST]: request,
-  [Types.LOGIN_USER_SUCCESS]: success,
-  [Types.LOGIN_USER_FAILURE]: failure,
 })

@@ -34,7 +34,7 @@ const renderPasswordInput = ({ input: { onChange, ...restInput }}) => {
 class LoginForm extends Component {
   render () {
     const {     
-      doLogin,
+      onLogin,
       gotoRegistration,
       previousPage, 
     } = this.props
@@ -42,7 +42,7 @@ class LoginForm extends Component {
 
     return (
     <View style={{flex:1}}>
-    <Form onSubmit={doLogin}> 
+    <Form onSubmit={onLogin}> 
       <FormLabel>Correo</FormLabel>
       <Field name='username' component={renderInput} />
       <FormLabel>Contraseña</FormLabel>
@@ -73,7 +73,7 @@ class LoginForm extends Component {
             <FButton onPress={previousPage} theme={getThemeWithButtonBackground(Colors.secondary)} icon="md-arrow-dropleft" iconPlacement="left" type="submit" className="next">Atrás</FButton>
         </ActionsContainer> 
         <ActionsContainer>
-            <FButton onPress={doLogin} theme={Theme} type="submit" className="next">Iniciar Sesión</FButton>
+            <FButton onPress={onLogin} theme={Theme} type="submit" className="next">Iniciar Sesión</FButton>
         </ActionsContainer>        
 
       </Form>

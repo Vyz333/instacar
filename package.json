@@ -65,6 +65,7 @@
     "react-native-slide-down-panel": "^1.0.6",
     "react-native-snap-carousel": "^3.1.0",
     "react-native-splash-screen": "3.0.1",
+    "react-native-step-indicator": "^0.0.6",
     "react-native-svg": "^5.4.1",
     "react-native-svg-icon": "^0.7.0",
     "react-native-swiper": "^1.5.12",

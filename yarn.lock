@@ -5325,6 +5325,10 @@ react-native-splash-screen@3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/react-native-splash-screen/-/react-native-splash-screen-3.0.1.tgz#178b29b7d848e6ee5a41fbb9c1299eb2b5aaa600"
 
+react-native-step-indicator@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/react-native-step-indicator/-/react-native-step-indicator-0.0.6.tgz#40b57b8b5704111979700ec4974239fa6e4b7546"
+
 react-native-svg-icon@^0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/react-native-svg-icon/-/react-native-svg-icon-0.7.0.tgz#7e1e80ee3a2dcdce519a41a45b57480c6a39738e"

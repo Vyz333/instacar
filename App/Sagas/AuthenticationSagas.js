@@ -11,56 +11,49 @@
 *************************************************************/
 
 import { call, put } from 'redux-saga/effects'
-import RentalFormActions from '../Redux/RentalFormRedux'
+import AuthenticationActions from '../Redux/AuthenticationRedux'
 
-export function * getRentalForm (api, action) {
+export function * getAuthentication (api, action) {
   const { data } = action
   // make the call to the api
-  const response = yield call(api.getrentalForm, data)
+  const response = yield call(api.getAuthentication, data)
 
   // success?
   if (response.ok) {
     // You might need to change the response here - do this with a 'transform',
     // located in ../Transforms/. Otherwise, just pass the data back from the api.
-    yield put(RentalFormActions.rentalFormSuccess(response.data))
+    yield put(AuthenticationActions.AuthenticationSuccess(response.data))
   } else {
-    yield put(RentalFormActions.rentalFormFailure())
+    yield put(AuthenticationActions.AuthenticationFailure())
   }
 }
-export function * getCars (api, action) {
-  console.log("inside cars saga")
-  if (__DEV__ && console.tron) {
-    // logging an object for better clarity
-    console.tron.log({
-      message: 'RentalFormSagas',
-    })
-  }
+
+export function * createUser (api, action) {
+  console.log("inside create user saga")
   const { data } = action
   // make the call to the api
-  const response = yield call(api.getCars, data)
+  const response = yield call(api.createUser, data)
   
   // success?
   if (response.ok) {
     // You might need to change the response here - do this with a 'transform',
     // located in ../Transforms/. Otherwise, just pass the data back from the api.
-    yield put(RentalFormActions.carsSuccess(response.data))
+    yield put(AuthenticationActions.createUserSuccess(response.data))
   } else {
-    yield put(RentalFormActions.carsFailure())
+    yield put(AuthenticationActions.createUserFailure())
   }
 }
-export function * postOrder (api, action) {
-  console.log("inside post order saga")
 
+export function * loginUser (api, action) {
   const { data } = action
-  // make the call to the api
-  const response = yield call(api.postOrder, data)
   
+  // make the call to the api
+  const response = yield call(api.loginUser, data)
+  console.log(response)
   // success?
-  if (response.ok) {
-    // You might need to change the response here - do this with a 'transform',
-    // located in ../Transforms/. Otherwise, just pass the data back from the api.
-    yield put(RentalFormActions.postOrderSuccess(response.data))
+  if (response.ok && response.data && response.data.token) {
+    yield put(AuthenticationActions.loginUserSuccess(response.data))
   } else {
-    yield put(RentalFormActions.postOrderFailure())
+    yield put(AuthenticationActions.loginUserFailure())
   }
 }

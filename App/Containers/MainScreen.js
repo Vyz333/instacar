@@ -9,6 +9,7 @@ import Colors from '../Themes/Colors'
 import AppConfig from '../Config/AppConfig'
 import styles from './Styles/MainScreenStyle'
 import WpActions from '../Redux/WpRedux'
+import AuthenticationActions from '../Redux/AuthenticationRedux'
 
 const wp = new WPAPI({ 
   endpoint: AppConfig.WPUrl,
@@ -29,18 +30,15 @@ class MainScreen extends Component {
         // handle error 
     });
   }
+
   login(){
-    wp.types().type( 'orders' ).then(function( data ) {
-      console.log(data)
-    }).catch(function( err ) {
-        // handle error 
-    });
-    wp.users().then(function( data ) {
-      console.log(data)
-    }).catch(function( err ) {
-        // handle error 
-    });
-    
+    console.log("Dologin called")
+    const {username,password} = this.props.order
+    this.props.loginAction({username,password})
+    //this.props.login({username,password}).then(function (response){
+
+    //})
+    //this.setState({ page: 7 })
   }
   register(){
     console.log(this.props)
@@ -91,10 +89,9 @@ class MainScreen extends Component {
 const mapStateToProps = (state) => {
   return {
     order: state.form.rental_form?state.form.rental_form.values:{},
-    //cars: state.rental.cars,
   }
 }
 const mapDispatchToProps = (dispatch) => ({
-  //fetchCars: () => dispatch(RentalFormActions.carsRequest()),
+  loginAction: (user) => dispatch(AuthenticationActions.loginUserRequest(user))
 })
 export default connect(mapStateToProps, mapDispatchToProps)(MainScreen)

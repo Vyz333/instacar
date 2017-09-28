@@ -8,12 +8,14 @@ import DebugConfig from '../Config/DebugConfig'
 import { StartupTypes } from '../Redux/StartupRedux'
 import { GithubTypes } from '../Redux/GithubRedux'
 import { RentalFormTypes } from '../Redux/RentalFormRedux'
+import { AuthenticationTypes } from '../Redux/AuthenticationRedux'
 
 /* ------------- Sagas ------------- */
 
 import { startup } from './StartupSagas'
 import { getUserAvatar } from './GithubSagas'
-import {getCars,postOrder,createUser,loginUser} from './RentalFormSagas'
+import {getCars,postOrder} from './RentalFormSagas'
+import {createUser,loginUser} from './AuthenticationSagas'
 
 /* ------------- API ------------- */
 
@@ -35,8 +37,8 @@ export default function * root () {
     
     takeLatest(RentalFormTypes.POST_ORDER_REQUEST,postOrder,api),
 
-    takeLatest(RentalFormTypes.CREATE_USER_REQUEST,createUser,api),
+    //takeLatest(AuthenticationTypes.CREATE_USER_REQUEST,createUser,api),
 
-    takeLatest(RentalFormTypes.LOGIN_USER_REQUEST,loginUser,api),
+    takeLatest(AuthenticationTypes.LOGIN_USER_REQUEST,loginUser,api),
   ]
 }

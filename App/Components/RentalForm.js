@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { reduxForm } from 'redux-form/immutable'
 import { connect, bindActionCreators } from 'react-redux'
 import LinearGradient from 'react-native-linear-gradient';
+import StepIndicator from 'react-native-step-indicator';
 
 import styles from './Styles/RentalFormStyle'
 import Colors from '../Themes/Colors'
@@ -18,25 +19,22 @@ import BillForm from './RentalFormPages/BillForm'
 import OrderList from './RentalFormPages/OrderList'
 
 import RentalFormActions from '../Redux/RentalFormRedux'
+import { RentalFormTypes } from '../Redux/RentalFormRedux'
+import { AuthenticationTypes } from '../Redux/AuthenticationRedux'
 
 class RentalForm extends Component {
   constructor(props) {
     super(props)
     if(!this.props.cars)this.props.fetchCars()
     this.nextPage = this.nextPage.bind(this)
-    this.doLogin = this.doLogin.bind(this)
     this.previousPage = this.previousPage.bind(this)
     this._getCarsArray = this._getCarsArray.bind(this)
     this._postOrder = this._postOrder.bind(this)
     this.state = {
-      page: 7
+      page: 3
     }
   }
   
-  doLogin(username,password){
-    this.props.login(username,password)
-    this.setState({ page: 7 })
-  }
   nextPage() {
     this.setState({ page: this.state.page + 1 })
   }
@@ -118,11 +116,15 @@ class RentalForm extends Component {
           />
       );
   }
-
+  componentWillReceiveProps(nextProps){
+    if(nextProps.auth && nextProps.auth.token && this.state.page==3){
+      console.log(nextProps.token)
+      this.setState({page:7})
+    }
+  }
   render () {
     const { onSubmit,cars,order,onLogin,onRegister,onPostOrder } = this.props
     const { page } = this.state
-
     return (
       <View style={{flex:1}}>
       {cars &&
@@ -131,7 +133,7 @@ class RentalForm extends Component {
 
         {page === 1 && <RentalFormPage1 cars={this._getCarsArray(cars)} nextPage={this.nextPage}/>}
         {page === 2 && <RentalFormPage2 previousPage={this.previousPage} nextPage={this.nextPage}/>}
-        {page === 3 && <LoginForm previousPage={this.previousPage} doLogin={onLogin} gotoRegistration={this.nextPage}/>}
+        {page === 3 && <LoginForm previousPage={this.previousPage} onLogin={onLogin} gotoRegistration={this.nextPage}/>}
         {page === 4 && <RegistrationForm1 previousPage={this.previousPage} nextPage={this.nextPage}/>}
         {page === 5 && <RegistrationForm2 previousPage={this.previousPage} nextPage={this.nextPage}/>}
         {page === 6 && <RegistrationForm3 previousPage={this.previousPage} nextPage={this.nextPage/*onRegister*/}/>}
@@ -145,9 +147,11 @@ class RentalForm extends Component {
   }
 }
 const mapStateToProps = (state) => {
+  console.log(state)
   return {
     cars: state.rental.cars,
     order: state.form.rental_form?state.form.rental_form.values:{},
+    auth: state.auth.payload?state.auth.payload:{}
   }
 }
 const mapDispatchToProps = (dispatch) => ({

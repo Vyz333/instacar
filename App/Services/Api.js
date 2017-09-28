@@ -1,6 +1,7 @@
 // a library to wrap and simplify api calls
 import apisauce from 'apisauce'
 import AppConfig from '../Config/AppConfig'
+import APIKeys from '../Config/APIKeys'
 
 // our "constructor"
 const create = (baseURL = AppConfig.RESTUrl) => {
@@ -10,13 +11,16 @@ const create = (baseURL = AppConfig.RESTUrl) => {
   //
   // Create and configure an apisauce-based api object.
   //
-  let api = apisauce.create({
+  const api = apisauce.create({
     // base URL is read from the "constructor"
     baseURL,
-    // here are some default headers
-    // headers: {
-    //   'Cache-Control': 'no-cache'
-    // },
+    // 10 second timeout...
+    timeout: 10000,
+  })
+
+  const auth_api = apisauce.create({
+    // base URL is read from the "constructor"
+    baseURL:AppConfig.JWTUrl,
     // 10 second timeout...
     timeout: 10000,
   })
@@ -40,25 +44,14 @@ const create = (baseURL = AppConfig.RESTUrl) => {
   const getCars = () => api.get('vehicles')
   const getOrders = () => api.get('orders')
   const getUser = (username) => api.get('search/users', {q: username})
-  const loginUser = (username,password) => {
-    api = apisauce.create({
-      // base URL is read from the "constructor"
-      baseURL,
-      Authorization:'Basic ' + btoa( username + ':' + password ),
-      timeout: 10000,
-    })
-  }
 
   const postOrder = (order) => {
     return api.post('order',order)
   }
-  const createUser = (user) => {
-    return api.post('users',user)
-  }
-  // const loginUser = (user) => {
-  //   return api.post('order',order)
-  // }
   const postUser = () => api.post('users',user)
+  const loginUser = (user) => {
+    return auth_api.post('token',user)
+  }
   const uploadImage= (image)=> {
     //http://instacar.bismarck.space/wp-content/uploads/2017/09/TABLET-X81C_URVAN-W_Brilliantsilver-2014.jpg.ximg_.m_12_h.smart_.jpg
     AppConfig.UPLOADSUrl
@@ -105,7 +98,6 @@ const create = (baseURL = AppConfig.RESTUrl) => {
     postOrder,
     postUser,
     loginUser,
-    createUser,
   }
 }
 
