@@ -3,8 +3,5 @@ import { Colors } from '../../Themes/'
 import Metrics from '../../Themes/Metrics'
 
 export default StyleSheet.create({
-
-  header: {
-    height:Metrics.navBarHeight,
-  }
+  headerTitle: {color:Colors.primary,alignSelf: 'center'}
 })

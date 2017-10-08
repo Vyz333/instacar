@@ -4,8 +4,8 @@ import { View, Text } from 'react-native'
 import styles from './Styles/AddressFieldStyle'
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import { Button,Icon } from 'react-native-elements';
-import AddressPicker from './RentalFormPages/AddressPicker'
-
+import AddressPicker from './AddressPicker'
+import RNGooglePlacePicker from 'react-native-google-place-picker';
 export default class AddressField extends Component {
   constructor (props) {
     super(props);
@@ -17,9 +17,23 @@ export default class AddressField extends Component {
       address: '',
     }
   }
-  _showAddressPicker = () => this.setState({ modalVisible: true});
-
-  _handleAddressPicked(addr){
+  //_showAddressPicker = () => this.setState({ modalVisible: true});
+  _showAddressPicker = () => {
+    console.log(RNGooglePlacePicker)
+    RNGooglePlacePicker.show((response) => {
+      if (response.didCancel) {
+        console.log('User cancelled GooglePlacePicker');
+      }
+      else if (response.error) {
+        console.log('GooglePlacePicker Error: ', response.error);
+      }
+      else {
+        this._handleAddressPicked(response);
+      }
+    })
+  }
+  _handleAddressPicked = (addr)=>{
+    console.log(addr)
     this.setState({modalVisible:false})
     this.props.input.onChange(addr)
   }
@@ -45,11 +59,11 @@ export default class AddressField extends Component {
           title={title}
           onPress={this._showAddressPicker}
         />
-        <Text style={textStyle}>{value?value.description:''}</Text>
-        <AddressPicker pickAddressHandler={this._handleAddressPicked}
+        <Text style={textStyle}>{value?value.address:''}</Text>
+        {/* <AddressPicker pickAddressHandler={this._handleAddressPicked} 
         modalVisible={modalVisible} 
         address={value}
-        placeholder={placeholder}/>
+        placeholder={placeholder}/>*/}
       </View>
     )
   }

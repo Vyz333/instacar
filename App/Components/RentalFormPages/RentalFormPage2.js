@@ -2,7 +2,7 @@ import React,{Component} from 'react'
 import {
   reduxForm
 } from 'redux-form/immutable'
-import validate from './RentalFormPage2Validation'
+import validate from './Validation/RentalFormPage2Validation'
 import {
   ActionsContainer,
   FieldsContainer,
@@ -14,6 +14,7 @@ import {
 } from 'react-native-clean-form'
 import { Field } from 'redux-form'; 
 import {Button as FButton} from 'react-native-clean-form'
+import { Button } from 'react-native-elements'
 import {
   View,
   Text,
@@ -23,20 +24,18 @@ import AddressField from '../AddressField'
 import DateTimeField from '../DateTimeField'
 import Colors from '../../Themes/Colors'
 import styles from '../Styles/RentalFormStyle'
-import {Theme,getThemeWithButtonBackground} from '../../Themes/FormTheme'
+import NextButton from '../NextButton'
 let order = {}
 class RentalFormPage2 extends Component {
   render(){
   const {
     nextPage,
-    previousPage,
   } = this.props
 
   return ( 
-    
-    <Form onSubmit={nextPage}> 
-      <View style={{flex:1,marginTop:10,flexDirection: 'column',
-        justifyContent: 'space-between'}}>
+    <View style={{flex:1,flexDirection: 'column',justifyContent: 'space-between'}}>
+        <View style={{flex:1,flexDirection: 'column',justifyContent: 'space-between'}}>
+        <Form>
         <View style={{flex:1}}>
         <Field name='delivery_address' component={AddressField} props={{
                     icon:{name: 'my-location'},
@@ -75,17 +74,13 @@ class RentalFormPage2 extends Component {
                     textStyle:{textAlign: 'center',padding:5},
                     title:'Hora y Fecha de Retorno',
         }}/>
-        </View>
-
+        </View>   
+        </Form>
+        </View> 
         <ActionsContainer>
-            <FButton onPress={previousPage} theme={getThemeWithButtonBackground(Colors.secondary)} icon="md-arrow-dropleft" iconPlacement="left" type="submit" className="next">Atrás</FButton>
-        </ActionsContainer>        
-        <ActionsContainer>
-            <FButton onPress={nextPage} theme={Theme} icon="md-arrow-dropright" iconPlacement="right" type="submit" className="next">Siguiente</FButton>
-        </ActionsContainer>
+          <NextButton title='DATOS DE RECORRIDO' onPress={nextPage} />
+        </ActionsContainer> 
         </View>
-    </Form>
-
   )
 }
 }

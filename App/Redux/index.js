@@ -11,7 +11,8 @@ export default () => {
     auth: require('./AuthenticationRedux').reducer,
     search: require('./SearchRedux').reducer,
     wp: require('./WpRedux').reducer,
-    form: formReducer
+    form: formReducer,
+    orders: require('./OrdersRedux').reducer,
   })
 
   return configureStore(rootReducer, rootSaga)

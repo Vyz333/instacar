@@ -34,7 +34,7 @@ export default class SliderEntry extends Component {
     }
 
     render () {
-        const { data: { title, subtitle }, even } = this.props;
+        const { data: { title, subtitle,rate }, even } = this.props;
 
         const uppercaseTitle = title ? (
             <Text
@@ -44,7 +44,7 @@ export default class SliderEntry extends Component {
                 { title.toUpperCase() }
             </Text>
         ) : false;
-
+        console.log(title,subtitle,rate)
         return (
             <TouchableOpacity
               activeOpacity={1}
@@ -56,13 +56,29 @@ export default class SliderEntry extends Component {
                     <View style={[styles.radiusMask]} />
                 </View>
                 <View style={[styles.textContainer]}>
-                    { uppercaseTitle }
-                    <Text
-                      style={[styles.subtitle]}
-                      numberOfLines={2}
-                    >
-                        { subtitle }
-                    </Text>
+                    
+                        { uppercaseTitle }
+                        <View style={[styles.textSubContainerH]}>
+                            <Text
+                            style={[styles.subtitle]}
+                            numberOfLines={2}
+                            >
+                                { subtitle }
+                            </Text>
+                            <Text 
+                            style={{
+                            textAlign:'right', 
+                            color:'green',
+                            marginTop: 2,
+                            fontSize: 12,
+                            fontStyle: 'italic'
+                            }}
+                            numberOfLines={1}
+                            >
+                            ${rate}/hr.
+                            </Text>
+                        </View>
+                    
                 </View>
             </TouchableOpacity>
         );

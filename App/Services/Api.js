@@ -42,13 +42,21 @@ const create = (baseURL = AppConfig.RESTUrl) => {
   const getRoot = () => api.get('')
   const getRate = () => api.get('rate_limit')
   const getCars = () => api.get('vehicles')
-  const getOrders = () => api.get('orders')
-  const getUser = (username) => api.get('search/users', {q: username})
+  const getOrders = () => api.get('orders2')
+  //const getUser = (username) => api.get('search/users', {q: username})
 
   const postOrder = (order) => {
-    return api.post('order',order)
+    const {token} = order
+    return api.post('orders2',order,{headers: {'Authorization': 'Bearer ' + token}})
   }
-  const postUser = () => api.post('users',user)
+  const searchUser = (username) => {
+    return api.get('users',{search:username})
+  }
+  const postUser = (user) => {
+    console.log(user)
+    const {token} = user
+    return api.post('users',user,{headers: {'Authorization': 'Bearer ' + token}})
+  }
   const loginUser = (user) => {
     return auth_api.post('token',user)
   }
@@ -56,26 +64,6 @@ const create = (baseURL = AppConfig.RESTUrl) => {
     //http://instacar.bismarck.space/wp-content/uploads/2017/09/TABLET-X81C_URVAN-W_Brilliantsilver-2014.jpg.ximg_.m_12_h.smart_.jpg
     AppConfig.UPLOADSUrl
   }
-  // site.posts().create({
-  //   title: 'This post has media, tags & categories!',
-  //   content: 'Excellent and compelling demonstration',
-  //   categories: [ 7, 42 ],
-  //   tags: [ 33, 71, 193 ]
-  // }).then(function( post ) {
-  //   // Create the media record & upload your image file
-  //   var filePath = '/path/to/the/image/to/upload.jpg';
-  //   return wp.media().file( filePath ).create({
-  //     title: 'Amazing featured image',
-  //     post: post.id
-  //   }).then(function( media ) {
-  
-  //     // Set the new media record as the post's featured media
-  //     return wp.posts().id( post.id ).update({
-  //       featured_media: media.id
-  //     });
-    
-  //   });
-  // });
   // ------
   // STEP 3
   // ------
@@ -92,7 +80,7 @@ const create = (baseURL = AppConfig.RESTUrl) => {
     // a list of the API functions from step 2
     getRoot,
     getRate,
-    getUser,
+    searchUser,
     getCars,
     getOrders,
     postOrder,

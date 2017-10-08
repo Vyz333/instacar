@@ -1,6 +1,6 @@
 import React,{ Component } from 'react'
 import { reduxForm } from 'redux-form/immutable'
-import validate from './RentalFormPage1Validation'
+
 import {
   ActionsContainer,
   FieldsContainer,
@@ -88,5 +88,5 @@ export default reduxForm({
   form: 'rental_form',                 // <------ same form name
   destroyOnUnmount: false,        // <------ preserve form data
   forceUnregisterOnUnmount: true,  // <------ unregister fields on unmount
-  validate
+  //validate
 })(PaymentForm1)

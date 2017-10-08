@@ -2,7 +2,6 @@ import React,{Component} from 'react'
 import {
   reduxForm
 } from 'redux-form/immutable'
-import validate from './RentalFormPage2Validation'
 import {
   ActionsContainer,
   FieldsContainer,

@@ -1,5 +1,6 @@
 import { createReducer, createActions } from 'reduxsauce'
 import Immutable from 'seamless-immutable'
+import _ from 'lodash'
 
 /* ------------- Types and Action Creators ------------- */
 
@@ -28,7 +29,32 @@ export const INITIAL_STATE = Immutable({
   payload: null,
   error: null,
 })
+sanitizeCars = (cars)=>{
+  let SEDANS = []
+  let SUVS = []
+  let PASSENGER_CARS = []
+  let cars_arrays = {}
+  for(let car of cars.reverse()){
+    let vehicle = {
+      title:car.title.rendered,
+      subtitle:car.n_doors+' puertas',
+      transmission: car.automatic==1?'automático':'estandar',
+      rate:car.hourly_rate,
+      illustration: car.car_picture.guid,
+    }
 
+    let cat = car.vehicle_type?car.vehicle_type[0].name:null
+    
+    if(cat){
+      if(_.has(cars_arrays, cat)){
+        cars_arrays[cat].push(vehicle)
+      }else{
+        cars_arrays[cat] = [vehicle]
+      }
+    }
+  }
+  return cars_arrays
+}
 /* ------------- Reducers ------------- */
 
 // request the data from an api
@@ -51,7 +77,7 @@ state.merge({ fetching: true, data, payload: null })
 
 // successful api lookup
 export const successCars = (state, action) => {
-const {cars} = action
+const cars = sanitizeCars(action.cars)
 return state.merge({ fetching: false, error: null, cars})
 }
 

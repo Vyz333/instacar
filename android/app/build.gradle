@@ -133,6 +133,9 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-fcm')
+    compile project(':react-native-spinkit')
+    compile project(':react-native-google-place-picker')
     compile project(':react-native-svg')
     compile project(':react-native-fs')
     compile project(':react-native-image-resizer')
@@ -148,6 +151,7 @@ dependencies {
     }
     compile project(':react-native-fetch-blob')
     compile "com.google.android.gms:play-services-base:+"
+    compile 'com.google.android.gms:play-services-places:+'
     compile 'com.google.android.gms:play-services-location:+'
     compile 'com.google.android.gms:play-services-maps:+'
 

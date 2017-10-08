@@ -9,7 +9,7 @@ const { Types, Creators } = createActions({
   AuthenticationFailure: null,
   createUserRequest: ['data'],
   createUserSuccess: ['payload'],
-  createUserFailure: null,
+  createUserFailure: ['error_msg'],
   loginUserRequest: ['data'],
   loginUserSuccess: ['payload'],
   loginUserFailure: null,
@@ -24,7 +24,8 @@ export const INITIAL_STATE = Immutable({
   data: null,
   fetching: null,
   payload: null,
-  error: null
+  error: null,
+  error_msg: null,
 })
 
 /* ------------- Reducers ------------- */
@@ -43,6 +44,11 @@ export const success = (state, action) => {
 export const failure = state =>
   state.merge({ fetching: false, error: true, payload: null })
 
+export const failureMsg = (state, action) =>{
+  const { error_msg } = action
+  return state.merge({ fetching: false, error: true, payload: null, error_msg })
+}
+
 /* ------------- Hookup Reducers To Types ------------- */
 export const reducer = createReducer(INITIAL_STATE, {
   [Types.AUTHENTICATION_REQUEST]: request,
@@ -50,7 +56,7 @@ export const reducer = createReducer(INITIAL_STATE, {
   [Types.AUTHENTICATION_FAILURE]: failure,
   [Types.CREATE_USER_REQUEST]: request,
   [Types.CREATE_USER_SUCCESS]: success,
-  [Types.CREATE_USER_FAILURE]: failure,
+  [Types.CREATE_USER_FAILURE]: failureMsg,
   [Types.LOGIN_USER_REQUEST]: request,
   [Types.LOGIN_USER_SUCCESS]: success,
   [Types.LOGIN_USER_FAILURE]: failure,

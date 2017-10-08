@@ -12,6 +12,7 @@
 
 import { call, put } from 'redux-saga/effects'
 import AuthenticationActions from '../Redux/AuthenticationRedux'
+import APIKeys from '../Config/APIKeys'
 
 export function * getAuthentication (api, action) {
   const { data } = action
@@ -29,18 +30,28 @@ export function * getAuthentication (api, action) {
 }
 
 export function * createUser (api, action) {
-  console.log("inside create user saga")
   const { data } = action
-  // make the call to the api
-  const response = yield call(api.createUser, data)
-  
-  // success?
-  if (response.ok) {
-    // You might need to change the response here - do this with a 'transform',
-    // located in ../Transforms/. Otherwise, just pass the data back from the api.
-    yield put(AuthenticationActions.createUserSuccess(response.data))
-  } else {
-    yield put(AuthenticationActions.createUserFailure())
+  const existingUserResponse = yield call(api.searchUser,data.username)
+  if(existingUserResponse.ok){
+    yield put(AuthenticationActions.createUserFailure('Ya existe un usuario con este e-mail.'))
+  }else{
+    const loginResponse = yield call(api.loginUser, {username:APIKeys.username,password:APIKeys.password})
+    if (loginResponse.ok) {
+      
+      // make the call to the api
+      const response = yield call(api.postUser, {...data,token:loginResponse.data.token})
+      
+      // success?
+      if (response.ok) {
+        // You might need to change the response here - do this with a 'transform',
+        // located in ../Transforms/. Otherwise, just pass the data back from the api.
+        yield put(AuthenticationActions.createUserSuccess(response.data))
+      } else {
+        yield put(AuthenticationActions.createUserFailure('Error creando usuario.'))
+      }
+    }else {
+      yield put(AuthenticationActions.createUserFailure('Error creando usuario.'))
+    }
   }
 }
 

@@ -1,0 +1,69 @@
+import { createReducer, createActions } from 'reduxsauce'
+import Immutable from 'seamless-immutable'
+import _ from 'lodash'
+/* ------------- Types and Action Creators ------------- */
+
+const { Types, Creators } = createActions({
+  ordersRequest: ['data'],
+  ordersSuccess: ['payload'],
+  ordersFailure: null,
+  acceptOrderRequest: ['data'],
+  acceptOrderSuccess: ['payload'],
+  acceptOrderFailure: null,
+  declineOrderRequest: ['data'],
+  declineOrderSuccess: ['payload'],
+  declineOrderFailure: null,
+})
+
+export const OrdersTypes = Types
+export default Creators
+
+/* ------------- Initial State ------------- */
+
+export const INITIAL_STATE = Immutable({
+  data: null,
+  fetching: null,
+  payload: null,
+  error: null
+})
+
+/* ------------- Reducers ------------- */
+
+// request the data from an api
+export const request = (state, { data }) =>
+  state.merge({ fetching: true, data, payload: null })
+
+export const requestNonDestructive = (state, { data }) =>
+  state.merge({ fetching: true, data })
+
+// successful api lookup
+export const success = (state, action) => {
+  const { payload } = action
+  return state.merge({ fetching: false, error: null, payload })
+}
+
+export const successNonDestructive = (state, action) => {
+  const { payload } = action
+  if(!_.isEqual(payload,state.payload))
+    return state.merge({ fetching: false, error: null, payload })
+  else
+    return state.merge({ fetching: false})
+}
+
+// Something went wrong somewhere.
+export const failure = state =>
+  state.merge({ fetching: false, error: true, payload: null })
+
+/* ------------- Hookup Reducers To Types ------------- */
+
+export const reducer = createReducer(INITIAL_STATE, {
+  [Types.ORDERS_REQUEST]: requestNonDestructive,
+  [Types.ORDERS_SUCCESS]: successNonDestructive,
+  [Types.ORDERS_FAILURE]: failure,
+  [Types.ACCEPT_ORDER_REQUEST]: request,
+  [Types.ACCEPT_ORDER_SUCCESS]: success,
+  [Types.ACCEPT_ORDER_FAILURE]: failure,
+  [Types.DECLINE_ORDER_REQUEST]: request,
+  [Types.DECLINE_ORDER_SUCCESS]: success,
+  [Types.DECLINE_ORDER_FAILURE]: failure,
+})

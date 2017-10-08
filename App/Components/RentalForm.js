@@ -11,11 +11,8 @@ import Colors from '../Themes/Colors'
 import RentalFormPage1 from './RentalFormPages/RentalFormPage1'
 import RentalFormPage2 from './RentalFormPages/RentalFormPage2'
 import PaymentForm1 from './RentalFormPages/PaymentForm1'
-import LoginForm from './RentalFormPages/LoginForm'
-import RegistrationForm1 from './RentalFormPages/RegistrationForm1'
-import RegistrationForm2 from './RentalFormPages/RegistrationForm2'
-import RegistrationForm3 from './RentalFormPages/RegistrationForm3'
-import BillForm from './RentalFormPages/BillForm'
+import FilesUpload from './RentalFormPages/FilesUpload'
+import BillingForm from './RentalFormPages/BillingForm'
 import OrderList from './RentalFormPages/OrderList'
 
 import RentalFormActions from '../Redux/RentalFormRedux'
@@ -23,6 +20,9 @@ import { RentalFormTypes } from '../Redux/RentalFormRedux'
 import { AuthenticationTypes } from '../Redux/AuthenticationRedux'
 
 class RentalForm extends Component {
+  static navigationOptions = ({ navigation }) => ({
+    header:<Header icon={'arrow-back'} title={'INSTACAR'} buttonCallback={console.log("head2")}/>,
+  });
   constructor(props) {
     super(props)
     if(!this.props.cars)this.props.fetchCars()
@@ -31,7 +31,7 @@ class RentalForm extends Component {
     this._getCarsArray = this._getCarsArray.bind(this)
     this._postOrder = this._postOrder.bind(this)
     this.state = {
-      page: 3
+      page: 1
     }
   }
   
@@ -39,9 +39,6 @@ class RentalForm extends Component {
     this.setState({ page: this.state.page + 1 })
   }
 
-  gotoRegistration(){
-    this.setState({ page: this.state.page + 1 })
-  }
   previousPage() {
     this.setState({ page: this.state.page - 1 })
   }
@@ -116,10 +113,16 @@ class RentalForm extends Component {
           />
       );
   }
-  componentWillReceiveProps(nextProps){
-    if(nextProps.auth && nextProps.auth.token && this.state.page==3){
-      console.log(nextProps.token)
-      this.setState({page:7})
+  get formPages(){
+    const { onSubmit,cars,order,onLogin,onRegister,onPostOrder } = this.props
+    const { page } = this.state
+    switch(page){
+      case 1:return <RentalFormPage1 cars={this._getCarsArray(cars)} nextPage={this.nextPage}/>
+      case 2:return <RentalFormPage2 previousPage={this.previousPage} nextPage={this.nextPage}/>
+      case 3:return <RegistrationForm3 previousPage={this.previousPage} nextPage={this.nextPage/*onRegister*/}/>
+      case 4:return <BillingForm previousPage={this.previousPage} nextPage={this.nextPage}/>
+      case 5:return <PaymentForm1 previousPage={this.previousPage} nextPage={this.nextPage}/>
+      case 6:return <OrderList previousPage={this.previousPage} nextPage={this.nextPage}/>
     }
   }
   render () {
@@ -130,16 +133,7 @@ class RentalForm extends Component {
       {cars &&
       <View style={{flex:1}}>
         { this.gradient }
-
-        {page === 1 && <RentalFormPage1 cars={this._getCarsArray(cars)} nextPage={this.nextPage}/>}
-        {page === 2 && <RentalFormPage2 previousPage={this.previousPage} nextPage={this.nextPage}/>}
-        {page === 3 && <LoginForm previousPage={this.previousPage} onLogin={onLogin} gotoRegistration={this.nextPage}/>}
-        {page === 4 && <RegistrationForm1 previousPage={this.previousPage} nextPage={this.nextPage}/>}
-        {page === 5 && <RegistrationForm2 previousPage={this.previousPage} nextPage={this.nextPage}/>}
-        {page === 6 && <RegistrationForm3 previousPage={this.previousPage} nextPage={this.nextPage/*onRegister*/}/>}
-        {page === 7 && <PaymentForm1 previousPage={this.previousPage} nextPage={this.nextPage}/>}
-        {page === 8 && <BillForm previousPage={this.previousPage} nextPage={this.nextPage}/>}
-        {page === 9 && <OrderList previousPage={this.previousPage} nextPage={this.nextPage}/>}
+        { this.formPages}
         
      </View>}
      </View>
@@ -147,7 +141,6 @@ class RentalForm extends Component {
   }
 }
 const mapStateToProps = (state) => {
-  console.log(state)
   return {
     cars: state.rental.cars,
     order: state.form.rental_form?state.form.rental_form.values:{},

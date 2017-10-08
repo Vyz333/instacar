@@ -1,4 +1,4 @@
-import { takeLatest } from 'redux-saga/effects'
+import { takeLatest,takeEvery } from 'redux-saga/effects'
 import API from '../Services/Api'
 import FixtureAPI from '../Services/FixtureApi'
 import DebugConfig from '../Config/DebugConfig'
@@ -9,6 +9,7 @@ import { StartupTypes } from '../Redux/StartupRedux'
 import { GithubTypes } from '../Redux/GithubRedux'
 import { RentalFormTypes } from '../Redux/RentalFormRedux'
 import { AuthenticationTypes } from '../Redux/AuthenticationRedux'
+import { OrdersTypes } from '../Redux/OrdersRedux'
 
 /* ------------- Sagas ------------- */
 
@@ -16,6 +17,7 @@ import { startup } from './StartupSagas'
 import { getUserAvatar } from './GithubSagas'
 import {getCars,postOrder} from './RentalFormSagas'
 import {createUser,loginUser} from './AuthenticationSagas'
+import {getOrders} from './OrdersSagas'
 
 /* ------------- API ------------- */
 
@@ -31,14 +33,17 @@ export default function * root () {
     takeLatest(StartupTypes.STARTUP, startup),
 
     // some sagas receive extra parameters in addition to an action
-    takeLatest(GithubTypes.USER_REQUEST, getUserAvatar, api),
+    //takeLatest(GithubTypes.USER_REQUEST, getUserAvatar, api),
     
     takeLatest(RentalFormTypes.CARS_REQUEST,getCars,api),
     
     takeLatest(RentalFormTypes.POST_ORDER_REQUEST,postOrder,api),
 
-    //takeLatest(AuthenticationTypes.CREATE_USER_REQUEST,createUser,api),
+    takeLatest(AuthenticationTypes.CREATE_USER_REQUEST,createUser,api),
 
-    takeLatest(AuthenticationTypes.LOGIN_USER_REQUEST,loginUser,api),
+    takeEvery(AuthenticationTypes.LOGIN_USER_REQUEST,loginUser,api),
+
+    takeEvery(OrdersTypes.ORDERS_REQUEST,getOrders,api),
+
   ]
 }

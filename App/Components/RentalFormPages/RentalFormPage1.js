@@ -1,43 +1,69 @@
 import React,{ Component } from 'react'
 import { reduxForm } from 'redux-form/immutable'
 import { Field } from 'redux-form'; 
-import validate from './RentalFormPage1Validation'
+import validate from './Validation/RentalFormPage1Validation'
 import {
   ActionsContainer,
-  Button,
-  FieldsContainer,
-  Fieldset,
-  FormGroup,
-  FieldSet,
   Form,
-  Label
 } from 'react-native-clean-form'
-import {
-  Input,
-  Select,
-  Switch
-} from 'react-native-clean-form/redux-form-immutable'
-import {Sae} from 'react-native-textinput-effects'
+import Drawer from 'react-native-drawer'
+import {Badge,FormLabel,Icon} from 'react-native-elements'
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
-import { View,Text,Dimensions } from 'react-native'
+import { View,Text,Dimensions,Button,TouchableOpacity,Switch } from 'react-native'
 import CarSwiper from '../CarSwiper'
-import SliderEntry from '../SliderEntry';
-import styles from '../Styles/RentalFormStyle'
 import Colors from '../../Themes/Colors'
-import {Theme} from '../../Themes/FormTheme'
-
+import NextButton from '../NextButton'
+import styles from '../Styles/RentalFormStyle'
+const   renderSwitch = (field) => (
+  <View style={styles.switch}>
+    <Text style={{color:Colors.primaryDark}} >Múltiples carros </Text>
+    <Switch 
+      value={field.input.value?field.input.value:false}
+      onValueChange={(value)=>field.input.onChange(value)}
+      onTintColor={Colors.primary}
+    />
+  </View>
+)
 class RentalFormPage1 extends Component {
-
+  _openInventory = () =>{
+    console.log('Inventory')
+  }
   render () {
-    const { nextPage,cars } = this.props
+    const { nextPage,cars,selection, multiple } = this.props
     return (
-      <View style={{flex:1}}>
-      <Form onSubmit={nextPage}>  
-      <Field name='car' component={CarSwiper} props={{cars}}/>
-          <ActionsContainer>
-              <Button onPress={nextPage} theme={Theme} icon="md-arrow-dropright" iconPlacement="right" type="submit" className="next">Siguiente</Button>
-          </ActionsContainer>
+      <View style={{flex:1,flexDirection: 'column',justifyContent: 'flex-start'}}>
+      <Form>  
+        {/* <View style={{alignSelf:'flex-start',flex:1,flexDirection: 'column',justifyContent: 'flex-start',alignItems: 'center',}}> */}
+          <Field name='multiple' component={renderSwitch} />
+          <Field name='car' component={CarSwiper} props={{cars}}/>
+          
+          <View style={styles.smallButton}>
+          {multiple?
+          <Button 
+            onPress={this._openInventory}
+            title="+Agregar Otro"
+            color={Colors.primary}
+          />
+          :
+          <Text></Text>
+          }
+          </View>
+        {/* </View> */}
       </Form>
+      <ActionsContainer >
+            <NextButton title='DATOS DE RESERVACIÓN' onPress={nextPage} />
+      </ActionsContainer>
+        {multiple &&
+        <TouchableOpacity onPress={this._openInventory} style={styles.drawerHandle}>
+        <Icon name='directions-car' color={Colors.white} />
+        <Text 
+          style={styles.drawerText}
+        >
+        8
+        </Text>
+        
+        </TouchableOpacity>}
+
       </View>
     )
   }

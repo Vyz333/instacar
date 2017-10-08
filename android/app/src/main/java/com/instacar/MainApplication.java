@@ -3,6 +3,9 @@ package com.instacar;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.evollu.react.fcm.FIRMessagingPackage;
+import com.react.rnspinkit.RNSpinkitPackage;
+import com.reactlibrary.RNGooglePlacePickerPackage;
 import com.horcrux.svg.SvgPackage;
 import com.rnfs.RNFSPackage;
 import fr.bamlab.rnimageresizer.ImageResizerPackage;
@@ -38,6 +41,9 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new FIRMessagingPackage(),
+            new RNSpinkitPackage(),
+            new RNGooglePlacePickerPackage(),
             new SvgPackage(),
             new RNFSPackage(),
             new ImageResizerPackage(),
