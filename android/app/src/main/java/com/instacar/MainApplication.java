@@ -3,8 +3,9 @@ package com.instacar;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.beefe.picker.PickerViewPackage;
+import com.azendoo.reactnativesnackbar.SnackbarPackage;
 import com.evollu.react.fcm.FIRMessagingPackage;
-import com.react.rnspinkit.RNSpinkitPackage;
 import com.reactlibrary.RNGooglePlacePickerPackage;
 import com.horcrux.svg.SvgPackage;
 import com.rnfs.RNFSPackage;
@@ -41,8 +42,9 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new PickerViewPackage(),
+            new SnackbarPackage(),
             new FIRMessagingPackage(),
-            new RNSpinkitPackage(),
             new RNGooglePlacePickerPackage(),
             new SvgPackage(),
             new RNFSPackage(),

@@ -10,7 +10,10 @@
 *    you'll need to define a constant in that file.
 *************************************************************/
 import { delay } from 'redux-saga'
-import { call, cancel, fork, take, put } from 'redux-saga/effects'
+import { 
+  call, cancel, 
+  fork, take, 
+  put, cancelled, } from 'redux-saga/effects'
 import OrdersActions from '../Redux/OrdersRedux'
 
 export function * getOrders (api, action) {
@@ -41,4 +44,38 @@ export function * acceptOrder (api, action) {
   } else {
     yield put(OrdersActions.ordersFailure())
   }
+}
+
+export function * watchOrdersAccept(api, action){
+  const {data} = action
+  while (true) {
+    // Begin polling
+    const pollTask = yield fork(orderPoll, api,data,{
+      delayTime: 1000,
+    });
+    // Stop polling when navigator is offline
+    yield take(OrdersActions.watchOrdersSuccess());
+    yield cancel(pollTask);
+  }
+}
+export function* orderPoll(api,data,{delayTime}){
+    //yield put(ping(pingUrl));
+    let ids = data.slice()
+    while (true) {
+      let pendingOrders = []
+      let ordersReady = true
+      for(let id of ids){
+        let response = yield call(api.getOrderById,id)
+        if(!response.ok || response.data.current_status!='0'){
+          pendingOrders.push(id)
+        }
+      }
+      
+      if(pendingOrders == []||pendingOrders.length<1){
+        yield put(OrdersActions.watchOrdersSuccess())
+        return
+      }
+      ids = pendingOrders.slice()
+      yield call(delay, delayTime);
+    }
 }

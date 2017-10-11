@@ -17,7 +17,7 @@ import { startup } from './StartupSagas'
 import { getUserAvatar } from './GithubSagas'
 import {getCars,postOrder} from './RentalFormSagas'
 import {createUser,loginUser} from './AuthenticationSagas'
-import {getOrders} from './OrdersSagas'
+import {getOrders,watchOrdersAccept} from './OrdersSagas'
 
 /* ------------- API ------------- */
 
@@ -29,8 +29,6 @@ const api = DebugConfig.useFixtures ? FixtureAPI : API.create()
 
 export default function * root () {
   yield [
-    // some sagas only receive an action
-    takeLatest(StartupTypes.STARTUP, startup),
 
     // some sagas receive extra parameters in addition to an action
     //takeLatest(GithubTypes.USER_REQUEST, getUserAvatar, api),
@@ -43,7 +41,10 @@ export default function * root () {
 
     takeEvery(AuthenticationTypes.LOGIN_USER_REQUEST,loginUser,api),
 
-    takeEvery(OrdersTypes.ORDERS_REQUEST,getOrders,api),
+    takeLatest(OrdersTypes.ORDERS_REQUEST,getOrders,api),
+    // some sagas only receive an action
+    takeLatest(StartupTypes.STARTUP, startup),
 
+    takeLatest(OrdersTypes.WATCH_ORDERS_REQUEST, watchOrdersAccept,api),
   ]
 }

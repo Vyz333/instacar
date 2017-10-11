@@ -43,6 +43,7 @@ const create = (baseURL = AppConfig.RESTUrl) => {
   const getRate = () => api.get('rate_limit')
   const getCars = () => api.get('vehicles')
   const getOrders = () => api.get('orders2')
+  const getOrderById = (id) => api.get('orders2/id')
   //const getUser = (username) => api.get('search/users', {q: username})
 
   const postOrder = (order) => {

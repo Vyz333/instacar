@@ -5,10 +5,6 @@ import {
 import validate from './Validation/RentalFormPage2Validation'
 import {
   ActionsContainer,
-  FieldsContainer,
-  Fieldset,
-  FormGroup,
-  FieldSet,
   Form,
   Label
 } from 'react-native-clean-form'
@@ -25,7 +21,7 @@ import DateTimeField from '../DateTimeField'
 import Colors from '../../Themes/Colors'
 import styles from '../Styles/RentalFormStyle'
 import NextButton from '../NextButton'
-let order = {}
+
 class RentalFormPage2 extends Component {
   render(){
   const {

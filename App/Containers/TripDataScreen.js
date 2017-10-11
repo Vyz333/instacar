@@ -28,6 +28,12 @@ class TripDataScreen extends Component {
         />
     );
   }
+  _next = () =>{
+    const {navigate} = this.props.navigation;
+    const {errors} = this.props
+    if(!errors)
+      navigate('TripDataScreen')
+  }
   render () {
     const {navigate} = this.props.navigation;
     return (
@@ -46,6 +52,8 @@ class TripDataScreen extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    errors: state.form.rental_form &&
+    state.form.rental_form.syncErrors?state.form.rental_form.syncErrors:null
   }
 }
 

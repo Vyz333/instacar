@@ -44,7 +44,6 @@ export default class SliderEntry extends Component {
                 { title.toUpperCase() }
             </Text>
         ) : false;
-        console.log(title,subtitle,rate)
         return (
             <TouchableOpacity
               activeOpacity={1}
@@ -56,7 +55,6 @@ export default class SliderEntry extends Component {
                     <View style={[styles.radiusMask]} />
                 </View>
                 <View style={[styles.textContainer]}>
-                    
                         { uppercaseTitle }
                         <View style={[styles.textSubContainerH]}>
                             <Text
@@ -75,7 +73,7 @@ export default class SliderEntry extends Component {
                             }}
                             numberOfLines={1}
                             >
-                            ${rate}/hr.
+                            ${rate}/día.
                             </Text>
                         </View>
                     

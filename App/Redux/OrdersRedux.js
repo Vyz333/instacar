@@ -13,6 +13,8 @@ const { Types, Creators } = createActions({
   declineOrderRequest: ['data'],
   declineOrderSuccess: ['payload'],
   declineOrderFailure: null,
+  watchOrdersRequest: ['data'],
+  watchOrdersSuccess: null,
 })
 
 export const OrdersTypes = Types
@@ -66,4 +68,6 @@ export const reducer = createReducer(INITIAL_STATE, {
   [Types.DECLINE_ORDER_REQUEST]: request,
   [Types.DECLINE_ORDER_SUCCESS]: success,
   [Types.DECLINE_ORDER_FAILURE]: failure,
+  [Types.WATCH_ORDERS_REQUEST]: request,
+  [Types.WATCH_ORDERS_SUCCESS]: success,
 })

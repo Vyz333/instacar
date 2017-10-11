@@ -19,7 +19,6 @@ class RootContainer extends Component {
     if (!ReduxPersist.active) {
       this.props.startup()
     }
-
     // Hide splashscreen
     SplashScreen.hide();
   }
@@ -35,7 +34,7 @@ class RootContainer extends Component {
 
 // wraps dispatch to create nicer functions to call within our component
 const mapDispatchToProps = (dispatch) => ({
-  startup: () => dispatch(StartupActions.startup())
+  startup: () => dispatch(StartupActions.startup()),
 })
 
 export default connect(null, mapDispatchToProps)(RootContainer)

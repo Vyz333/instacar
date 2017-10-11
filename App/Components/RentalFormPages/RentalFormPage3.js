@@ -13,10 +13,11 @@ import {
   Text,
   KeyboardAvoidingView
 } from 'react-native'
-import { FormLabel, FormInput,Button } from 'react-native-elements'
+import { FormLabel,FormInput,FormValidationMessage,Button } from 'react-native-elements'
 import Colors from '../../Themes/Colors'
 import styles from '../Styles/RentalFormStyle'
 import Selectbox from 'react-native-selectbox'
+import validate from './Validation/RentalFormPage3Validation'
 import NextButton from '../NextButton'
 const tripOptions = [
   {key:0,label:'Solo en ciudad',value:0},
@@ -62,6 +63,9 @@ const renderNameField = (field) => (
     selectionColor={Colors.primary}
     returnKeyType='next'
     />
+    {field.meta.error &&
+    <FormValidationMessage>{field.meta.error}
+    </FormValidationMessage>}
   </View>
 )
 const renderEmailField = (field) => (
@@ -74,6 +78,9 @@ const renderEmailField = (field) => (
     keyboardType='email-address'
     returnKeyType='done'
     />
+    {field.meta.error &&
+    <FormValidationMessage>{field.meta.error}
+    </FormValidationMessage>}
   </View>
 )
 class RentalFormPage3 extends Component {
@@ -119,9 +126,21 @@ class RentalFormPage3 extends Component {
   )
 }
 }
-
-export default reduxForm({
-  form: 'rental_form', // <------ same form name
-  destroyOnUnmount: false, // <------ preserve form data
-  forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
+defaultValues={
+  driver:{key:0,label:'No',value:false},
+  trip_type:{key:0,label:'Solo en ciudad',value:0},
+}
+RentalFormPage3 = reduxForm({
+  form: 'rental_form',                 // <------ same form name
+  destroyOnUnmount: false,        // <------ preserve form data
+  forceUnregisterOnUnmount: true,  // <------ unregister fields on unmount
+  validate
 })(RentalFormPage3)
+
+const mapStateToProps = (state) => {
+  return {
+    initialValues: defaultValues,
+  }
+}
+
+export default connect(mapStateToProps, {})(RentalFormPage3)

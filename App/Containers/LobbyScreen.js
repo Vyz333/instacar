@@ -13,6 +13,7 @@ import APIKeys from '../Config/APIKeys'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
  import RentalFormActions from '../Redux/RentalFormRedux'
  import AuthenticationActions from '../Redux/AuthenticationRedux'
+ import FormatOrder from '../Transforms/FormatOrder'
 
 // Styles
 import styles from './Styles/LobbyScreenStyle'
@@ -43,48 +44,43 @@ class LobbyScreen extends Component {
   buildOrder = () => {
     const {order,cars_catalogue,auth} = this.props
     if(order){
-      const car_t = ['sedan','suv','passengers']
-      const model = cars_catalogue[order.car.cat][order.car.idx]
-      const wp_order = {
-        title: order.email+'_'+Math.floor(Date.now() / 1000),
-        email: order.email,
-        car_type:[car_t[order.car.cat]],
-        //Delivery Itinerary
-        addr_delivery: order.delivery_address.address,
-        latitude_delivery:order.delivery_address.latitude,
-        longitude_delivery:order.delivery_address.longitude,
-        datetime_delivery: order.delivery_datetime,
-        //Return Itinerary
-        addr_return: order.return_address.address,
-        latitude_return:order.return_address.latitude,
-        longitude_return:order.return_address.longitude,
-        datetime_return: order.return_datetime,
-        current_status: '1',
-        car_model: model.title,
-        driver: order.driver.value,
-        trip_type:order.trip_type,
-        current_status:0,
-
-        token:auth.token,
-        status:'publish',
-      }
+      const model = cars_catalogue[order.currentCar.cat][order.currentCar.idx]
+      return FormatOrder(order,model,auth,Math.floor(Date.now() / 1000))
       return wp_order
     }else{
       return null
     }
   }
-  
-  handleOrder = async () =>{
-    if(this.props.auth && !this.props.rental_error){
-      await this.props.postOrder(this.buildOrder())
-      if(this.props.rental_error){
-        await this.props.loginUser({username:APIKeys.username,password:APIKeys.password})
-        this.props.postOrder(this.buildOrder())
+  buildMultiOrders  = function*(groupTimeStamp){
+    const {order,cars_catalogue,auth,inventory} = this.props
+    let orders = []
+    if(order){
+      for(let item of inventory){
+        let model = cars_catalogue[item.cat][item.idx]
+        orders.push(FormatOrder(order,model,auth,groupTimeStamp))
       }
+      return orders
     }else{
-      await this.props.loginUser({username:APIKeys.username,password:APIKeys.password})
-      this.props.postOrder(this.buildOrder())
+      return null
     }
+  }
+  handleOrder = () =>{
+    const {order,inventory} = this.props
+    console.log(inventory,order)
+    if(order.multiple && inventory){
+      this.handleMultiOrder()
+    }else{
+      this.handleSingleOrder()
+    }
+  }
+
+  handleSingleOrder = () =>{
+    this.props.postOrder([this.buildOrder()])
+    
+  }
+  handleMultiOrder = () =>{
+    const orders = this.buildMultiOrders(Math.floor(Date.now() / 1000))
+    this.props.postOrder(orders)
   }
 
   render () {
@@ -106,6 +102,7 @@ class LobbyScreen extends Component {
 const mapStateToProps = (state) => {
   return {
     order: state.form.rental_form?state.form.rental_form.values:{},
+    inventory: state.rental.inventory,
     auth: state.auth.payload?state.auth.payload:{},
     cars_catalogue: state.rental.cars,
     rental_error: state.rental.error,

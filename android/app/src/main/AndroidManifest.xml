@@ -19,11 +19,25 @@
       android:label="@string/app_name"
       android:icon="@mipmap/ic_launcher"
       android:theme="@style/AppTheme">
+    <!--FCM Services-->
+    <service android:name="com.evollu.react.fcm.MessagingService" android:enabled="true" android:exported="true">
+        <intent-filter>
+        <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+        </intent-filter>
+    </service>
+
+    <service android:name="com.evollu.react.fcm.InstanceIdService" android:exported="false">
+        <intent-filter>
+        <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+        </intent-filter>
+    </service>
+    <!--End FCM Services-->
       <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAc0-psGDsYQu_-Fh2b12eV5De1gyKtVXo" />
       <activity
         android:name=".MainActivity"
+        android:launchMode="singleTop"
         android:label="@string/app_name"
         android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
         android:windowSoftInputMode="adjustResize">

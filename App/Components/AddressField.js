@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 // import PropTypes from 'prop-types';
 import { View, Text } from 'react-native'
 import styles from './Styles/AddressFieldStyle'
-import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
-import { Button,Icon } from 'react-native-elements';
+import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome'
+import { Button,Icon } from 'react-native-elements'
 import AddressPicker from './AddressPicker'
-import RNGooglePlacePicker from 'react-native-google-place-picker';
+import RNGooglePlacePicker from 'react-native-google-place-picker'
+import { FormValidationMessage } from 'react-native-elements'
 export default class AddressField extends Component {
   constructor (props) {
     super(props);
@@ -41,6 +42,7 @@ export default class AddressField extends Component {
   render () {
     const {
       input: {value,onChange }, 
+      meta: {error},
       icon,
       buttonStyle,
       buttonTextStyle,
@@ -60,10 +62,7 @@ export default class AddressField extends Component {
           onPress={this._showAddressPicker}
         />
         <Text style={textStyle}>{value?value.address:''}</Text>
-        {/* <AddressPicker pickAddressHandler={this._handleAddressPicked} 
-        modalVisible={modalVisible} 
-        address={value}
-        placeholder={placeholder}/>*/}
+        {error && <FormValidationMessage>{error}</FormValidationMessage>}
       </View>
     )
   }

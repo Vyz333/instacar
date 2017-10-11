@@ -19,7 +19,7 @@ export default StyleSheet.create({
         paddingTop: Metrics.baseMargin
     },
     scrollviewContentContainer: {
-        paddingBottom: Metrics.baseMargin
+        paddingBottom: Metrics.baseMargin/2
     },
     title: {
         backgroundColor: 'transparent',
@@ -42,7 +42,8 @@ export default StyleSheet.create({
     sliderContentContainer: {
     },
     paginationContainer: {
-        paddingVertical: 4
+        paddingVertical: 4,
+        marginBottom:8,
     },
     paginationDot: {
         width: 8,

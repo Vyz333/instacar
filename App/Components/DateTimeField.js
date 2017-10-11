@@ -5,6 +5,7 @@ import Moment from 'moment';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
 import { Button,Icon } from 'react-native-elements';
 import DateTimePicker from 'react-native-modal-datetime-picker';
+import { FormValidationMessage } from 'react-native-elements'
 import styles from './Styles/DateTimeFieldStyle'
 
 export default class DateTimeField extends Component {
@@ -34,6 +35,7 @@ export default class DateTimeField extends Component {
     } = this.state
     const {
       input: {value,onChange }, 
+      meta: {error},
       icon,
       buttonStyle,
       buttonTextStyle,
@@ -57,6 +59,7 @@ export default class DateTimeField extends Component {
           onCancel={this._hideDateTimePicker}
           mode='datetime'
         />
+        {error && <FormValidationMessage>{error}</FormValidationMessage>}
       </View>
     )
   }

@@ -28,7 +28,7 @@ const PrimaryNav = StackNavigator({
 }, {
   // Default config for all screens
   headerMode: 'float',
-  initialRouteName: 'SelectCarScreen',//'AuthScreen',
+  initialRouteName: 'LaunchScreen',//'AuthScreen',
   navigationOptions: {
     title: "INSTACAR",
     headerTitleStyle: styles.headerTitle,

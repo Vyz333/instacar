@@ -1,15 +1,15 @@
 import React,{Component} from 'react'
+import {connect} from 'react-redux'
 import { ScrollView, Text, Image, View } from 'react-native'
-
+import RentalFormActions from '../Redux/RentalFormRedux'
 
 import { Images } from '../Themes'
 
 // Styles
 import styles from './Styles/LaunchScreenStyles'
 
-export default class LaunchScreen extends Component {
+class LaunchScreen extends Component {
   render () {
-    console.log("foo")
     return (
       <View style={styles.mainContainer}>
         <Image source={Images.background} style={styles.backgroundImage} resizeMode='stretch' />
@@ -22,6 +22,23 @@ export default class LaunchScreen extends Component {
     )
   }
   componentDidMount(){
-    this.props.navigation.navigate('MainScreen')
+    const {fetchCars,cars,navigation} = this.props
+    fetchCars()
+    while(!cars){
+      setTimeout(()=>{}, 100);
+    }
+    console.log(cars)
+    navigation.navigate('SelectCarScreen')
+  }
+  
+}
+const mapStateToProps = (state) => {
+  return {
+    cars: state.rental.cars,
   }
 }
+const mapDispatchToProps = (dispatch) => ({
+  fetchCars: () => dispatch(RentalFormActions.carsRequest())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(LaunchScreen)

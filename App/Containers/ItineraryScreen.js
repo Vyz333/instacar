@@ -28,13 +28,18 @@ class ItineraryScreen extends Component {
         />
     );
   }
-  render () {
+  _next = () =>{
     const {navigate} = this.props.navigation;
+    const {errors} = this.props
+    if(!errors)
+      navigate('TripDataScreen')
+  }
+  render () {
     return (
       <View style={styles.mainContainer}>
         <View style={styles.container}>
           { this.gradient }
-          {<RentalFormPage2 nextPage={() => navigate('TripDataScreen')}/>}
+          {<RentalFormPage2 nextPage={this._next}/>}
         </View>
       </View>
     )
@@ -43,6 +48,8 @@ class ItineraryScreen extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    errors: state.form.rental_form &&
+      state.form.rental_form.syncErrors?state.form.rental_form.syncErrors:null
   }
 }
 

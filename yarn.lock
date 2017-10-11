@@ -1126,7 +1126,7 @@ babel-register@^6.24.1, babel-register@^6.26.0:
     mkdirp "^0.5.1"
     source-map-support "^0.4.15"
 
-babel-runtime@^6.0.0, babel-runtime@^6.18.0, babel-runtime@^6.22.0, babel-runtime@^6.23.0, babel-runtime@^6.26.0:
+babel-runtime@^6.0.0, babel-runtime@^6.18.0, babel-runtime@^6.22.0, babel-runtime@^6.23.0, babel-runtime@^6.26.0, babel-runtime@^6.9.2:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
   dependencies:
@@ -3556,7 +3556,7 @@ isobject@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/isobject/-/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
 
-isomorphic-fetch@^2.1.1:
+isomorphic-fetch@^2.1.1, isomorphic-fetch@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/isomorphic-fetch/-/isomorphic-fetch-2.2.1.tgz#611ae1acf14f5e81f729507472819fe9733558a9"
   dependencies:
@@ -4252,7 +4252,7 @@ lodash@^3.5.0:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
-lodash@^4.0.0, lodash@^4.14.0, lodash@^4.16.6, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.5.1, lodash@^4.6.1:
+lodash@^4.0.0, lodash@^4.13.1, lodash@^4.14.0, lodash@^4.16.6, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.5.1, lodash@^4.6.1:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
@@ -5403,6 +5403,12 @@ react-native-modal@3.1.0:
     prop-types "15.5.10"
     react-native-animatable "^1.2.3"
 
+react-native-multiple-picker@^0.0.21:
+  version "0.0.21"
+  resolved "https://registry.yarnpkg.com/react-native-multiple-picker/-/react-native-multiple-picker-0.0.21.tgz#3b8319f31df9e4c4b72443096c298544d773ed94"
+  dependencies:
+    react-native-linear-gradient "^2.3.0"
+
 react-native-orientation-locker@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/react-native-orientation-locker/-/react-native-orientation-locker-1.0.3.tgz#27c85af1a58cc3529f666fc0437b1c786873c1b2"
@@ -5423,6 +5429,10 @@ react-native-photo-upload@^1.0.3:
     react-native-fs "^2.3.2"
     react-native-image-picker "^0.26.3"
     react-native-image-resizer "^0.1.1"
+
+react-native-picker@^4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/react-native-picker/-/react-native-picker-4.2.0.tgz#ae7b71b6b2271e139cb655cccd1cb7f1d6ed161f"
 
 react-native-progress@^3.4.0:
   version "3.4.0"
@@ -5457,6 +5467,10 @@ react-native-simple-radio-button@^2.6.2:
 react-native-slide-down-panel@^1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/react-native-slide-down-panel/-/react-native-slide-down-panel-1.0.6.tgz#2f6cf62ad80141cdf46e739079594cd56a4ad9a1"
+
+react-native-snackbar@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/react-native-snackbar/-/react-native-snackbar-0.4.2.tgz#03979ff445be16115a385d80dc08dd1c77563219"
 
 react-native-snap-carousel@^3.1.0:
   version "3.1.0"
@@ -5852,6 +5866,16 @@ rechoir@^0.6.2:
   dependencies:
     resolve "^1.1.6"
 
+reduce-reducers@^0.1.0:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/reduce-reducers/-/reduce-reducers-0.1.2.tgz#fa1b4718bc5292a71ddd1e5d839c9bea9770f14b"
+
+redux-actions@^0.10.0:
+  version "0.10.1"
+  resolved "https://registry.yarnpkg.com/redux-actions/-/redux-actions-0.10.1.tgz#bb442ee37dd9643a94933e4071e089f435587135"
+  dependencies:
+    reduce-reducers "^0.1.0"
+
 redux-form@^7.0.4:
   version "7.0.4"
   resolved "https://registry.yarnpkg.com/redux-form/-/redux-form-7.0.4.tgz#2297b6bed40fda8bb58132e261ba0976fb4e530c"
@@ -5872,6 +5896,15 @@ redux-persist@^4.9.1:
     json-stringify-safe "^5.0.1"
     lodash "^4.17.4"
     lodash-es "^4.17.4"
+
+redux-saga-network-status@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/redux-saga-network-status/-/redux-saga-network-status-0.0.3.tgz#ff40f1b112e484372bf48085063cef8d7561262e"
+  dependencies:
+    babel-runtime "^6.9.2"
+    isomorphic-fetch "^2.2.1"
+    lodash "^4.13.1"
+    redux-actions "^0.10.0"
 
 redux-saga-process@^1.0.3:
   version "1.0.3"
