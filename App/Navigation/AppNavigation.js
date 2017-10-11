@@ -1,4 +1,6 @@
 import { StackNavigator } from 'react-navigation'
+import DocumentsUploadScreen from '../Containers/DocumentsUploadScreen'
+import CompleteUserScreen from '../Containers/CompleteUserScreen'
 import AuthScreen from '../Containers/AuthScreen'
 import OrdersListScreen from '../Containers/OrdersListScreen'
 import LobbyScreen from '../Containers/LobbyScreen'
@@ -16,6 +18,8 @@ import Header from '../Components/AppHeader'
 
 // Manifest of possible screens
 const PrimaryNav = StackNavigator({
+  DocumentsUploadScreen: { screen: DocumentsUploadScreen },
+  CompleteUserScreen: { screen: CompleteUserScreen },
   AuthScreen: { screen: AuthScreen },
   OrdersListScreen: { screen: OrdersListScreen },
   LobbyScreen: { screen: LobbyScreen },

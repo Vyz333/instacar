@@ -28,6 +28,13 @@ class OrdersListScreen extends Component {
       navigate('AuthScreen')
     }
   }
+  _acceptOrder = (id) =>{
+    const {acceptOrder} = this.props
+    acceptOrder(id,auth.token)
+  }
+  _declineOrder = () =>{
+    
+  }
   componentWillUnmount(){
     clearInterval(this.fetchProcess);
   }
@@ -72,8 +79,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getAllOrders: () => dispatch(OrdersActions.ordersRequest()),
-    acceptOrder: (order) => dispatch(OrdersActions.acceptOrderRequest()),
-    declineOrder: (order) => dispatch(OrdersActions.declineOrderRequest()),
+    acceptOrder: (id,token) => dispatch(OrdersActions.acceptOrderRequest(id,token)),
+    declineOrder: (id,token) => dispatch(OrdersActions.declineOrderRequest(id,token)),
   }
 }
 

@@ -43,13 +43,20 @@ const create = (baseURL = AppConfig.RESTUrl) => {
   const getRate = () => api.get('rate_limit')
   const getCars = () => api.get('vehicles')
   const getOrders = () => api.get('orders2')
-  const getOrderById = (id) => api.get('orders2/id')
+  const getOrderById = (id) => api.get(`orders2/${id}`)
+
   //const getUser = (username) => api.get('search/users', {q: username})
 
   const postOrder = (order) => {
     const {token} = order
     return api.post('orders2',order,{headers: {'Authorization': 'Bearer ' + token}})
   }
+
+  const updateOrder = (id,changes,token) => {
+    return api.put(`orders2/${id}`,changes,{headers: {'Authorization': 'Bearer ' + token}})
+  }
+
+
   const searchUser = (username) => {
     return api.get('users',{search:username})
   }
@@ -84,7 +91,9 @@ const create = (baseURL = AppConfig.RESTUrl) => {
     searchUser,
     getCars,
     getOrders,
+    getOrderById,
     postOrder,
+    updateOrder,
     postUser,
     loginUser,
   }

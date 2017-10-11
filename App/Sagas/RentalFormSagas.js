@@ -48,9 +48,8 @@ export function * getCars (api, action) {
     yield put(RentalFormActions.carsFailure())
   }
 }
+
 export function * postOrder (api, action) {
-  console.log("inside post order saga")
-  return
   const { data } = action
   // make the call to the api
   const loginResponse = yield call(api.loginUser, {username:APIKeys.username,password:APIKeys.password})

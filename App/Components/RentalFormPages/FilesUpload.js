@@ -25,6 +25,7 @@ import fs from 'react-native-fs'
 import styles from '../Styles/RentalFormStyle'
 import Colors from '../../Themes/Colors'
 import {Theme} from '../../Themes/FormTheme'
+import NextButton from '../NextButton'
 
 const { width, height } = Dimensions.get('window')
 class FilesUpload extends Component {
@@ -62,7 +63,6 @@ class FilesUpload extends Component {
   render () {
     const {     
       nextPage,
-      previousPage, 
     } = this.props
 
     const {
@@ -104,12 +104,9 @@ class FilesUpload extends Component {
         </View>
         </PhotoUpload>
 
-        </View>
-        <ActionsContainer>
-        <FButton onPress={previousPage} theme={getThemeWithButtonBackground(Colors.secondary)} icon="md-arrow-dropleft" iconPlacement="left" type="submit" className="next">Atrás</FButton>
-    </ActionsContainer>        
+        </View>       
     <ActionsContainer>
-        <FButton onPress={nextPage} theme={Theme} icon="md-arrow-dropright" iconPlacement="right" type="submit" className="next">Siguiente</FButton>
+    <NextButton title='RESERVAR SERVICIO' onPress={nextPage} />
     </ActionsContainer>
       </Form>
       </View>

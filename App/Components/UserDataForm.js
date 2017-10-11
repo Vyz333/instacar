@@ -1,4 +1,4 @@
-import React,{ Component } from 'react'
+import React, { Component } from 'react'
 import { Field,reduxForm } from 'redux-form'
 import {
   ActionsContainer,
@@ -11,7 +11,7 @@ import { View,Text,Dimensions,Platform,TouchableOpacity,KeyboardAvoidingView } f
 import { FormLabel, FormInput,FormValidationMessage,Button } from 'react-native-elements'
 
 import Colors from '../Themes/Colors'
-import styles from './Styles/LoginFormStyle'
+import styles from './Styles/UserDataFormStyle'
 import NextButton from './NextButton'
 const renderNameField = (field) => (
   <KeyboardAvoidingView>
@@ -22,6 +22,23 @@ const renderNameField = (field) => (
     selectionColor={Colors.primary}
     maxLength={255}
     returnKeyType='next'
+    />
+    {field.meta.error &&
+    <FormValidationMessage>{field.meta.error}
+    </FormValidationMessage>}
+  </KeyboardAvoidingView>
+)
+const renderPhoneField = (field) => (
+  <KeyboardAvoidingView>
+  <FormLabel>Teléfono Celular</FormLabel>
+  <FormInput 
+    value={field.input.value?field.input.value:''}
+    onChangeText={(value)=>field.input.onChange(value)}
+    selectionColor={Colors.primary}
+    maxLength={255}
+    returnKeyType='next'
+    keyboardType='phone-pad'
+    
     />
     {field.meta.error &&
     <FormValidationMessage>{field.meta.error}
@@ -60,22 +77,7 @@ const renderPasswordField = (field) => (
     </FormValidationMessage>}
   </KeyboardAvoidingView>
 )
-const renderPasswordField2 = (field) => (
-  <KeyboardAvoidingView>
-  <FormLabel>Repetir Contraseña</FormLabel>
-  <FormInput 
-    value={field.input.value?field.input.value:''}
-    onChangeText={(value)=>field.input.onChange(value)}
-    maxLength={50}
-    selectionColor={Colors.primary}
-    returnKeyType='done'
-    secureTextEntry={true}
-    />
-    {field.meta.error &&
-    <FormValidationMessage>{field.meta.error}
-    </FormValidationMessage>}
-  </KeyboardAvoidingView>
-)
+
 const renderRegistrationSwitch = (field) => {
   const value = field.input.value?field.input.value:false
 return(
@@ -90,7 +92,9 @@ return(
 )
 }
 
-class LoginForm extends Component {
+
+
+class UserDataForm extends Component {
   render () {
     const {     
       register,
@@ -100,14 +104,10 @@ class LoginForm extends Component {
     return (
       <View style={{flex:1,flexDirection: 'column',justifyContent: 'space-between'}}>
         <Form> 
-              {register && 
-                <Field name='name' component={renderNameField}/>
-              }
+              {register && <Field name='name' component={renderNameField}/>}
               <Field name='email' component={renderEmailField}/>
+              {register &&  <Field name='phone' component={renderPhoneField}/>}
               <Field name='password' component={renderPasswordField}/>
-              {register && 
-              <Field name='password_repeat' component={renderPasswordField2}/>
-              }
               <Field name='register' component={renderRegistrationSwitch}/>
        </Form>
        <ActionsContainer>
@@ -120,18 +120,15 @@ class LoginForm extends Component {
     )
   }
 }
+
 const validate = values => {
   const errors = {}
   if(values.register){
     if (!values.name) {
       errors.name = 'Requerido'
     }
-    if (!values.password_repeat) {
-      errors.passwordd = 'Requerido'
-    }
-  
-    if (values.password_repeat!=values.password) {
-      errors.password = 'Las contraseñas no coinciden'
+    if (!values.phone) {
+      errors.name = 'Requerido'
     }
   }
   if (!values.email) {
@@ -153,4 +150,16 @@ createReduxForm = reduxForm({
 })
 
 // evaluate it for ContactForm component
-export default createReduxForm( LoginForm )
+UserDataForm = createReduxForm( UserDataForm )
+
+
+const mapStateToProps = (state) => {
+  return {
+    initialValues: {
+      name:state.form.rental_form?state.form.rental_form.values.name:null,
+      email:state.form.rental_form?state.form.rental_form.values.email:null
+    },
+  }
+}
+
+export default connect(mapStateToProps, {})(UserDataForm)

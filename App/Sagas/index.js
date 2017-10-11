@@ -17,7 +17,7 @@ import { startup } from './StartupSagas'
 import { getUserAvatar } from './GithubSagas'
 import {getCars,postOrder} from './RentalFormSagas'
 import {createUser,loginUser} from './AuthenticationSagas'
-import {getOrders,watchOrdersAccept} from './OrdersSagas'
+import {getOrders,watchOrdersAccept,acceptOrder,declineOrder} from './OrdersSagas'
 
 /* ------------- API ------------- */
 
@@ -44,6 +44,10 @@ export default function * root () {
     takeLatest(OrdersTypes.ORDERS_REQUEST,getOrders,api),
     // some sagas only receive an action
     takeLatest(StartupTypes.STARTUP, startup),
+
+    takeLatest(OrdersTypes.ACCEPT_ORDER_REQUEST, acceptOrder,api),
+
+    takeLatest(OrdersTypes.DECLINE_ORDER_REQUEST, declineOrder,api),
 
     takeLatest(OrdersTypes.WATCH_ORDERS_REQUEST, watchOrdersAccept,api),
   ]

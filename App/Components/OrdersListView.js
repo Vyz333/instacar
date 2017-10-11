@@ -92,14 +92,14 @@ export default class OrdersListView extends Component {
         <Text style={styles.cardTextR}>Sí</Text>
       </View>
       <Button
-        onPress={this.props.acceptOrder}
+        onPress={()=>{this.props.acceptOrder(item.id)}}
         icon={{name: 'check'}}
         backgroundColor={'green'}
         containerViewStyle={{flex:1,flexDirection:'row',
         padding:10,marginBottom:10,marginLeft:0,marginRight:0}}
         title='CONFIRMAR DISPONIBILIDAD' />
       <Button
-        onPress={this.props.declineOrder}
+        onPress={()=>{this.props.declineOrder(item.id)}}
         icon={{name: 'close'}}
         backgroundColor={Colors.error}
         containerViewStyle={{flex:1,flexDirection:'row',

@@ -51,7 +51,7 @@ class LobbyScreen extends Component {
       return null
     }
   }
-  buildMultiOrders  = function*(groupTimeStamp){
+  buildMultiOrders  = (groupTimeStamp)=>{
     const {order,cars_catalogue,auth,inventory} = this.props
     let orders = []
     if(order){
@@ -80,6 +80,7 @@ class LobbyScreen extends Component {
   }
   handleMultiOrder = () =>{
     const orders = this.buildMultiOrders(Math.floor(Date.now() / 1000))
+    console.log(orders)
     this.props.postOrder(orders)
   }
 
@@ -90,8 +91,9 @@ class LobbyScreen extends Component {
       <View style={styles.container}>
         { this.gradient }
         <RentalFormPage4
-        nextPage={() => navigate('SelectCarScreen')}
+        nextPage={() => navigate('CompleteUserScreen')}
         cancel={() => navigate('SelectCarScreen')}
+        status={this.props.status}
         />
       </View>
     </View>
@@ -106,6 +108,7 @@ const mapStateToProps = (state) => {
     auth: state.auth.payload?state.auth.payload:{},
     cars_catalogue: state.rental.cars,
     rental_error: state.rental.error,
+    status: state.orders.status?state.orders.status:0,
   }
 }
 const mapDispatchToProps = (dispatch) => ({

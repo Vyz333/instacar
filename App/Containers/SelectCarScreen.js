@@ -23,6 +23,9 @@ import RentalFormActions from '../Redux/RentalFormRedux'
 import styles from './Styles/SelectCarScreenStyle'
 
 class SelectCarScreen extends Component {
+  static navigationOptions = {
+    headerLeft: null,
+  }
   constructor(props) {
     super(props) 
   }

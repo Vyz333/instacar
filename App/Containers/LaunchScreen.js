@@ -27,8 +27,8 @@ class LaunchScreen extends Component {
     while(!cars){
       setTimeout(()=>{}, 100);
     }
-    console.log(cars)
-    navigation.navigate('SelectCarScreen')
+    //navigation.navigate('SelectCarScreen')
+    navigation.navigate('CompleteUserScreen')
   }
   
 }

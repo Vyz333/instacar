@@ -26,7 +26,8 @@ export const INITIAL_STATE = Immutable({
   data: null,
   fetching: null,
   payload: null,
-  error: null
+  error: null,
+  status: 0,
 })
 
 /* ------------- Reducers ------------- */
@@ -52,6 +53,11 @@ export const successNonDestructive = (state, action) => {
     return state.merge({ fetching: false})
 }
 
+export const successWatchOrders = (state, action) => {
+  const { payload } = action
+  return state.merge({ fetching: false, error: null, status:1 })
+}
+
 // Something went wrong somewhere.
 export const failure = state =>
   state.merge({ fetching: false, error: true, payload: null })
@@ -69,5 +75,5 @@ export const reducer = createReducer(INITIAL_STATE, {
   [Types.DECLINE_ORDER_SUCCESS]: success,
   [Types.DECLINE_ORDER_FAILURE]: failure,
   [Types.WATCH_ORDERS_REQUEST]: request,
-  [Types.WATCH_ORDERS_SUCCESS]: success,
+  [Types.WATCH_ORDERS_SUCCESS]: successWatchOrders,
 })
