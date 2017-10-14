@@ -10,6 +10,7 @@ import { GithubTypes } from '../Redux/GithubRedux'
 import { RentalFormTypes } from '../Redux/RentalFormRedux'
 import { AuthenticationTypes } from '../Redux/AuthenticationRedux'
 import { OrdersTypes } from '../Redux/OrdersRedux'
+import { NotificationsTypes } from '../Redux/NotificationsRedux'
 
 /* ------------- Sagas ------------- */
 
@@ -18,12 +19,13 @@ import { getUserAvatar } from './GithubSagas'
 import {getCars,postOrder} from './RentalFormSagas'
 import {createUser,loginUser} from './AuthenticationSagas'
 import {getOrders,watchOrdersAccept,acceptOrder,declineOrder} from './OrdersSagas'
+import {receiveNotification,sendNotificationUpstream,setToken} from './NotificationsSagas'
 
 /* ------------- API ------------- */
 
 // The API we use is only used from Sagas, so we create it here and pass along
 // to the sagas which need it.
-const api = DebugConfig.useFixtures ? FixtureAPI : API.create()
+const api = API.create()
 
 /* ------------- Connect Types To Sagas ------------- */
 
@@ -50,5 +52,12 @@ export default function * root () {
     takeLatest(OrdersTypes.DECLINE_ORDER_REQUEST, declineOrder,api),
 
     takeLatest(OrdersTypes.WATCH_ORDERS_REQUEST, watchOrdersAccept,api),
+
+    takeLatest(NotificationsTypes.NOTIFICATION_RECEPTION_REQUEST, receiveNotification,api),
+
+    takeLatest(NotificationsTypes.NOTIFICATIONS_REQUEST, sendNotificationUpstream,api),
+    
+    takeLatest(NotificationsTypes.SET_TOKEN_REQUEST, setToken),
+    
   ]
 }

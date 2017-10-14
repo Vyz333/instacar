@@ -25,6 +25,13 @@ const create = (baseURL = AppConfig.RESTUrl) => {
     timeout: 10000,
   })
 
+  const fcm_api = apisauce.create({
+    // base URL is read from the "constructor"
+    baseURL:AppConfig.FCMUrl,
+    // 10 second timeout...
+    timeout: 10000,
+  })
+
   // ------
   // STEP 2
   // ------
@@ -45,6 +52,27 @@ const create = (baseURL = AppConfig.RESTUrl) => {
   const getOrders = () => api.get('orders2')
   const getOrderById = (id) => api.get(`orders2/${id}`)
 
+  const upstreamNotification = (dest) =>{
+    return fcm_api.post('send',
+    {
+      'registration_ids':[dest],
+      'notification':{
+        'priority':'high',
+        'title':'Confirmación de Disponibilidad',
+        'body':'¡Sí tenemos disponibilidad para antender tu órden!, haz clic para continuar',
+        'sound':'default',
+        'collapse_key':'Continuar órden',
+      }
+    },
+    {
+      headers: {
+        'Authorization':APIKeys.FCMAPIKey,
+        'Content-Type':'application/json',
+      }
+    }
+    )
+  }
+    
   //const getUser = (username) => api.get('search/users', {q: username})
 
   const postOrder = (order) => {

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, KeyboardAvoidingView } from 'react-native'
 import { connect } from 'react-redux'
 import OrdersListView from '../Components/OrdersListView'
+import FCM from 'react-native-fcm'
 
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 import OrdersActions from '../Redux/OrdersRedux'

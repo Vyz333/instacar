@@ -13,6 +13,7 @@ export default () => {
     wp: require('./WpRedux').reducer,
     form: formReducer,
     orders: require('./OrdersRedux').reducer,
+    notif: require('./NotificationsRedux').reducer,
   })
 
   return configureStore(rootReducer, rootSaga)

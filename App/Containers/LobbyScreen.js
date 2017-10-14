@@ -42,22 +42,22 @@ class LobbyScreen extends Component {
   }
 
   buildOrder = () => {
-    const {order,cars_catalogue,auth} = this.props
+    const {order,cars_catalogue,auth,notif_token} = this.props
     if(order){
       const model = cars_catalogue[order.currentCar.cat][order.currentCar.idx]
-      return FormatOrder(order,model,auth,Math.floor(Date.now() / 1000))
+      return FormatOrder(order,model,auth,notif_token,Math.floor(Date.now() / 1000))
       return wp_order
     }else{
       return null
     }
   }
   buildMultiOrders  = (groupTimeStamp)=>{
-    const {order,cars_catalogue,auth,inventory} = this.props
+    const {order,cars_catalogue,auth,inventory,notif_token} = this.props
     let orders = []
     if(order){
       for(let item of inventory){
         let model = cars_catalogue[item.cat][item.idx]
-        orders.push(FormatOrder(order,model,auth,groupTimeStamp))
+        orders.push(FormatOrder(order,model,auth,notif_token,groupTimeStamp))
       }
       return orders
     }else{
@@ -104,6 +104,7 @@ class LobbyScreen extends Component {
 const mapStateToProps = (state) => {
   return {
     order: state.form.rental_form?state.form.rental_form.values:{},
+    notif_token: state.notif.token,
     inventory: state.rental.inventory,
     auth: state.auth.payload?state.auth.payload:{},
     cars_catalogue: state.rental.cars,

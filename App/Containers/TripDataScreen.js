@@ -32,7 +32,7 @@ class TripDataScreen extends Component {
     const {navigate} = this.props.navigation;
     const {errors} = this.props
     if(!errors)
-      navigate('TripDataScreen')
+      navigate('LobbyScreen')
   }
   render () {
     const {navigate} = this.props.navigation;
@@ -41,7 +41,7 @@ class TripDataScreen extends Component {
       <View style={styles.container}>
         { this.gradient }
         <RentalFormPage3 
-        nextPage={() => navigate('LobbyScreen')}
+        nextPage={this._next}
         cancel={() => navigate('SelectCarScreen')}
         />
       </View>

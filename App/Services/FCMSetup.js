@@ -4,8 +4,11 @@ import FCM, {
   RemoteNotificationResult, 
   WillPresentNotificationResult, 
   NotificationType} from 'react-native-fcm';
-
-export default ()=>{
+import NotificationActions from '../Redux/NotificationsRedux'
+import { addNavigationHelpers, NavigationActions } from "react-navigation";
+export default (store)=>{
+  //console.log("store:")
+  //console.log(store.getState())
 // this shall be called regardless of app state: running, background or not running. Won't be called when app is killed by user in iOS
 FCM.on(FCMEvent.Notification, async (notif) => {
   console.log(notif)
@@ -14,10 +17,12 @@ FCM.on(FCMEvent.Notification, async (notif) => {
     //this is a local notification
   }
   if(notif.opened_from_tray){
+    console.log("Opened from tray")
+    store.dispatch(NavigationActions.navigate({routeName:'LobbyScreen'}))
     //app is open/resumed because user clicked banner
   }
   // await someAsyncCall();
-
+  console.log('FCM Async shit ')
   if(Platform.OS ==='ios'){
     //optional
     //iOS requires developers to call completionHandler to end notification process. If you do not call it your background remote notifications could be throttled, to read more about it see the above documentation link.

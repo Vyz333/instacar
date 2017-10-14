@@ -6,6 +6,7 @@ export default {
   RESTUrl: WPUrl+'/wp-json/wp/v2/',
   JWTUrl: WPUrl+'/wp-json/jwt-auth/v1/',
   UPLOADSUrl: WPUrl+'/wp-content/uploads/',
+  FCMUrl: 'https://fcm.googleapis.com/fcm/',
   // font scaling override - RN default is on
   allowTextFontScaling: true,
   carCategories: [],

@@ -22,19 +22,22 @@ class LaunchScreen extends Component {
     )
   }
   componentDidMount(){
-    const {fetchCars,cars,navigation} = this.props
+    const {fetchCars,cars,navigation,opened_from_tray} = this.props
     fetchCars()
     while(!cars){
       setTimeout(()=>{}, 100);
     }
-    //navigation.navigate('SelectCarScreen')
-    navigation.navigate('CompleteUserScreen')
+    
+    navigation.navigate('SelectCarScreen')
+    //navigation.navigate('CompleteUserScreen')
   }
   
 }
 const mapStateToProps = (state) => {
   return {
     cars: state.rental.cars,
+    notification: state.notif.notification,
+    opened_from_tray: state.notif.notification?state.notif.notification.opened_from_tray:false,
   }
 }
 const mapDispatchToProps = (dispatch) => ({

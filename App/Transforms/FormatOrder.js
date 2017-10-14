@@ -1,5 +1,5 @@
 import _ from 'lodash'
-export default (order,model,auth,groupTimeStamp)=>{
+export default (order,model,auth,notif_token,groupTimeStamp)=>{
   let wp_order = {
     title: order.email+'_'+Math.floor(Date.now() / 1000),
     email: order.email,
@@ -20,7 +20,7 @@ export default (order,model,auth,groupTimeStamp)=>{
     driver: order.driver.value,
     trip_type:order.trip_type,
     current_status:0,
-
+    notif_token,
     token:auth.token,
     status:'publish',
   }
