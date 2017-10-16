@@ -12,10 +12,8 @@ class LaunchScreen extends Component {
   render () {
     return (
       <View style={styles.mainContainer}>
-        <Image source={Images.background} style={styles.backgroundImage} resizeMode='stretch' />
         <ScrollView style={styles.container}>
           <View style={styles.centered}>
-            <Image source={Images.launch} style={styles.logo} />
           </View>
         </ScrollView>
       </View>
@@ -28,8 +26,8 @@ class LaunchScreen extends Component {
       setTimeout(()=>{}, 100);
     }
     
-    navigation.navigate('SelectCarScreen')
-    //navigation.navigate('CompleteUserScreen')
+    //navigation.navigate('SelectCarScreen')
+    navigation.navigate('AuthScreen')
   }
   
 }

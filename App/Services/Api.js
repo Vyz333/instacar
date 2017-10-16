@@ -51,7 +51,9 @@ const create = (baseURL = AppConfig.RESTUrl) => {
   const getCars = () => api.get('vehicles')
   const getOrders = () => api.get('orders2')
   const getOrderById = (id) => api.get(`orders2/${id}`)
-
+  const getUserById = (id) => api.get(`users/${id}`)
+  const getUserByEmail = (email) => api.get(`users/email/${email}`)
+  const getUserByName = (name) => api.get(`users/email/${name}`)
   const upstreamNotification = (dest) =>{
     return fcm_api.post('send',
     {
@@ -66,7 +68,7 @@ const create = (baseURL = AppConfig.RESTUrl) => {
     },
     {
       headers: {
-        'Authorization':APIKeys.FCMAPIKey,
+        'Authorization':'key='+APIKeys.FCMAPIKey,
         'Content-Type':'application/json',
       }
     }
@@ -88,6 +90,9 @@ const create = (baseURL = AppConfig.RESTUrl) => {
   const searchUser = (username) => {
     return api.get('users',{search:username})
   }
+
+  
+
   const postUser = (user) => {
     console.log(user)
     const {token} = user
@@ -120,10 +125,14 @@ const create = (baseURL = AppConfig.RESTUrl) => {
     getCars,
     getOrders,
     getOrderById,
+    getUserById,
+    getUserByEmail,
+    getUserByName,
     postOrder,
     updateOrder,
     postUser,
     loginUser,
+    upstreamNotification,
   }
 }
 

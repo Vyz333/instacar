@@ -1,6 +1,7 @@
 import { createReducer, createActions } from 'reduxsauce'
 import Immutable from 'seamless-immutable'
 import _ from 'lodash'
+import deepEqual from 'deep-equal'
 /* ------------- Types and Action Creators ------------- */
 
 const { Types, Creators } = createActions({
@@ -24,7 +25,9 @@ export default Creators
 
 export const INITIAL_STATE = Immutable({
   data: null,
+  accepted: null,
   fetching: null,
+  orders: null,
   payload: null,
   error: null,
   status: 0,
@@ -47,8 +50,9 @@ export const success = (state, action) => {
 
 export const successNonDestructive = (state, action) => {
   const { payload } = action
-  if(!_.isEqual(payload,state.payload))
-    return state.merge({ fetching: false, error: null, payload })
+  
+  if(!deepEqual(payload,state.payload))
+    return state.merge({ fetching: false, error: null, orders:payload })
   else
     return state.merge({ fetching: false})
 }
@@ -56,6 +60,11 @@ export const successNonDestructive = (state, action) => {
 export const successWatchOrders = (state, action) => {
   const { payload } = action
   return state.merge({ fetching: false, error: null, status:1 })
+}
+
+export const successAcceptOrder = (state, action) => {
+  const { payload } = action
+  return state.merge({ fetching: false, error: null, accepted:payload })
 }
 
 // Something went wrong somewhere.
@@ -69,7 +78,7 @@ export const reducer = createReducer(INITIAL_STATE, {
   [Types.ORDERS_SUCCESS]: successNonDestructive,
   [Types.ORDERS_FAILURE]: failure,
   [Types.ACCEPT_ORDER_REQUEST]: request,
-  [Types.ACCEPT_ORDER_SUCCESS]: success,
+  [Types.ACCEPT_ORDER_SUCCESS]: successAcceptOrder,
   [Types.ACCEPT_ORDER_FAILURE]: failure,
   [Types.DECLINE_ORDER_REQUEST]: request,
   [Types.DECLINE_ORDER_SUCCESS]: success,

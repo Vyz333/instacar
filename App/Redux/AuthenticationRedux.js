@@ -24,6 +24,8 @@ export const INITIAL_STATE = Immutable({
   data: null,
   fetching: null,
   payload: null,
+  jwt: null,
+  user: null,
   error: null,
   error_msg: null,
 })
@@ -37,7 +39,7 @@ export const request = (state, { data }) =>
 // successful api lookup
 export const success = (state, action) => {
   const { payload } = action
-  return state.merge({ fetching: false, error: null, payload })
+  return state.merge({ fetching: false, error: null, payload:{...payload,...state.payload} })
 }
 
 // Something went wrong somewhere.

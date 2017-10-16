@@ -96,6 +96,7 @@ class LoginForm extends Component {
       register,
       onLogin,
       onRegister,
+      errors,
     } = this.props
     return (
       <View style={{flex:1,flexDirection: 'column',justifyContent: 'space-between'}}>
@@ -109,6 +110,9 @@ class LoginForm extends Component {
               <Field name='password_repeat' component={renderPasswordField2}/>
               }
               <Field name='register' component={renderRegistrationSwitch}/>
+              {errors &&
+              <FormValidationMessage>{errors}
+              </FormValidationMessage>}
        </Form>
        <ActionsContainer>
             <NextButton 

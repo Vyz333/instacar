@@ -32,7 +32,8 @@ export function * getAuthentication (api, action) {
 export function * createUser (api, action) {
   const { data } = action
   const existingUserResponse = yield call(api.searchUser,data.username)
-  if(existingUserResponse.ok){
+  if(existingUserResponse.ok && existingUserResponse.data.length>0){
+    console.log(existingUserResponse)
     yield put(AuthenticationActions.createUserFailure('Ya existe un usuario con este e-mail.'))
   }else{
     const loginResponse = yield call(api.loginUser, {username:APIKeys.username,password:APIKeys.password})
@@ -40,12 +41,20 @@ export function * createUser (api, action) {
       
       // make the call to the api
       const response = yield call(api.postUser, {...data,token:loginResponse.data.token})
-      
+      console.log(response)
       // success?
       if (response.ok) {
         // You might need to change the response here - do this with a 'transform',
         // located in ../Transforms/. Otherwise, just pass the data back from the api.
-        yield put(AuthenticationActions.createUserSuccess(response.data))
+        const user = {username:response.data.username,password:data.password}
+        yield put(AuthenticationActions.loginUserRequest(user))
+        const userResponse = yield call(api.getUserByName,data.username)
+        if(userResponse.ok){
+          yield put(AuthenticationActions.createUserSuccess({...response.data,...userResponse.data}))
+          //yield put(AuthenticationActions.loginUserSuccess({...response.data,...userResponse.data}))
+        }else{
+          yield put(AuthenticationActions.createUserFailure('Error creando usuario, intente más tarde.'))
+        }
       } else {
         yield put(AuthenticationActions.createUserFailure('Error creando usuario.'))
       }
@@ -60,10 +69,11 @@ export function * loginUser (api, action) {
   
   // make the call to the api
   const response = yield call(api.loginUser, data)
+  const userResponse = yield call(api.getUserByEmail,data.user_email)
   console.log(response)
   // success?
-  if (response.ok && response.data && response.data.token) {
-    yield put(AuthenticationActions.loginUserSuccess(response.data))
+  if (response.ok && response.data && response.data.token && userResponse.ok) {
+    yield put(AuthenticationActions.loginUserSuccess({...response.data,...userResponse.data}))
   } else {
     yield put(AuthenticationActions.loginUserFailure())
   }

@@ -3,6 +3,7 @@ import { View, Text, KeyboardAvoidingView } from 'react-native'
 import { connect } from 'react-redux'
 import OrdersListView from '../Components/OrdersListView'
 import FCM from 'react-native-fcm'
+import Spinner from 'react-native-loading-spinner-overlay'
 
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 import OrdersActions from '../Redux/OrdersRedux'
@@ -15,9 +16,10 @@ class OrdersListScreen extends Component {
   constructor(props){
     super(props)
     this._checkAuth(props)
+  }
+  componentWillMount(){
     this.fetchProcess = this.fetchOrders();
   }
-
   componentWillReceiveProps(nextProps){
     this._checkAuth(nextProps)
   }
@@ -26,21 +28,24 @@ class OrdersListScreen extends Component {
     const {auth} = props
     const {navigate} = this.props.navigation
     if(!auth || !auth.token || auth.username=='service'){
+      console.log(auth)
       navigate('AuthScreen')
     }
   }
-  _acceptOrder = (id) =>{
-    const {acceptOrder} = this.props
-    acceptOrder(id,auth.token)
+  _acceptOrder = (item) =>{
+    const {acceptOrder,auth} = this.props
+    acceptOrder({id:item.id,token:auth.token,renter:auth.id,order_token:item.notif_token})
+    this.props.getAllOrders;
   }
-  _declineOrder = () =>{
+  _declineOrder = (item) =>{
     
   }
   componentWillUnmount(){
     clearInterval(this.fetchProcess);
   }
   fetchOrders= () =>{
-    setInterval(this.props.getAllOrders, 5000);
+    this.props.getAllOrders;
+    setInterval(this.props.getAllOrders, 8000);
   }
   get gradient () {
     return (
@@ -54,16 +59,20 @@ class OrdersListScreen extends Component {
   }
 
   render () {
-    console.log(this.props)
-    const {all_orders,acceptOrder,declineOrder} = this.props
+    //console.log(this.props)
+    const {all_orders,auth} = this.props
     const {navigate} = this.props.navigation;
+    const loading = !all_orders||all_orders.length <1;
+    console.log(all_orders)
     return (
       <View style={styles.mainContainer}>
         <View style={styles.container}>
           { this.gradient }
+          <Spinner visible={loading} textStyle={{color: Colors.primaryDark}} />
           <OrdersListView orders={all_orders} 
-          acceptOrder={acceptOrder} 
-          declineOrder={declineOrder} />
+          auth={auth}
+          acceptOrder={this._acceptOrder} 
+          declineOrder={this._declineOrder} />
         </View>
       </View>
     )
@@ -72,7 +81,7 @@ class OrdersListScreen extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    all_orders: state.orders?state.orders.payload:[],
+    all_orders: state.orders?state.orders.orders:[],
     auth: state.auth.payload?state.auth.payload:{},
   }
 }
@@ -80,8 +89,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getAllOrders: () => dispatch(OrdersActions.ordersRequest()),
-    acceptOrder: (id,token) => dispatch(OrdersActions.acceptOrderRequest(id,token)),
-    declineOrder: (id,token) => dispatch(OrdersActions.declineOrderRequest(id,token)),
+    acceptOrder: (data) => dispatch(OrdersActions.acceptOrderRequest(data)),
+    declineOrder: (data) => dispatch(OrdersActions.declineOrderRequest(data)),
   }
 }
 

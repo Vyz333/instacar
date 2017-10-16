@@ -61,7 +61,7 @@ class RentalFormPage4 extends Component {
           
           <Text style={{fontSize:18,color:Colors.ricePaper,margin: 10,textAlign:'center'}}>
           {status != 0?
-            'Si hay disponibilidad, favor de confirmar su reserva y poner su método de pago para asegurar el servicio'
+            'Sí hay disponibilidad, favor de confirmar su reserva y poner su método de pago para asegurar el servicio'
             :'Este proceso puede tardar varios minutos, puedes cambiarte de app mientras tanto. En breve recibirás una notificación con la respuesta de disponibilidad.'
           }
           </Text>

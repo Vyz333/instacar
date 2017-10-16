@@ -17,15 +17,22 @@ import styles from './Styles/AuthScreenStyle'
 import Colors from '../Themes/Colors'
 
 class AuthScreen extends Component {
+  static navigationOptions = {
+    headerLeft: null,
+  }
   componentWillReceiveProps(nextProps){
-    const {auth} = nextProps
+    const {auth,loading,auth_error} = nextProps
     const {navigate} = this.props.navigation
-    if(auth && auth.token && auth.username!='service'){
+    if(!loading && auth && auth.token && auth.username!='service'){
+      console.log(auth)
       navigate('OrdersListScreen')
+    }else{
+      console.log(auth)
     }
   }
   _buildLogin = () =>{
     const {authData,auth} = this.props
+    console.log(authData)
     const wp_user = {
       username: authData.email,
       password: authData.password,
@@ -34,12 +41,13 @@ class AuthScreen extends Component {
   }
   _buildRegister = () =>{
     const {authData,auth} = this.props
-    console.log(auth)
+    console.log(auth,authData)
     const wp_user = {
       username: authData.email,
       name: authData.name,
       email: authData.email,
       password: authData.password,
+      roles:['renter'],
       token:auth.token,
     }
     return wp_user
@@ -55,11 +63,10 @@ class AuthScreen extends Component {
     const {registerAction, loginAction, authData, auth, auth_error} = this.props
     if(!authData.syncErrors){
       registerAction(this._buildRegister())
-      loginAction(this._buildLogin()) 
     }
   }
   render () {
-    const {loginAction,registerAction,register,authData, loading} = this.props
+    const {loginAction,registerAction,register,authData, loading,auth_error_msg} = this.props
     return (
       <View style={styles.mainContainer}>
         <View style={styles.container}>
@@ -69,6 +76,7 @@ class AuthScreen extends Component {
           onLogin={this._onLogin} 
           onRegister={this._onRegister} 
           register={register}
+          errors={auth_error_msg}
           />}
         </View>
       </View>
@@ -88,6 +96,7 @@ const mapStateToProps = (state) => {
     auth: state.auth.payload?state.auth.payload:{},
     loading: state.auth.fetching,
     auth_error : state.auth.error,
+    auth_error_msg : state.auth.error_msg,
   }
 }
 const mapDispatchToProps = (dispatch) => ({

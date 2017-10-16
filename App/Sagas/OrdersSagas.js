@@ -15,6 +15,7 @@ import {
   fork, take, 
   put, cancelled, } from 'redux-saga/effects'
 import OrdersActions from '../Redux/OrdersRedux'
+import NotificationsActions from '../Redux/NotificationsRedux'
 
 export function * getOrders (api, action) {
   const { data } = action
@@ -35,9 +36,11 @@ export function * acceptOrder (api, action) {
   const { data } = action
   // make the call to the api
   while (true) {
-    const response = yield call(api.updateOrder, data.id,{current_status:'1'},data.token)
+    console.log(action)
+    const response = yield call(api.updateOrder, data.id,{current_status:'1',renter:data.renter},data.token)
     if(response && response.ok){
       yield put(OrdersActions.acceptOrderSuccess(response.data))
+      yield put(NotificationsActions.notificationsRequest(data.order_token))
       break
     }else{
       yield put(OrdersActions.acceptOrderFailure())

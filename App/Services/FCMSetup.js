@@ -22,7 +22,6 @@ FCM.on(FCMEvent.Notification, async (notif) => {
     //app is open/resumed because user clicked banner
   }
   // await someAsyncCall();
-  console.log('FCM Async shit ')
   if(Platform.OS ==='ios'){
     //optional
     //iOS requires developers to call completionHandler to end notification process. If you do not call it your background remote notifications could be throttled, to read more about it see the above documentation link.

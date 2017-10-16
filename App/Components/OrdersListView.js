@@ -2,10 +2,9 @@ import React, { Component,PureComponent } from 'react'
 import PropTypes from 'prop-types';
 import { View, Text, FlatList, TouchableOpacity, Modal} from 'react-native'
 import styles from './Styles/OrdersListViewStyle'
-import {FormLabel,Card, Icon, Button } from 'react-native-elements'
+import {FormLabel,Card, Icon, Button,ButtonGroup } from 'react-native-elements'
 import {Button as RNButton} from 'react-native'
 import Colors from '../Themes/Colors'
-
 
 const tripOptions = [
   {label:'Solo en ciudad',iconName:'location-city'},
@@ -25,17 +24,23 @@ export default class OrdersListView extends Component {
   constructor(props){
     super(props)
     this.state={
-      selectedItem:null
+      selectedItem:null,
+      modalOpen:false,
+      page: 0
     }
   }
+  
   _keyExtractor = (item, index) => item.id;
   
   _onPressItem = (item) => {
-    this.setState({selectedItem:item})
+    this.setState({selectedItem:item,modalOpen:true})
   }
 
   _renderItem = ({index,item}) => (
-      <TouchableOpacity onPress={()=>{this._onPressItem(item)}}>
+      <TouchableOpacity onPress={()=>{
+        if(this.state.page==0)
+          this._onPressItem(item);
+      }}>
       <Card title={item.title.rendered}>
       <View style={styles.cardTextSegment}>
         <Text style={styles.cardTextL}>Tipo de Recorrido:</Text>
@@ -61,7 +66,8 @@ export default class OrdersListView extends Component {
     if(item){
       const trip = tripOptions[parseInt(item.trip_type)]
       return(
-      <View style={{flex:1,margin:18, padding:18, borderColor:Colors.primaryDark, borderWidth:1}} >
+      <View style={{flex:1,flexDirection:'column',margin:18, padding:18, 
+      borderColor:Colors.primaryDark, borderWidth:1}} >
       <Text h1>{item.title.rendered}</Text>
       <View style={styles.cardTextSegment}>
         <Text style={styles.cardTextL}>Estatus:</Text>
@@ -91,19 +97,25 @@ export default class OrdersListView extends Component {
         <Text style={styles.cardTextL}>Requiere Seguro:</Text>
         <Text style={styles.cardTextR}>Sí</Text>
       </View>
-      <Button
-        onPress={()=>{this.props.acceptOrder(item.id)}}
+
+      <RNButton
+        onPress={()=>{
+          this.props.acceptOrder(item);
+          this.setState({modalOpen:false});
+          }}
         icon={{name: 'check'}}
-        backgroundColor={'green'}
-        containerViewStyle={{flex:1,flexDirection:'row',
-        padding:10,marginBottom:10,marginLeft:0,marginRight:0}}
+        style={{padding:10}}
+        color={Colors.green}
         title='CONFIRMAR DISPONIBILIDAD' />
-      <Button
-        onPress={()=>{this.props.declineOrder(item.id)}}
+
+      <RNButton
+        onPress={()=>{
+          this.props.declineOrder(item);
+          this.setState({modalOpen:false});
+          }}
         icon={{name: 'close'}}
-        backgroundColor={Colors.error}
-        containerViewStyle={{flex:1,flexDirection:'row',
-        padding:10,marginBottom:10,marginLeft:0,marginRight:0}}
+        style={{padding:10}}
+        color={Colors.error}
         title='NO TENGO DISPONIBILIDAD' />
       </View>
       
@@ -111,21 +123,35 @@ export default class OrdersListView extends Component {
     }
   }
   render () {
-    const {orders} = this.props
-    const {selectedItem} = this.state
-    console.log(selectedItem)
+    const {auth} = this.props
+    const orders = this.props.orders?this.props.orders:[]
+    const {selectedItem,modalOpen,page} = this.state
+    const tabs = ['Abiertas','Mis Órdenes']
+    console.log(orders,auth)
     return (
       <View style={styles.container}>
-        <FlatList
-          data={orders}
-          keyExtractor={this._keyExtractor}
-          renderItem={this._renderItem}
+      <ButtonGroup
+        
+        onPress={(newpage)=>this.setState({page:newpage})}
+        selectedIndex={page}
+        buttons={tabs}
+        selectedBackgroundColor={Colors.secondary}
+        selectedTextStyle={{color:Colors.white}}
         />
+
+          <FlatList
+            data={page==0?
+            orders.filter(order=>order.current_status==0):
+            orders.filter(order=>order.current_status!=0 && order.renter==auth.id)}
+            keyExtractor={this._keyExtractor}
+            renderItem={this._renderItem}
+          />
+
         <Modal
           animationType="slide"
           transparent={false}
-          visible={selectedItem!=null}
-          onRequestClose={() => {this.setState({selectedItem:null})}}>
+          visible={modalOpen}
+          onRequestClose={() => {this.setState({selectedItem:null,modalOpen:false})}}>
           <View style={{flex:1}} >
           {this.itemDetails(selectedItem)}
           </View>
