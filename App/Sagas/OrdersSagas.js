@@ -53,14 +53,17 @@ export function * declineOrder (api, action) {
   const { data } = action
   // make the call to the api
   while (true) {
-    const response = yield call(api.updateOrder, data.id,{current_status:'3'},data.token)
-    if(response && response.ok){
-      yield put(OrdersActions.acceptOrderSuccess(response.data))
-      break
-    }else{
-      yield put(OrdersActions.acceptOrderFailure())
+    const orderResponse = yield call(api.getOrderById, data.id)
+    if(orderResponse && orderResponse.ok && order.current_status==0){
+      const response = yield call(api.updateOrder, data.id,{current_status:'3'},data.token)
+      if(response && response.ok){
+        yield put(OrdersActions.acceptOrderSuccess(response.data))
+        break
+      }else{
+        yield put(OrdersActions.acceptOrderFailure())
+      }
+      yield call(delay, 1000);
     }
-    yield call(delay, 1000);
   }
 }
 

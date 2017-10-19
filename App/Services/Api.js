@@ -58,9 +58,9 @@ const create = (baseURL = AppConfig.RESTUrl) => {
     return fcm_api.post('send',
     {
       'registration_ids':[dest],
+      'collapse_key':'Reserva InstaCar',
       'notification':{
         'priority':'high',
-        'title':'Confirmación de Disponibilidad',
         'body':'¡Sí tenemos disponibilidad para antender tu órden!, haz clic para continuar',
         'sound':'default',
         'collapse_key':'Continuar órden',

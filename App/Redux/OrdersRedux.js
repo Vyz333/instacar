@@ -71,6 +71,13 @@ export const successAcceptOrder = (state, action) => {
 export const failure = state =>
   state.merge({ fetching: false, error: true, payload: null })
 
+  // Something went wrong somewhere.
+export const failureAcceptOrder = state =>{
+  alert('Lo sentimos, esta orden ya fué atendida por otro arrendador.')
+  return state.merge({ fetching: false, error: true, payload: null })
+}
+
+
 /* ------------- Hookup Reducers To Types ------------- */
 
 export const reducer = createReducer(INITIAL_STATE, {
@@ -79,7 +86,7 @@ export const reducer = createReducer(INITIAL_STATE, {
   [Types.ORDERS_FAILURE]: failure,
   [Types.ACCEPT_ORDER_REQUEST]: request,
   [Types.ACCEPT_ORDER_SUCCESS]: successAcceptOrder,
-  [Types.ACCEPT_ORDER_FAILURE]: failure,
+  [Types.ACCEPT_ORDER_FAILURE]: failureAcceptOrder,
   [Types.DECLINE_ORDER_REQUEST]: request,
   [Types.DECLINE_ORDER_SUCCESS]: success,
   [Types.DECLINE_ORDER_FAILURE]: failure,

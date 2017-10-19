@@ -1647,8 +1647,8 @@ concat-stream@^1.5.0, concat-stream@^1.5.2, concat-stream@^1.6.0:
     typedarray "^0.0.6"
 
 conekta@^3.2.0:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/conekta/-/conekta-3.2.1.tgz#40276069946aea70611432df4be7bb5e6737578a"
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/conekta/-/conekta-3.2.0.tgz#77706ae09a7acf052490c2c1512a297dd8b668a5"
   dependencies:
     request "2.55.0"
     underscore "1.8.3"
@@ -5314,10 +5314,6 @@ react-native-gifted-form@^0.1.0:
 react-native-gifted-spinner@~0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/react-native-gifted-spinner/-/react-native-gifted-spinner-0.1.0.tgz#2c76094fa0469c59e96dead270cd5bca5a55962a"
-
-"react-native-google-place-picker@https://github.com/q6112345/react-native-google-place-picker/tarball/e4c8bbfed5e953969d5dae819254d16725840d63":
-  version "1.2.2"
-  resolved "https://github.com/q6112345/react-native-google-place-picker/tarball/e4c8bbfed5e953969d5dae819254d16725840d63#6dcefffb009fd3587eaaa5da2b794162a61dfbf3"
 
 react-native-google-places-autocomplete@^1.3.4:
   version "1.3.4"
