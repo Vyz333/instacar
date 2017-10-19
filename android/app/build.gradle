@@ -139,7 +139,6 @@ dependencies {
     compile project(':react-native-fcm')
     //compile 'com.google.firebase:firebase-messaging:11.4.2' //this decides your firebase SDK version
     
-    compile project(':react-native-google-place-picker')
     compile project(':react-native-svg')
     compile project(':react-native-fs')
     compile project(':react-native-image-resizer')

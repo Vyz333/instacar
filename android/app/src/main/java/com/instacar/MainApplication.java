@@ -6,7 +6,6 @@ import com.facebook.react.ReactApplication;
 import com.beefe.picker.PickerViewPackage;
 import com.azendoo.reactnativesnackbar.SnackbarPackage;
 import com.evollu.react.fcm.FIRMessagingPackage;
-import com.reactlibrary.RNGooglePlacePickerPackage;
 import com.horcrux.svg.SvgPackage;
 import com.rnfs.RNFSPackage;
 import fr.bamlab.rnimageresizer.ImageResizerPackage;
@@ -45,7 +44,6 @@ public class MainApplication extends Application implements ReactApplication {
             new PickerViewPackage(),
             new SnackbarPackage(),
             new FIRMessagingPackage(),
-            new RNGooglePlacePickerPackage(),
             new SvgPackage(),
             new RNFSPackage(),
             new ImageResizerPackage(),
