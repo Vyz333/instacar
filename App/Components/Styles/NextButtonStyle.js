@@ -10,5 +10,6 @@ export default StyleSheet.create({
   button: {
     borderTopLeftRadius:borderRadius,
     borderTopRightRadius:borderRadius,
+    marginBottom:0,
   }
 })

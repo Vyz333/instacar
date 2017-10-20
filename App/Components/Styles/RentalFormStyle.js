@@ -49,6 +49,12 @@ export default StyleSheet.create({
     marginLeft: Metrics.baseMargin,
     marginRight: Metrics.baseMargin,
   },
+  actionContainer:{
+    flexDirection: 'column',
+    justifyContent: 'flex-end',
+    alignContent:'stretch',
+    height: 45,
+  },
   doubleButton:{
     flex:1,
     flexDirection:'row',

@@ -26,8 +26,8 @@ class LaunchScreen extends Component {
       setTimeout(()=>{}, 100);
     }
     
-    //navigation.navigate('SelectCarScreen')
-    navigation.navigate('AuthScreen')
+    navigation.navigate('SelectCarScreen')
+    //navigation.navigate('AuthScreen')
   }
   
 }

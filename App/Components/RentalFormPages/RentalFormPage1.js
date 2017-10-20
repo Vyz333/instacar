@@ -1,6 +1,6 @@
 import React,{ Component } from 'react'
 import { connect } from 'react-redux'
-import { reduxForm } from 'redux-form/immutable'
+import { reduxForm } from 'redux-form'
 import { Field } from 'redux-form'; 
 import validate from './Validation/RentalFormPage1Validation'
 import {
@@ -47,9 +47,6 @@ class RentalFormPage1 extends Component {
           }
           </View>
       </Form>
-      <ActionsContainer >
-            <NextButton title='DATOS DE RESERVACIÓN' onPress={nextPage} />
-      </ActionsContainer>
         {multiple &&
         <TouchableOpacity onPress={openInventory} style={styles.drawerHandle}>
         <Icon name='directions-car' color={Colors.white} />
@@ -60,7 +57,9 @@ class RentalFormPage1 extends Component {
         </Text>
         
         </TouchableOpacity>}
-
+        <View style={styles.actionContainer}>
+            <NextButton title='DATOS DE RESERVACIÓN' onPress={nextPage} />
+        </View>
       </View>
     )
   }
