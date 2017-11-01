@@ -4,10 +4,10 @@ import React, { Component } from 'react'
 import { Provider } from 'react-redux'
 import RootContainer from './RootContainer'
 import createStore from '../Redux'
-
+import FCMSetup from '../Services/FCMSetup'
 // create our store
 const store = createStore()
-
+const FCM = FCMSetup(store)
 /**
  * Provides an entry point into our application.  Both index.ios.js and index.android.js
  * call this component first.
@@ -26,8 +26,7 @@ class App extends Component {
     )
   }
 }
-
-// allow reactotron overlay for fast design in dev mode
+  // allow reactotron overlay for fast design in dev mode
 export default DebugConfig.useReactotron
-  ? console.tron.overlay(App)
-  : App
+? console.tron.overlay(App)
+: App

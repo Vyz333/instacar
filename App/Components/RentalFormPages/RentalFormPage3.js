@@ -1,91 +1,146 @@
-import React,{ Component } from 'react'
-import { reduxForm } from 'redux-form/immutable'
+import React,{Component} from 'react'
+import { connect } from 'react-redux'
+import {
+  reduxForm
+} from 'redux-form/immutable'
 import {
   ActionsContainer,
-  FieldsContainer,
-  Fieldset,
-  FormGroup,
-  FieldSet,
   Form,
-  Label
 } from 'react-native-clean-form'
+import { Field } from 'redux-form'; 
 import {
-  Input,
-  Select,
-  Switch
-} from 'react-native-clean-form/redux-form-immutable'
-import {Sae} from 'react-native-textinput-effects'
-import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
-import { View,Text,Dimensions,Platform } from 'react-native'
-import {ButtonGroup, Card,Button} from 'react-native-elements'
-import {Button as FButton} from 'react-native-clean-form'
-
-import styles from '../Styles/RentalFormStyle'
+  View,
+  Text,
+  KeyboardAvoidingView
+} from 'react-native'
+import { FormLabel,FormInput,FormValidationMessage,Button } from 'react-native-elements'
 import Colors from '../../Themes/Colors'
-import {Theme} from '../../Themes/FormTheme'
+import styles from '../Styles/RentalFormStyle'
+import Selectbox from 'react-native-selectbox'
+import validate from './Validation/RentalFormPage3Validation'
+import NextButton from '../NextButton'
+const tripOptions = [
+  {key:0,label:'Solo en ciudad',value:0},
+  {key:1,label:'Fuera del estado',value:1},
+  {key:2,label:'En ciudad y zona rural',value:2},
+]
+const yesNoData = [
+  { key: 0, label: 'No',value:false },
+  { key: 1, label: 'Sí',value:true }
+]
+const renderDriverField = (field) => (
+  <View>
+  <FormLabel>Requiere Chofer</FormLabel>
+  <Selectbox
+    selectedItem={field.input.value?field.input.value:yesNoData[0]}
+    items={yesNoData}
+    selectLabelStyle={{textAlign:'center'}}
+    onChange={(option)=>field.input.onChange(option)} />
+  </View>
+)
+const renderInsuranceField = (field) => (
+  <View>
+  <FormLabel>Incluye Seguro</FormLabel>
+  <Text style={{textAlign:'center'}} disabled={true}>Sí</Text>
+  </View>
+)
+const renderTripTypeField = (field) => (
+  <View>
+  <FormLabel>Tipo de Recorrido</FormLabel>
+  <Selectbox
+    selectedItem={field.input.value?field.input.value:tripOptions[0]}
+    items={tripOptions}
+    selectLabelStyle={{textAlign:'center'}}
+    onChange={(option)=>field.input.onChange(option)} />
+  </View>
+)
+const renderNameField = (field) => (
+  <View>
+  <FormLabel>Nombre Completo</FormLabel>
+  <FormInput 
+    value={field.input.value?field.input.value:''}
+    onChangeText={(value)=>field.input.onChange(value)}
+    selectionColor={Colors.primary}
+    returnKeyType='next'
+    />
+    {field.meta.error &&
+    <FormValidationMessage>{field.meta.error}
+    </FormValidationMessage>}
+  </View>
+)
+const renderEmailField = (field) => (
+  <View>
+  <FormLabel>Correo Electrónico</FormLabel>
+  <FormInput 
+    value={field.input.value?field.input.value:''}
+    onChangeText={(value)=>field.input.onChange(value)}
+    selectionColor={Colors.primary}
+    keyboardType='email-address'
+    returnKeyType='done'
+    />
+    {field.meta.error &&
+    <FormValidationMessage>{field.meta.error}
+    </FormValidationMessage>}
+  </View>
+)
 class RentalFormPage3 extends Component {
-  constructor (props) {
-    super(props);
+  render(){
+  const {
+    nextPage,
+    cancel,
+  } = this.props
 
-
-  }
-  _cardPayment(){
-
-  }
-  _oxxoPayment(){
-    
-  }
-  render () {
-    const {     
-      handleSubmit,
-      previousPage, 
-    } = this.props
-
-
-    return (
-    <View style={{flex:1}}>
-    <Form onSubmit={handleSubmit}>  
-    <View style={{flex:5,marginTop:60,flexDirection: 'column',
-        justifyContent: 'space-around'}}>
-        <View style={{flex:1}}>
-        <Button
-          raised
-          icon={{name: 'credit-card'}}
-          buttonStyle={{backgroundColor: Colors.primaryLight}}
-          textStyle={{textAlign: 'center'}}
-          title={'Tarjeta de Crédito o Débito'}
-          onPress={this._showAddressPicker1}
+  return ( 
+    // f. Requiere Chofer (combo: No por default / Si)
+    // g. Incluye Seguro (combo: Si por default / no mostrar ahorita otras opciones)
+    // h. Tipo de recorrido (check box: sola en ciudad, fuera del estado,  en ciudad y zona rural)
+    // i. Datos de contacto:
+    // i. Nombre completo
+    // ii. Correo-e
+    // j. Dar click en botón “CHECAR DISPONBILIDAD”  (hay otro botón “CANCELAR”  y allí termina el proceso).  
+    <View style={{flex:1,flexDirection: 'column',justifyContent: 'space-between'}}>
+    <Form> 
+      
+      <Field name='driver' component={renderDriverField}/>
+      <Field name='trip_type' component={renderTripTypeField}/>
+      <Field name='insurance' component={renderInsuranceField}/>
+      <KeyboardAvoidingView>
+      <Field name='name' component={renderNameField}/>
+      <Field name='email' component={renderEmailField}/>
+      </KeyboardAvoidingView>
+      <Button
+        raised
+        small
+        containerViewStyle={{marginTop:10}}
+        icon={{name: 'cancel'}}
+        title='CANCELAR' 
+        onPress={cancel}
+        backgroundColor={Colors.error}
         />
-        </View>
+    </Form>
+    <ActionsContainer>
+          <NextButton title='CHECAR DISPONIBILIDAD' onPress={nextPage} />
+    </ActionsContainer>
+    </View>
 
-        <View style={{flex:1}}>
-        <Button
-          raised
-          icon={{name: 'store'}}
-          buttonStyle={{backgroundColor: Colors.primaryLight}}
-          textStyle={{textAlign: 'center'}}
-          title={`OXXO Pay`}
-          onPress={this._showDateTimePicker1}
-        />
-        
-        </View>
-
-        </View>
-        <ActionsContainer>
-            <FButton onPress={previousPage} theme={getThemeWithButtonBackground(Colors.secondary)} icon="md-arrow-dropleft" iconPlacement="left" type="submit" className="next">Atrás</FButton>
-        </ActionsContainer>        
-        <ActionsContainer>
-            <FButton onPress={handleSubmit} theme={Theme} icon="md-arrow-dropright" iconPlacement="right" type="submit" className="next">Siguiente</FButton>
-        </ActionsContainer>
-      </Form>
-      </View>
-    )
-  }
+  )
 }
-
-export default reduxForm({
+}
+defaultValues={
+  driver:{key:0,label:'No',value:false},
+  trip_type:{key:0,label:'Solo en ciudad',value:0},
+}
+RentalFormPage3 = reduxForm({
   form: 'rental_form',                 // <------ same form name
   destroyOnUnmount: false,        // <------ preserve form data
   forceUnregisterOnUnmount: true,  // <------ unregister fields on unmount
   validate
 })(RentalFormPage3)
+
+const mapStateToProps = (state) => {
+  return {
+    initialValues: defaultValues,
+  }
+}
+
+export default connect(mapStateToProps, {})(RentalFormPage3)

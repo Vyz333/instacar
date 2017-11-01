@@ -1,0 +1,13 @@
+curl --header "Authorization: key=AAAApo-UGFw:APA91bFdU_yccgiA2WeYJOdVquDRVbttCCpv4fsprmQhjtk4gTCWfD2zvCg304oygzWP4f4aC_kge35BA62KNpKCsCFbngyY0D6-pdhPGTANHNj8LpZf-D5K6R5foD1Xs5X2jZY3yB9h" \
+       --header Content-Type:"application/json" \
+       https://fcm.googleapis.com/fcm/send \
+       -d "{
+\"registration_ids\":[\"cyl7VonIwME:APA91bEKTo73o02nJ6VNU04xoRkCGCdP4UnwsShGx9_ISKN_8tApX_xR7Qf50IVDrJL74A8RPI1e2CPmjbaThXsAn80Aveg0ZEvqzH-QPFqmmSs_FFz5CaEww7J8JNMf9Rzfg6VeAPuq\"],
+\"collapse_key\": \"score_update\",
+\"notification\":{
+\"priority\":\"high\", 
+\"title\":\"If I can't be yours\", 
+\"sound\":\"default\",
+\"body\":\"foooo\",
+}
+}"

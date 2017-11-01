@@ -1,89 +1,88 @@
-import React,{ Component } from 'react'
-import { reduxForm } from 'redux-form/immutable'
-import validate from './RentalFormPage1Validation'
+import React,{Component} from 'react'
+import { connect } from 'react-redux'
+
 import {
   ActionsContainer,
-  FieldsContainer,
-  Fieldset,
-  FormGroup,
-  FieldSet,
   Form,
-  Label
 } from 'react-native-clean-form'
-import {
-  Input,
-  Select,
-  Switch
-} from 'react-native-clean-form/redux-form-immutable'
-import {Sae} from 'react-native-textinput-effects'
-import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
-import { View,Text,Dimensions,Platform } from 'react-native'
-import {ButtonGroup, Card,Button,SocialIcon,FormLabel, FormInput} from 'react-native-elements'
+
 import {Button as FButton} from 'react-native-clean-form'
-
-import styles from '../Styles/RentalFormStyle'
+import {
+  View,
+  Text,
+  KeyboardAvoidingView
+} from 'react-native'
+import { FormLabel, FormInput,Button, Card, Icon } from 'react-native-elements'
 import Colors from '../../Themes/Colors'
+import styles from '../Styles/RentalFormStyle'
 import {Theme} from '../../Themes/FormTheme'
+import Selectbox from 'react-native-selectbox'
+import {
+  WaveIndicator,
+} from 'react-native-indicators';
+import NextButton from '../NextButton'
+
 class RentalFormPage4 extends Component {
-  constructor (props) {
-    super(props);
+  render(){
+  const {
+    nextPage,
+    cancel,
+    fetching,
+    status
+  } = this.props
 
-
-  }
-  _onUsernameChange(){
-    
-  }
-  _onPasswordChange(){
-    
-  }
-  render () {
-    const {     
-      handleSubmit,
-      previousPage, 
-    } = this.props
-
-
-    return (
-    <View style={{flex:1}}>
-    <Form onSubmit={handleSubmit}>  
-      <FormLabel>Correo</FormLabel>
-      <FormInput onChangeText={this._onUsernameChange}/>
-      <FormLabel>Contraseña</FormLabel>
-      <FormInput onChangeText={this._onPasswordChange}/>
-    <View style={{flex:5,marginTop:60,flexDirection: 'column',
-        justifyContent: 'space-around'}}>
-        <View style={{flex:1}}>
-      
-        <SocialIcon
-          title='Iniciar Sesión con Facebook'
-          button
-          type='facebook'
-        />
-
-        <SocialIcon
-          title='Iniciar Sesión con Twitter'
-          button
-          type='twitter'
-        />
-        
-        </View>
-
-        </View>
-        <ActionsContainer>
-            <FButton onPress={previousPage} theme={getThemeWithButtonBackground(Colors.secondary)} type="submit" className="next">Iniciar Sesión</FButton>
-        </ActionsContainer>        
-        <ActionsContainer>
-            <FButton onPress={handleSubmit} theme={Theme} type="submit" className="next">Crear Nueva Cuenta</FButton>
-        </ActionsContainer>
-      </Form>
+  let ready = !fetching && false
+  console.log(this.props)
+  return ( 
+    <View style={{flex:1,flexDirection: 'column',justifyContent: 'space-between', alignItems:'center'}}>
+      <View style={{flex:1, alignItems:'center'}}>
+        <Card
+          containerStyle={{flex:1,margin:8,marginBottom:8,backgroundColor:Colors.primary}}
+          title={status != 0?'Disponibilidad confirmada'
+          :'Esperando confirmación'}
+          titleStyle={{fontSize:19,color:Colors.backgroundLight}}
+          >
+          
+          {status != 0?
+          <View style={{ margin:20, alignItems:'center'}}>
+          <Icon
+            raised
+            reverse
+            name='check'
+            type='font-awesome'
+            size={40}
+            color={Colors.green} />
+          </View>
+          :
+          <View style={{padding:18, margin:30}}>
+          <WaveIndicator  size={100} color='white' waveMode='outline'/>
+          </View>
+          }
+          
+          <Text style={{fontSize:18,color:Colors.ricePaper,margin: 10,textAlign:'center'}}>
+          {status != 0?
+            'Sí hay disponibilidad, favor de confirmar su reserva y poner su método de pago para asegurar el servicio'
+            :'Este proceso puede tardar varios minutos, puedes cambiarte de app mientras tanto. En breve recibirás una notificación con la respuesta de disponibilidad.'
+          }
+          </Text>
+          <Button
+            raised
+            small
+            containerViewStyle={{marginTop:10}}
+            icon={{name: 'cancel'}}
+            title='CANCELAR' 
+            onPress={cancel}
+            backgroundColor={Colors.error}
+            />
+        </Card>
       </View>
-    )
-  }
+    <ActionsContainer>
+    {status != 0 && <NextButton title='RESERVAR SERVICIO' onPress={nextPage} />}
+    </ActionsContainer>
+    </View>
+
+  )
+}
 }
 
-export default reduxForm({
-  form: 'rental_form',                 // <------ same form name
-  destroyOnUnmount: false,        // <------ preserve form data
-  forceUnregisterOnUnmount: true,  // <------ unregister fields on unmount
-  validate
-})(RentalFormPage4)
+export default RentalFormPage4

@@ -1,5 +1,6 @@
 import { put, select } from 'redux-saga/effects'
 import GithubActions from '../Redux/GithubRedux'
+import RentalFormActions from '../Redux/RentalFormRedux'
 import { is } from 'ramda'
 import { fetchAuth } from '../Services/Keychain'
 
@@ -8,7 +9,7 @@ export const selectAvatar = (state) => state.github.avatar
 
 // process STARTUP actions
 export function * startup (action) {
-// const auth = yield call(fetchAuth, 'https://your.cool.url')
+ //const auth = yield call(fetchAuth, 'http://instacar.bismarck.space/wp-json/wp/v2/')
   if (__DEV__ && console.tron) {
     // straight-up string logging
     console.tron.log('Hello, I\'m an example of how to log via Reactotron.')
@@ -35,7 +36,9 @@ export function * startup (action) {
     })
   }
   const avatar = yield select(selectAvatar)
+
   // only get if we don't have it yet
+  //yield put(RentalFormActions.carsRequest())
   if (!is(String, avatar)) {
     yield put(GithubActions.userRequest('GantMan'))
   }

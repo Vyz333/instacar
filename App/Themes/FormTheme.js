@@ -2,7 +2,7 @@ import Colors from './Colors'
 
 const Theme = {
   Button: {
-    backgroundColor: Colors.secondaryDark,
+    backgroundColor: Colors.primaryDark,
     color: '#fff',
     fontSize: 12,
     fontWeight: 700,

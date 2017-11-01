@@ -59,7 +59,19 @@ export default StyleSheet.create({
         paddingHorizontal: 16,
         backgroundColor: 'white',
         borderBottomLeftRadius: entryBorderRadius,
-        borderBottomRightRadius: entryBorderRadius
+        borderBottomRightRadius: entryBorderRadius,
+    },
+    textSubContainerH: {
+        flex:1,
+        flexDirection:'row',
+        justifyContent: 'space-between',
+        margin: 5,
+        alignItems: 'center'
+    },
+    textSubContainerV: {
+        flex:1,
+        flexDirection:'column',
+        justifyContent: 'space-between',
     },
     textContainerEven: {
         backgroundColor: colors.black

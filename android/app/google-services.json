@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "715373418588",
+    "firebase_url": "https://instacar-1503029123681.firebaseio.com",
+    "project_id": "instacar-1503029123681",
+    "storage_bucket": "instacar-1503029123681.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:715373418588:android:0be177b94b45c031",
+        "android_client_info": {
+          "package_name": "com.instacar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "715373418588-k93og79lmu2kbl4lf82uodjnq97oos1u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.instacar",
+            "certificate_hash": "8e25b7c2671a1b94479a310b3513be19d4aecae0"
+          }
+        },
+        {
+          "client_id": "715373418588-nemdkischv9pdog8l12mvuntr6lh63qf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEOkXXW45ecAdF_jmE5TMLsnWKrMWyQaM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "715373418588-nemdkischv9pdog8l12mvuntr6lh63qf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

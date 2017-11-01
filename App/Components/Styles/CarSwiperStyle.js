@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import Metrics from '../../Themes/Metrics'
+import Colors from '../../Themes/Colors'
 export const colors = {
     black: '#1a1917',
     gray: '#888888',
@@ -8,17 +9,17 @@ export const colors = {
 export default StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: colors.transparent
+        flexDirection: 'column',
+        justifyContent: 'flex-start',
+        alignItems:'center',
+        alignSelf:'flex-start',
+        backgroundColor: Colors.transparent,
     },
     scrollview: {
-        flex: 1,
         paddingTop: Metrics.baseMargin
     },
     scrollviewContentContainer: {
-        paddingBottom: Metrics.baseMargin
-    },
-    contentContainer: {
-        marginBottom: 10
+        paddingBottom: Metrics.baseMargin/2
     },
     title: {
         backgroundColor: 'transparent',
@@ -36,12 +37,13 @@ export default StyleSheet.create({
         textAlign: 'center'
     },
     slider: {
-        marginTop: 10
+        marginTop: Metrics.baseMargin
     },
     sliderContentContainer: {
     },
     paginationContainer: {
-        paddingVertical: 4
+        paddingVertical: 4,
+        marginBottom:8,
     },
     paginationDot: {
         width: 8,

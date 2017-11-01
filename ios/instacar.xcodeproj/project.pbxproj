@@ -41,12 +41,19 @@
 		2DCD954D1E0B4F2C00145EB5 /* instacarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* instacarTests.m */; };
 		36D3D9BF354245AAAEC2B160 /* libRNFetchBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29F5B598186149E8B175B318 /* libRNFetchBlob.a */; };
 		495501127353413B8FC2272E /* libReactNativePayments.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E803F9EDFC8A483CB72D93A9 /* libReactNativePayments.a */; };
+		4B3111E57A2A185EA20BC777 /* libPods-instacar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 095163F77170133FDF6DD866 /* libPods-instacar.a */; };
 		4B63BD11BC7548C28D4F4CF1 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A41E53F9757C413CAD4EB928 /* Entypo.ttf */; };
 		546C99C6504B48DDB8DE32B9 /* libcxxreact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 957A51A5023B485686ADEFDE /* libcxxreact.a */; };
 		5DF1574A3C894678A1088273 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C0BDE927FAA349438DA11429 /* Octicons.ttf */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
+		6941584807E981FD02C70BBC /* libPods-instacar-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AD661782B434B7E98CFED8 /* libPods-instacar-tvOSTests.a */; };
 		72131A091F62750E00A81C3E /* AppIcon.appiconset in Resources */ = {isa = PBXBuildFile; fileRef = 72131A081F62750E00A81C3E /* AppIcon.appiconset */; };
 		72131A5E1F63A91E00A81C3E /* icomoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 72131A361F63A8FA00A81C3E /* icomoon.ttf */; };
+		7284A3A41F96820300A2262A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7284A3A31F96820200A2262A /* MapKit.framework */; };
+		72BD4F4C1F98B2F100652D46 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 72BD4F4B1F98B2F000652D46 /* GoogleService-Info.plist */; };
+		72BD4F4D1F98B2F100652D46 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 72BD4F4B1F98B2F000652D46 /* GoogleService-Info.plist */; };
+		72BD4F4E1F98B2F100652D46 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 72BD4F4B1F98B2F000652D46 /* GoogleService-Info.plist */; };
+		72BD4F4F1F98B2F100652D46 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 72BD4F4B1F98B2F000652D46 /* GoogleService-Info.plist */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		85CD7A1677F64D58936D7ACD /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D80D889D374578A3519118 /* libRNImagePicker.a */; };
 		8B7386EC510646A69A6033B3 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6BCA96466E704F08B2AC04E2 /* MaterialCommunityIcons.ttf */; };
@@ -54,13 +61,17 @@
 		991D23C2DD7E43BAB1DF0211 /* libRCTOrientation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42A834C7FAB94404B8AA1A63 /* libRCTOrientation.a */; };
 		9BAADAEE0B2D4BCF92E45435 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BB0C0AE0BF743BCB318CCFF /* libRNVectorIcons.a */; };
 		9E1EC44A5D974B66A76EBE97 /* libSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EB8CEC411FA42E6B3C50229 /* libSplashScreen.a */; };
-		B2141079B0D041F9936D8B5A /* libRNConekta.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3441D6B726604B569CE240D3 /* libRNConekta.a */; };
+		A644C1FA3337F098F52456E2 /* libPods-instacarTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EDBC7F257C5A9B57A805FD35 /* libPods-instacarTests.a */; };
+		A7BB3AB5552344449E690400 /* libRNSVG.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6ABAFCBC9FF4B42A9F7580F /* libRNSVG.a */; };
+		ABF11C83CF924016A47C48B6 /* libRNSnackbar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EDE6D432B854D2B8175ED11 /* libRNSnackbar.a */; };
 		B682AEB71BB147A8B387F492 /* libRNDeviceInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04EF6AACF5E74A36B2ABD93E /* libRNDeviceInfo.a */; };
 		C69EC0200F5C4BBA81F925C1 /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BD9325322FFE48B9960504FC /* libAirMaps.a */; };
 		CFA75A1A07E8462C81E72FEE /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E89D21CFB7E14C1F964A711C /* Ionicons.ttf */; };
 		D0F0327D7BF94363805BA272 /* libRCTImageResizer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EED0768A61244B108B69B94F /* libRCTImageResizer.a */; };
+		D28C3814E87148CD8E1C1386 /* libRCTBEEPickerManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99F51B7D7D794165A074B42C /* libRCTBEEPickerManager.a */; };
 		DE077F453D1E458194BA86F1 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 728B7EB5BB29494D86592DC0 /* Zocial.ttf */; };
 		DEDE19589975478C8E37B95B /* libjschelpers.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2524F000F6104DE9B0A0BA3C /* libjschelpers.a */; };
+		E1FEB635E39648EE8B1BA27B /* libRNFIRMessaging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC65E4387A994915B6F358BB /* libRNFIRMessaging.a */; };
 		F260AAAA3F4F4374B37EDD51 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 75912A0483C84413A648A9C2 /* EvilIcons.ttf */; };
 		F3AA160F22924623920B9912 /* libRNFS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9590651D59814D67B16B1A3E /* libRNFS.a */; };
 		FC055C3DD4854DA2BEDD8CFD /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 234439F4DFE14A00995E3199 /* Foundation.ttf */; };
@@ -271,20 +282,6 @@
 			remoteGlobalIDString = DA5891D81BA9A9FC002B4DB2;
 			remoteInfo = RNDeviceInfo;
 		};
-		721319481F62482300A81C3E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 74363B73DEAC4561A5273D1B /* RNI18n.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CDD7BF781B2D5125006FDA75;
-			remoteInfo = RNI18n;
-		};
-		7213194A1F62482300A81C3E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 74363B73DEAC4561A5273D1B /* RNI18n.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CDD7BF831B2D5126006FDA75;
-			remoteInfo = RNI18nTests;
-		};
 		7213194D1F62482300A81C3E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AD89785E51104346B3CDEB71 /* RNVectorIcons.xcodeproj */;
@@ -397,6 +394,41 @@
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = ReactNativePayments;
 		};
+		7284A3631F966BBA00A2262A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 19F8A735394B4306811AF0C5 /* RCTBEEPickerManager.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 17D41E551D7EE0CA0031415E;
+			remoteInfo = RCTBEEPickerManager;
+		};
+		7284A38F1F966BBB00A2262A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F9D55E2935A449C0A37C0CC9 /* RNSVG.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0CF68AC11AF0540F00FF9E5C;
+			remoteInfo = RNSVG;
+		};
+		7284A3911F966BBB00A2262A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F9D55E2935A449C0A37C0CC9 /* RNSVG.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7284A35B1F966BBA00A2262A;
+			remoteInfo = "RNSVG-tvOS";
+		};
+		7284A3961F966BBB00A2262A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1D62486661B43B8B3CF863B /* RNFIRMessaging.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNFIRMessaging;
+		};
+		7284A3A01F966BBC00A2262A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5DF700BF5A104253B9FE3693 /* RNSnackbar.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4114DC4C1C187C3A003CD988;
+			remoteInfo = RNSnackbar;
+		};
 		78C398B81ACF4ADC00677621 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */;
@@ -425,6 +457,7 @@
 		00E356F21AD99517003FC87E /* instacarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = instacarTests.m; sourceTree = "<group>"; };
 		03AD8CADC8774A33973B140E /* AirMaps.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = AirMaps.xcodeproj; path = "../node_modules/react-native-maps/lib/ios/AirMaps.xcodeproj"; sourceTree = "<group>"; };
 		04EF6AACF5E74A36B2ABD93E /* libRNDeviceInfo.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNDeviceInfo.a; sourceTree = "<group>"; };
+		095163F77170133FDF6DD866 /* libPods-instacar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-instacar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A4244EEF8134E21A4254BA5 /* libReactNativeConfig.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libReactNativeConfig.a; sourceTree = "<group>"; };
 		12DD5A2ED6D24E35AB8C9332 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
@@ -436,6 +469,7 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = instacar/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = instacar/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		19F8A735394B4306811AF0C5 /* RCTBEEPickerManager.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTBEEPickerManager.xcodeproj; path = "../node_modules/react-native-picker/ios/RCTBEEPickerManager.xcodeproj"; sourceTree = "<group>"; };
 		234439F4DFE14A00995E3199 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		2524F000F6104DE9B0A0BA3C /* libjschelpers.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libjschelpers.a; sourceTree = "<group>"; };
 		2670CD460FC148C186EA2055 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
@@ -443,44 +477,60 @@
 		29F5B598186149E8B175B318 /* libRNFetchBlob.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFetchBlob.a; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* instacar-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "instacar-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* instacar-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "instacar-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3441D6B726604B569CE240D3 /* libRNConekta.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNConekta.a; sourceTree = "<group>"; };
 		3BB0C0AE0BF743BCB318CCFF /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
+		3EDE6D432B854D2B8175ED11 /* libRNSnackbar.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSnackbar.a; sourceTree = "<group>"; };
 		41A2EABF0B9B494B9F087648 /* RNFetchBlob.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFetchBlob.xcodeproj; path = "../node_modules/react-native-fetch-blob/ios/RNFetchBlob.xcodeproj"; sourceTree = "<group>"; };
 		42A834C7FAB94404B8AA1A63 /* libRCTOrientation.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTOrientation.a; sourceTree = "<group>"; };
 		48719C170BC443A9B38D8A4C /* libBVLinearGradient.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libBVLinearGradient.a; sourceTree = "<group>"; };
 		496E94FE40F84C65A55CE650 /* RCTOrientation.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTOrientation.xcodeproj; path = "../node_modules/react-native-orientation-locker/iOS/RCTOrientation.xcodeproj"; sourceTree = "<group>"; };
 		518D1762979E485AA367FA5A /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNImagePicker.xcodeproj; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; };
 		51E735BE69814D93960EA1CB /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
+		58B28BCCFAC270127106DC7B /* Pods-instacarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instacarTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-instacarTests/Pods-instacarTests.release.xcconfig"; sourceTree = "<group>"; };
 		5AD62F5746DB472E887E5AB1 /* RNFS.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFS.xcodeproj; path = "../node_modules/react-native-fs/RNFS.xcodeproj"; sourceTree = "<group>"; };
+		5DF700BF5A104253B9FE3693 /* RNSnackbar.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSnackbar.xcodeproj; path = "../node_modules/react-native-snackbar/ios/RNSnackbar.xcodeproj"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		5EB8CEC411FA42E6B3C50229 /* libSplashScreen.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libSplashScreen.a; sourceTree = "<group>"; };
 		680A6CFE2AFC47A28812540D /* ReactNativePayments.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = ReactNativePayments.xcodeproj; path = "../node_modules/react-native-payments/lib/ios/ReactNativePayments.xcodeproj"; sourceTree = "<group>"; };
 		6BCA96466E704F08B2AC04E2 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		72131A081F62750E00A81C3E /* AppIcon.appiconset */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AppIcon.appiconset; sourceTree = "<group>"; };
 		72131A361F63A8FA00A81C3E /* icomoon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = icomoon.ttf; sourceTree = "<group>"; };
+		7284A3A21F966CFA00A2262A /* instacar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = instacar.entitlements; path = instacar/instacar.entitlements; sourceTree = "<group>"; };
+		7284A3A31F96820200A2262A /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		728B7EB5BB29494D86592DC0 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
-		74363B73DEAC4561A5273D1B /* RNI18n.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNI18n.xcodeproj; path = "../node_modules/react-native-i18n/RNI18n.xcodeproj"; sourceTree = "<group>"; };
+		72BD4F4B1F98B2F000652D46 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		75912A0483C84413A648A9C2 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		84B255BB90ED720B8CC9B378 /* Pods-instacar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instacar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-instacar/Pods-instacar.debug.xcconfig"; sourceTree = "<group>"; };
 		8FF6FB790EA84EE0A7D18D00 /* RNKeychain.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNKeychain.xcodeproj; path = "../node_modules/react-native-keychain/RNKeychain.xcodeproj"; sourceTree = "<group>"; };
 		9259E8A018804A8580B8D89D /* SplashScreen.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = SplashScreen.xcodeproj; path = "../node_modules/react-native-splash-screen/ios/SplashScreen.xcodeproj"; sourceTree = "<group>"; };
 		957A51A5023B485686ADEFDE /* libcxxreact.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libcxxreact.a; sourceTree = "<group>"; };
 		9590651D59814D67B16B1A3E /* libRNFS.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFS.a; sourceTree = "<group>"; };
 		97D80D889D374578A3519118 /* libRNImagePicker.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNImagePicker.a; sourceTree = "<group>"; };
 		98901B5FD2264D5D9EABD9CC /* RCTImageResizer.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTImageResizer.xcodeproj; path = "../node_modules/react-native-image-resizer/ios/RCTImageResizer.xcodeproj"; sourceTree = "<group>"; };
+		99F51B7D7D794165A074B42C /* libRCTBEEPickerManager.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTBEEPickerManager.a; sourceTree = "<group>"; };
+		A1D62486661B43B8B3CF863B /* RNFIRMessaging.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNFIRMessaging.xcodeproj; path = "../node_modules/react-native-fcm/ios/RNFIRMessaging.xcodeproj"; sourceTree = "<group>"; };
 		A41E53F9757C413CAD4EB928 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
+		A459C9E5AD939CEA76A8557D /* Pods-instacar-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instacar-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-instacar-tvOSTests/Pods-instacar-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		A6AD6ED7DAEF4051AE30CF58 /* BVLinearGradient.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = BVLinearGradient.xcodeproj; path = "../node_modules/react-native-linear-gradient/BVLinearGradient.xcodeproj"; sourceTree = "<group>"; };
 		ACA29B9E63CA42C58A95C521 /* RNConekta.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNConekta.xcodeproj; path = "../node_modules/react-native-conekta/RNConekta/RNConekta.xcodeproj"; sourceTree = "<group>"; };
 		AD89785E51104346B3CDEB71 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
+		BD78493F961E23A0041F4AF2 /* Pods-instacarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instacarTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-instacarTests/Pods-instacarTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BD9325322FFE48B9960504FC /* libAirMaps.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libAirMaps.a; sourceTree = "<group>"; };
 		C0BDE927FAA349438DA11429 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		C3CA39B39A58449E995ABBE8 /* libyoga.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libyoga.a; sourceTree = "<group>"; };
 		D2C0188A91634F6898765501 /* libReact.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libReact.a; sourceTree = "<group>"; };
 		D3FC90D4C6F24F54882CAD38 /* RNDeviceInfo.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNDeviceInfo.xcodeproj; path = "../node_modules/react-native-device-info/RNDeviceInfo.xcodeproj"; sourceTree = "<group>"; };
+		D84A29819B23C4BDB4984BF1 /* Pods-instacar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instacar.release.xcconfig"; path = "Pods/Target Support Files/Pods-instacar/Pods-instacar.release.xcconfig"; sourceTree = "<group>"; };
+		DC65E4387A994915B6F358BB /* libRNFIRMessaging.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNFIRMessaging.a; sourceTree = "<group>"; };
+		E5AD661782B434B7E98CFED8 /* libPods-instacar-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-instacar-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E803F9EDFC8A483CB72D93A9 /* libReactNativePayments.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libReactNativePayments.a; sourceTree = "<group>"; };
 		E89D21CFB7E14C1F964A711C /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		EDBC7F257C5A9B57A805FD35 /* libPods-instacarTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-instacarTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EED0768A61244B108B69B94F /* libRCTImageResizer.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTImageResizer.a; sourceTree = "<group>"; };
+		F6ABAFCBC9FF4B42A9F7580F /* libRNSVG.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSVG.a; sourceTree = "<group>"; };
+		F9D55E2935A449C0A37C0CC9 /* RNSVG.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNSVG.xcodeproj; path = "../node_modules/react-native-svg/ios/RNSVG.xcodeproj"; sourceTree = "<group>"; };
+		FA049E63E9C4F9C9CB3939B1 /* Pods-instacar-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instacar-tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-instacar-tvOSTests/Pods-instacar-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FF3F1E904CFB4CD6B33FB0A1 /* libRNKeychain.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNKeychain.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -490,6 +540,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */,
+				A644C1FA3337F098F52456E2 /* libPods-instacarTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,13 +570,18 @@
 				991D23C2DD7E43BAB1DF0211 /* libRCTOrientation.a in Frameworks */,
 				1ADC3F09A3DD4B7AB2E21D56 /* libRNKeychain.a in Frameworks */,
 				1A176B3A3E78408B993C5210 /* libBVLinearGradient.a in Frameworks */,
+				7284A3A41F96820300A2262A /* MapKit.framework in Frameworks */,
 				C69EC0200F5C4BBA81F925C1 /* libAirMaps.a in Frameworks */,
 				36D3D9BF354245AAAEC2B160 /* libRNFetchBlob.a in Frameworks */,
-				B2141079B0D041F9936D8B5A /* libRNConekta.a in Frameworks */,
 				495501127353413B8FC2272E /* libReactNativePayments.a in Frameworks */,
 				85CD7A1677F64D58936D7ACD /* libRNImagePicker.a in Frameworks */,
 				D0F0327D7BF94363805BA272 /* libRCTImageResizer.a in Frameworks */,
 				F3AA160F22924623920B9912 /* libRNFS.a in Frameworks */,
+				A7BB3AB5552344449E690400 /* libRNSVG.a in Frameworks */,
+				4B3111E57A2A185EA20BC777 /* libPods-instacar.a in Frameworks */,
+				E1FEB635E39648EE8B1BA27B /* libRNFIRMessaging.a in Frameworks */,
+				ABF11C83CF924016A47C48B6 /* libRNSnackbar.a in Frameworks */,
+				D28C3814E87148CD8E1C1386 /* libRCTBEEPickerManager.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,6 +604,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6941584807E981FD02C70BBC /* libPods-instacar-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -634,6 +691,8 @@
 		13B07FAE1A68108700A75B9A /* instacar */ = {
 			isa = PBXGroup;
 			children = (
+				72BD4F4B1F98B2F000652D46 /* GoogleService-Info.plist */,
+				7284A3A21F966CFA00A2262A /* instacar.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -664,6 +723,19 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		48F8D8BA8E7A7ECEB9CF65C9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				84B255BB90ED720B8CC9B378 /* Pods-instacar.debug.xcconfig */,
+				D84A29819B23C4BDB4984BF1 /* Pods-instacar.release.xcconfig */,
+				FA049E63E9C4F9C9CB3939B1 /* Pods-instacar-tvOSTests.debug.xcconfig */,
+				A459C9E5AD939CEA76A8557D /* Pods-instacar-tvOSTests.release.xcconfig */,
+				BD78493F961E23A0041F4AF2 /* Pods-instacarTests.debug.xcconfig */,
+				58B28BCCFAC270127106DC7B /* Pods-instacarTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		5E91572E1DD0AC6500FF2AA8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -671,6 +743,17 @@
 				5E9157351DD0AC6500FF2AA8 /* libRCTAnimation.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		66D758C9CEF1463165B1CCEC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7284A3A31F96820200A2262A /* MapKit.framework */,
+				095163F77170133FDF6DD866 /* libPods-instacar.a */,
+				E5AD661782B434B7E98CFED8 /* libPods-instacar-tvOSTests.a */,
+				EDBC7F257C5A9B57A805FD35 /* libPods-instacarTests.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		721319191F62482300A81C3E /* Products */ = {
@@ -685,15 +768,6 @@
 			isa = PBXGroup;
 			children = (
 				7213194E1F62482300A81C3E /* libRNVectorIcons.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		7213191D1F62482300A81C3E /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				721319491F62482300A81C3E /* libRNI18n.a */,
-				7213194B1F62482300A81C3E /* RNI18nTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -796,6 +870,39 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		7284A3591F966BBA00A2262A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7284A3641F966BBA00A2262A /* libRCTBEEPickerManager.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7284A38B1F966BBB00A2262A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7284A3901F966BBB00A2262A /* libRNSVG.a */,
+				7284A3921F966BBB00A2262A /* libRNSVG-tvOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7284A3931F966BBB00A2262A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7284A3971F966BBB00A2262A /* libRNFIRMessaging.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7284A39D1F966BBC00A2262A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7284A3A11F966BBC00A2262A /* libRNSnackbar.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		78C398B11ACF4ADC00677621 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -821,7 +928,6 @@
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
 				D3FC90D4C6F24F54882CAD38 /* RNDeviceInfo.xcodeproj */,
 				AD89785E51104346B3CDEB71 /* RNVectorIcons.xcodeproj */,
-				74363B73DEAC4561A5273D1B /* RNI18n.xcodeproj */,
 				2931161450D74C95B82ECF58 /* ReactNativeConfig.xcodeproj */,
 				9259E8A018804A8580B8D89D /* SplashScreen.xcodeproj */,
 				496E94FE40F84C65A55CE650 /* RCTOrientation.xcodeproj */,
@@ -834,6 +940,10 @@
 				518D1762979E485AA367FA5A /* RNImagePicker.xcodeproj */,
 				98901B5FD2264D5D9EABD9CC /* RCTImageResizer.xcodeproj */,
 				5AD62F5746DB472E887E5AB1 /* RNFS.xcodeproj */,
+				F9D55E2935A449C0A37C0CC9 /* RNSVG.xcodeproj */,
+				A1D62486661B43B8B3CF863B /* RNFIRMessaging.xcodeproj */,
+				5DF700BF5A104253B9FE3693 /* RNSnackbar.xcodeproj */,
+				19F8A735394B4306811AF0C5 /* RCTBEEPickerManager.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -855,6 +965,8 @@
 				00E356EF1AD99517003FC87E /* instacarTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				CC022C58BCA54A4CAB89BE57 /* Resources */,
+				48F8D8BA8E7A7ECEB9CF65C9 /* Pods */,
+				66D758C9CEF1463165B1CCEC /* Frameworks */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -896,9 +1008,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "instacarTests" */;
 			buildPhases = (
+				01A22C0C9D05369C6B421CB4 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
+				75CD673FE99F07AEEC25FB86 /* [CP] Embed Pods Frameworks */,
+				1169B5EA854A6B91115CB5CB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -914,10 +1029,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "instacar" */;
 			buildPhases = (
+				456AD03147ABFC3E8C767EC4 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				EDB8B78384C82A496D0580D7 /* [CP] Embed Pods Frameworks */,
+				ACEEABA542DD106F5F4B1BDD /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -950,9 +1068,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "instacar-tvOSTests" */;
 			buildPhases = (
+				C6D7248BA56F91DE5AAE3BD4 /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
+				D540FED695D074F93EE74D3C /* [CP] Embed Pods Frameworks */,
+				D9E9AE5E97735613330F993B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -980,6 +1101,17 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = F3PXZ8KVZQ;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1019,6 +1151,10 @@
 				{
 					ProductGroup = 5E91572E1DD0AC6500FF2AA8 /* Products */;
 					ProjectRef = 5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */;
+				},
+				{
+					ProductGroup = 7284A3591F966BBA00A2262A /* Products */;
+					ProjectRef = 19F8A735394B4306811AF0C5 /* RCTBEEPickerManager.xcodeproj */;
 				},
 				{
 					ProductGroup = 00C302B61ABCB90400DB3ED1 /* Products */;
@@ -1085,12 +1221,12 @@
 					ProjectRef = 41A2EABF0B9B494B9F087648 /* RNFetchBlob.xcodeproj */;
 				},
 				{
-					ProductGroup = 72131AAE1F642FEC00A81C3E /* Products */;
-					ProjectRef = 5AD62F5746DB472E887E5AB1 /* RNFS.xcodeproj */;
+					ProductGroup = 7284A3931F966BBB00A2262A /* Products */;
+					ProjectRef = A1D62486661B43B8B3CF863B /* RNFIRMessaging.xcodeproj */;
 				},
 				{
-					ProductGroup = 7213191D1F62482300A81C3E /* Products */;
-					ProjectRef = 74363B73DEAC4561A5273D1B /* RNI18n.xcodeproj */;
+					ProductGroup = 72131AAE1F642FEC00A81C3E /* Products */;
+					ProjectRef = 5AD62F5746DB472E887E5AB1 /* RNFS.xcodeproj */;
 				},
 				{
 					ProductGroup = 72131A751F642FC000A81C3E /* Products */;
@@ -1099,6 +1235,14 @@
 				{
 					ProductGroup = 721319591F62482400A81C3E /* Products */;
 					ProjectRef = 8FF6FB790EA84EE0A7D18D00 /* RNKeychain.xcodeproj */;
+				},
+				{
+					ProductGroup = 7284A39D1F966BBC00A2262A /* Products */;
+					ProjectRef = 5DF700BF5A104253B9FE3693 /* RNSnackbar.xcodeproj */;
+				},
+				{
+					ProductGroup = 7284A38B1F966BBB00A2262A /* Products */;
+					ProjectRef = F9D55E2935A449C0A37C0CC9 /* RNSVG.xcodeproj */;
 				},
 				{
 					ProductGroup = 7213191B1F62482300A81C3E /* Products */;
@@ -1309,20 +1453,6 @@
 			remoteRef = 721319441F62482300A81C3E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		721319491F62482300A81C3E /* libRNI18n.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNI18n.a;
-			remoteRef = 721319481F62482300A81C3E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		7213194B1F62482300A81C3E /* RNI18nTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = RNI18nTests.xctest;
-			remoteRef = 7213194A1F62482300A81C3E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		7213194E1F62482300A81C3E /* libRNVectorIcons.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1435,6 +1565,41 @@
 			remoteRef = 72131ABE1F642FED00A81C3E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		7284A3641F966BBA00A2262A /* libRCTBEEPickerManager.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTBEEPickerManager.a;
+			remoteRef = 7284A3631F966BBA00A2262A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7284A3901F966BBB00A2262A /* libRNSVG.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNSVG.a;
+			remoteRef = 7284A38F1F966BBB00A2262A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7284A3921F966BBB00A2262A /* libRNSVG-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libRNSVG-tvOS.a";
+			remoteRef = 7284A3911F966BBB00A2262A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7284A3971F966BBB00A2262A /* libRNFIRMessaging.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNFIRMessaging.a;
+			remoteRef = 7284A3961F966BBB00A2262A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		7284A3A11F966BBC00A2262A /* libRNSnackbar.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNSnackbar.a;
+			remoteRef = 7284A3A01F966BBC00A2262A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		78C398B91ACF4ADC00677621 /* libRCTLinking.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1456,6 +1621,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72BD4F4D1F98B2F100652D46 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1476,6 +1642,7 @@
 				72131A091F62750E00A81C3E /* AppIcon.appiconset in Resources */,
 				8C2BC96B83E74C78ABFA046A /* SimpleLineIcons.ttf in Resources */,
 				DE077F453D1E458194BA86F1 /* Zocial.ttf in Resources */,
+				72BD4F4C1F98B2F100652D46 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1484,6 +1651,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */,
+				72BD4F4E1F98B2F100652D46 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1491,6 +1659,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72BD4F4F1F98B2F100652D46 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1511,6 +1680,39 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
+		01A22C0C9D05369C6B421CB4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-instacarTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1169B5EA854A6B91115CB5CB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-instacarTests/Pods-instacarTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1524,6 +1726,121 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/packager/react-native-xcode.sh";
+		};
+		456AD03147ABFC3E8C767EC4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-instacar-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		75CD673FE99F07AEEC25FB86 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-instacarTests/Pods-instacarTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ACEEABA542DD106F5F4B1BDD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-instacar/Pods-instacar-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Subspecs/Maps/Frameworks/GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Versions/A/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-instacar/Pods-instacar-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C6D7248BA56F91DE5AAE3BD4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-instacar-tvOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D540FED695D074F93EE74D3C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-instacar-tvOSTests/Pods-instacar-tvOSTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D9E9AE5E97735613330F993B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-instacar-tvOSTests/Pods-instacar-tvOSTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EDB8B78384C82A496D0580D7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-instacar/Pods-instacar-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1580,6 +1897,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD78493F961E23A0041F4AF2 /* Pods-instacarTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = F3PXZ8KVZQ;
@@ -1605,20 +1923,16 @@
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-image-resizer/ios/RCTImageResizer",
 					"$(SRCROOT)/../node_modules/react-native-fs/**",
+					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-google-place-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-fcm/ios",
+					"$(SRCROOT)/../node_modules/react-native-snackbar/ios",
+					"$(SRCROOT)/../node_modules/react-native-picker/ios/RCTBEEPickerManager",
 				);
 				INFOPLIST_FILE = instacarTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1630,6 +1944,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58B28BCCFAC270127106DC7B /* Pods-instacarTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -1652,20 +1967,16 @@
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-image-resizer/ios/RCTImageResizer",
 					"$(SRCROOT)/../node_modules/react-native-fs/**",
+					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-google-place-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-fcm/ios",
+					"$(SRCROOT)/../node_modules/react-native-snackbar/ios",
+					"$(SRCROOT)/../node_modules/react-native-picker/ios/RCTBEEPickerManager",
 				);
 				INFOPLIST_FILE = instacarTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1677,9 +1988,11 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84B255BB90ED720B8CC9B378 /* Pods-instacar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = instacar/instacar.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = F3PXZ8KVZQ;
@@ -1701,6 +2014,11 @@
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-image-resizer/ios/RCTImageResizer",
 					"$(SRCROOT)/../node_modules/react-native-fs/**",
+					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-google-place-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-fcm/ios",
+					"$(SRCROOT)/../node_modules/react-native-snackbar/ios",
+					"$(SRCROOT)/../node_modules/react-native-picker/ios/RCTBEEPickerManager",
 				);
 				INFOPLIST_FILE = instacar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1709,6 +2027,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = mx.vyz.instacar;
 				PRODUCT_NAME = instacar;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1716,9 +2035,11 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D84A29819B23C4BDB4984BF1 /* Pods-instacar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = instacar/instacar.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F3PXZ8KVZQ;
 				HEADER_SEARCH_PATHS = (
@@ -1739,6 +2060,11 @@
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-image-resizer/ios/RCTImageResizer",
 					"$(SRCROOT)/../node_modules/react-native-fs/**",
+					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-google-place-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-fcm/ios",
+					"$(SRCROOT)/../node_modules/react-native-snackbar/ios",
+					"$(SRCROOT)/../node_modules/react-native-picker/ios/RCTBEEPickerManager",
 				);
 				INFOPLIST_FILE = instacar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1747,6 +2073,7 @@
 					"-ObjC",
 					"-lc++",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = mx.vyz.instacar;
 				PRODUCT_NAME = instacar;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1782,19 +2109,15 @@
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-image-resizer/ios/RCTImageResizer",
 					"$(SRCROOT)/../node_modules/react-native-fs/**",
+					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-google-place-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-fcm/ios",
+					"$(SRCROOT)/../node_modules/react-native-snackbar/ios",
+					"$(SRCROOT)/../node_modules/react-native-picker/ios/RCTBEEPickerManager",
 				);
 				INFOPLIST_FILE = "instacar-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1837,19 +2160,15 @@
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
 					"$(SRCROOT)/../node_modules/react-native-image-resizer/ios/RCTImageResizer",
 					"$(SRCROOT)/../node_modules/react-native-fs/**",
+					"$(SRCROOT)/../node_modules/react-native-svg/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-google-place-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-fcm/ios",
+					"$(SRCROOT)/../node_modules/react-native-snackbar/ios",
+					"$(SRCROOT)/../node_modules/react-native-picker/ios/RCTBEEPickerManager",
 				);
 				INFOPLIST_FILE = "instacar-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
@@ -1864,6 +2183,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA049E63E9C4F9C9CB3939B1 /* Pods-instacar-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1875,16 +2195,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "instacar-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.instacar-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
@@ -1895,6 +2206,7 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A459C9E5AD939CEA76A8557D /* Pods-instacar-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1906,16 +2218,7 @@
 				GCC_NO_COMMON_BLOCKS = YES;
 				INFOPLIST_FILE = "instacar-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-					"\"$(SRCROOT)/$(TARGET_NAME)\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.instacar-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;

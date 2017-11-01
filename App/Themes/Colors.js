@@ -4,6 +4,7 @@ const colors = {
   facebook: '#3b5998',
   transparent: 'rgba(0,0,0,0)',
   silver: '#F7F7F7',
+  white: '#FFFFFF',
   steel: '#CCCCCC',
   error: 'rgba(200, 0, 0, 0.8)',
   ricePaper: 'rgba(255,255,255, 0.75)',
@@ -13,6 +14,7 @@ const colors = {
   panther: '#161616',
   charcoal: '#595959',
   coal: '#2d2d2d',
+  darkCoal: '#1d1d1d',
   bloodOrange: '#fb5f26',
   snow: 'white',
   ember: 'rgba(164, 0, 48, 0.5)',
@@ -25,14 +27,18 @@ const colors = {
   primary: '#4a138c',
   primaryLight: '#7c42bd',
   primaryDark: '#12005e',
-  secondary: '#8fa3ad',
-  secondaryLight: '#bfd4df',
-  secondaryDark: '#61747e',
+  secondary: '#6547e2',
+  secondaryLight: '#9c75ff',
+  secondaryDark: '#231baf',
+  tertiary: '#f51845',
+  tertiaryLight: '#ff5f70',
+  tertiaryDark: '#ba001e',
   primaryText: '#ffffff',
   secondaryText: '#000000',
   backgroundLight: '#f5f0fa',
   backgroundDark: '#150628',
   black: '#000000',
+  green: '#30a566'
 }
 
 export default colors

@@ -1,69 +1,85 @@
 import React,{ Component } from 'react'
-import { reduxForm } from 'redux-form/immutable'
-import validate from './RentalFormPage1Validation'
+import { connect } from 'react-redux'
+import { reduxForm } from 'redux-form'
+import { Field } from 'redux-form'; 
+import validate from './Validation/RentalFormPage1Validation'
 import {
   ActionsContainer,
-  Button,
-  FieldsContainer,
-  Fieldset,
-  FormGroup,
-  FieldSet,
   Form,
-  Label
 } from 'react-native-clean-form'
-import {
-  Input,
-  Select,
-  Switch
-} from 'react-native-clean-form/redux-form-immutable'
-import {Sae} from 'react-native-textinput-effects'
+import {Badge,FormLabel,Icon} from 'react-native-elements'
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
-import { View,Text,Dimensions } from 'react-native'
-import {ButtonGroup} from 'react-native-elements'
-import CarSwiper from '../CarSwiper'
-import SliderEntry from '../SliderEntry';
-import styles from '../Styles/RentalFormStyle'
-import Colors from '../../Themes/Colors'
-import {Theme} from '../../Themes/FormTheme'
+import { View,Text,Dimensions,Button,TouchableOpacity,Switch } from 'react-native'
 
-const CAR_CAT_FIRST_ITEM = 0;
+import CarSwiper from '../CarSwiper'
+import Colors from '../../Themes/Colors'
+import NextButton from '../NextButton'
+import styles from '../Styles/RentalFormStyle'
+const   renderSwitch = (field) => (
+  <View style={styles.switch}>
+    <Text style={{color:Colors.primaryDark}} >Múltiples carros </Text>
+    <Switch 
+      value={field.input.value?field.input.value:false}
+      onValueChange={(value)=>field.input.onChange(value)}
+      thumbTintColor={Colors.primary}
+      onTintColor={Colors.primaryLight}
+    />
+  </View>
+)
 class RentalFormPage1 extends Component {
-  constructor (props) {
-    super(props);
-    this.state = {
-      selectedIndex: CAR_CAT_FIRST_ITEM
-    }
-    this._updateIndex = this._updateIndex.bind(this)
-  }
-  _updateIndex (selectedIndex) {
-    this.setState({selectedIndex})
-  }
   render () {
-    const buttons = ['Sedan', 'SUV', 'Pasajeros']
-    const { handleSubmit } = this.props
-    const { selectedIndex } = this.state
+    const { nextPage,cars,inventory, multiple,openInventory,addToInventory } = this.props
     return (
-      <View style={{flex:1}}>
-      <Form onSubmit={handleSubmit}>  
-      <CarSwiper category={selectedIndex}/> 
-          <ButtonGroup
-          onPress={this._updateIndex}
-          selectedIndex={selectedIndex}
-          buttons={buttons}
-          selectedBackgroundColor={Colors.secondary}
+      <View style={{flex:1,flexDirection: 'column',justifyContent: 'flex-start'}}>
+      <Form>
+          <Field name='multiple' component={renderSwitch} />
+          <Field name='currentCar' component={CarSwiper} props={{cars}}/>
+          
+          <View style={styles.smallButton}>
+          {multiple?
+          <Button 
+            onPress={addToInventory}
+            title="+Agregar Carro"
+            color={Colors.primary}
           />
-          <ActionsContainer>
-              <Button onPress={handleSubmit} theme={Theme} icon="md-arrow-dropright" iconPlacement="right" type="submit" className="next">Siguiente</Button>
-          </ActionsContainer>
+          :
+          <Text></Text>
+          }
+          </View>
       </Form>
+        {multiple &&
+        <TouchableOpacity onPress={openInventory} style={styles.drawerHandle}>
+        <Icon name='directions-car' color={Colors.white} />
+        <Text 
+          style={styles.drawerText}
+        >
+        {inventory?inventory.length:0}
+        </Text>
+        
+        </TouchableOpacity>}
+        <View style={styles.actionContainer}>
+            <NextButton title='DATOS DE RESERVACIÓN' onPress={nextPage} />
+        </View>
       </View>
     )
   }
 }
 
-export default reduxForm({
+RentalFormPage1 = reduxForm({
   form: 'rental_form',                 // <------ same form name
   destroyOnUnmount: false,        // <------ preserve form data
   forceUnregisterOnUnmount: true,  // <------ unregister fields on unmount
   validate
 })(RentalFormPage1)
+
+defaultValues={
+  currentCar:{cat:'Autos',idx:0},
+  multiple: false,
+}
+const mapStateToProps = (state) => {
+  return {
+    initialValues: defaultValues,
+  }
+}
+
+export default connect(mapStateToProps, {})(RentalFormPage1)

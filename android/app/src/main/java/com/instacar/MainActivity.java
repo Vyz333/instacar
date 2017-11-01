@@ -4,7 +4,7 @@ import com.facebook.react.ReactActivity;
 import android.content.Intent; // <--- import
 import android.content.res.Configuration; // <--- import
 import android.os.Bundle;
-import com.cboy.rn.splashscreen.SplashScreen; // here
+import org.devio.rn.splashscreen.SplashScreen; // here
 
 public class MainActivity extends ReactActivity {
 

@@ -1,8 +1,10 @@
 // a library to wrap and simplify api calls
 import apisauce from 'apisauce'
+import AppConfig from '../Config/AppConfig'
+import APIKeys from '../Config/APIKeys'
 
 // our "constructor"
-const create = (baseURL = 'https://api.github.com/') => {
+const create = (baseURL = AppConfig.RESTUrl) => {
   // ------
   // STEP 1
   // ------
@@ -12,12 +14,22 @@ const create = (baseURL = 'https://api.github.com/') => {
   const api = apisauce.create({
     // base URL is read from the "constructor"
     baseURL,
-    // here are some default headers
-    headers: {
-      'Cache-Control': 'no-cache'
-    },
     // 10 second timeout...
-    timeout: 10000
+    timeout: 10000,
+  })
+
+  const auth_api = apisauce.create({
+    // base URL is read from the "constructor"
+    baseURL:AppConfig.JWTUrl,
+    // 10 second timeout...
+    timeout: 10000,
+  })
+
+  const fcm_api = apisauce.create({
+    // base URL is read from the "constructor"
+    baseURL:AppConfig.FCMUrl,
+    // 10 second timeout...
+    timeout: 10000,
   })
 
   // ------
@@ -36,8 +48,63 @@ const create = (baseURL = 'https://api.github.com/') => {
   //
   const getRoot = () => api.get('')
   const getRate = () => api.get('rate_limit')
-  const getUser = (username) => api.get('search/users', {q: username})
+  const getCars = () => api.get('vehicles')
+  const getOrders = () => api.get('orders2')
+  const getOrderById = (id) => api.get(`orders2/${id}`)
+  const getUserById = (id) => api.get(`users/${id}`)
+  const getUserByEmail = (email) => api.get(`users/email/${email}`)
+  const getUserByName = (name) => api.get(`users/email/${name}`)
+  const upstreamNotification = (dest) =>{
+    return fcm_api.post('send',
+    {
+      'registration_ids':[dest],
+      'collapse_key':'Reserva InstaCar',
+      'notification':{
+        'priority':'high',
+        'body':'¡Sí tenemos disponibilidad para antender tu órden!, haz clic para continuar',
+        'sound':'default',
+        'collapse_key':'Continuar órden',
+      }
+    },
+    {
+      headers: {
+        'Authorization':'key='+APIKeys.FCMAPIKey,
+        'Content-Type':'application/json',
+      }
+    }
+    )
+  }
+    
+  //const getUser = (username) => api.get('search/users', {q: username})
 
+  const postOrder = (order) => {
+    const {token} = order
+    return api.post('orders2',order,{headers: {'Authorization': 'Bearer ' + token}})
+  }
+
+  const updateOrder = (id,changes,token) => {
+    return api.put(`orders2/${id}`,changes,{headers: {'Authorization': 'Bearer ' + token}})
+  }
+
+
+  const searchUser = (username) => {
+    return api.get('users',{search:username})
+  }
+
+  
+
+  const postUser = (user) => {
+    console.log(user)
+    const {token} = user
+    return api.post('users',user,{headers: {'Authorization': 'Bearer ' + token}})
+  }
+  const loginUser = (user) => {
+    return auth_api.post('token',user)
+  }
+  const uploadImage= (image)=> {
+    //http://instacar.bismarck.space/wp-content/uploads/2017/09/TABLET-X81C_URVAN-W_Brilliantsilver-2014.jpg.ximg_.m_12_h.smart_.jpg
+    AppConfig.UPLOADSUrl
+  }
   // ------
   // STEP 3
   // ------
@@ -54,7 +121,18 @@ const create = (baseURL = 'https://api.github.com/') => {
     // a list of the API functions from step 2
     getRoot,
     getRate,
-    getUser
+    searchUser,
+    getCars,
+    getOrders,
+    getOrderById,
+    getUserById,
+    getUserByEmail,
+    getUserByName,
+    postOrder,
+    updateOrder,
+    postUser,
+    loginUser,
+    upstreamNotification,
   }
 }
 
