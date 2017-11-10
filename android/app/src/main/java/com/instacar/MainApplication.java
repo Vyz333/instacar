@@ -3,6 +3,7 @@ package com.instacar;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.rssignaturecapture.RSSignatureCapturePackage;
 import com.beefe.picker.PickerViewPackage;
 import com.azendoo.reactnativesnackbar.SnackbarPackage;
 import com.evollu.react.fcm.FIRMessagingPackage;
@@ -41,6 +42,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RSSignatureCapturePackage(),
             new PickerViewPackage(),
             new SnackbarPackage(),
             new FIRMessagingPackage(),

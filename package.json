@@ -69,6 +69,7 @@
     "react-native-progress": "^3.4.0",
     "react-native-push-notification": "^3.0.1",
     "react-native-selectbox": "^0.1.2",
+    "react-native-signature-capture": "^0.4.9",
     "react-native-simple-radio-button": "^2.6.2",
     "react-native-slide-down-panel": "^1.0.6",
     "react-native-snackbar": "^0.4.2",
@@ -99,7 +100,8 @@
     "url": "^0.11.0",
     "util": "^0.10.3",
     "watchman": "^0.1.8",
-    "wpapi": "^1.1.2"
+    "wpapi": "^1.1.2",
+    "yarn": "^1.2.1"
   },
   "devDependencies": {
     "babel-eslint": "8.0.0",

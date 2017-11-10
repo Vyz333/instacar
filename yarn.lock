@@ -5329,6 +5329,12 @@ react-native-side-menu@^1.0.2:
   dependencies:
     prop-types "^15.5.10"
 
+react-native-signature-capture@^0.4.9:
+  version "0.4.9"
+  resolved "https://registry.yarnpkg.com/react-native-signature-capture/-/react-native-signature-capture-0.4.9.tgz#c581cedef6cea42beea40d0f7d210173196b9d4a"
+  dependencies:
+    prop-types "^15.5.10"
+
 react-native-simple-radio-button@^2.6.2:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/react-native-simple-radio-button/-/react-native-simple-radio-button-2.6.2.tgz#3f3d35b57c5d28b69304681ff2114c373d994046"
@@ -5432,6 +5438,7 @@ react-native@0.48.3:
   version "0.48.3"
   resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.48.3.tgz#ec17a66929eb292512b14c091cf260b25e2fba18"
   dependencies:
+    absolute-path "^0.0.0"
     art "^0.10.0"
     async "^2.4.0"
     babel-core "^6.24.1"
@@ -7200,6 +7207,10 @@ yargs@~3.10.0:
     cliui "^2.1.0"
     decamelize "^1.0.0"
     window-size "0.1.0"
+
+yarn@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/yarn/-/yarn-1.2.1.tgz#0d628dc01438881a1663a6f83cbf7ac5db7a75fc"
 
 yeast@0.1.2:
   version "0.1.2"

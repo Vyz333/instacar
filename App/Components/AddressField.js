@@ -1,44 +1,73 @@
 import React, { Component } from 'react'
 // import PropTypes from 'prop-types';
-import { View, Text } from 'react-native'
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  TouchableHighlight,
+} from 'react-native'
+import MapMixin from '../Mixins/MapMixin'
+import * as firebase from 'firebase'
 import styles from './Styles/AddressFieldStyle'
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome'
 import { Button,Icon } from 'react-native-elements'
+import MapView from 'react-native-maps'
 import AddressPicker from './AddressPicker'
 //import RNGooglePlacePicker from 'react-native-google-place-picker'
 import { FormValidationMessage } from 'react-native-elements'
-export default class AddressField extends Component {
+export default class AddressField extends MapMixin {
   constructor (props) {
     super(props);
-    this._handleAddressPicked = this._handleAddressPicked.bind(this)
 
     this.state = {
-      //Date selector
-      modalVisible: false,
       address: '',
     }
   }
-  //_showAddressPicker = () => this.setState({ modalVisible: true});
-//   _showAddressPicker = () => {
-//     console.log(RNGooglePlacePicker)
-//     RNGooglePlacePicker.show((response) => {
-//       if (response.didCancel) {
-//         console.log('User cancelled GooglePlacePicker');
-//       }
-//       else if (response.error) {
-//         console.log('GooglePlacePicker Error: ', response.error);
-//       }
-//       else {
-//         this._handleAddressPicked(response);
-//       }
-//     })
-//   }
+
   _handleAddressPicked = (addr)=>{
     console.log(addr)
     this.setState({modalVisible:false})
     this.props.input.onChange(addr)
   }
+  
+  _onSubmit(e) {
+    this.writePickupPosition()
 
+    this.props.navigator.push({
+      id: 'SetDestination',
+      title: 'Set destination',
+      passProps: {
+        passengerPosition: this.state.passengerPosition,
+        pickupPosition: this.state.pickupPosition || this.state.passengerPosition,
+      },
+    })
+  }
+
+  _onDragEnd(e) {
+    this.setState({pickupPosition: e.nativeEvent.coordinate})
+    this.updateAddress()
+  }
+
+  renderSearchBar() {
+    const searchBarStyle = StyleSheet.flatten([styles.searchBar, {
+      top: this.layout.height - 120,
+      width: this.layout.width - 30,
+    }])
+
+    return (
+      <View style={searchBarStyle}>
+        <TextInput
+          style={styles.searchInput}
+          onChangeText={(text) => this.setState({text})}
+          value={this.state.address}
+        />
+        <TouchableHighlight onPress={this.onSubmit}>
+          <Text style={styles.setPickupButton}>Set pickup location</Text>
+        </TouchableHighlight>
+      </View>
+    )
+  }
   render () {
     const {
       input: {value,onChange },
