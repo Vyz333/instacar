@@ -7,8 +7,7 @@ import {
   TextInput,
   TouchableHighlight,
 } from 'react-native'
-import MapMixin from '../Mixins/MapMixin'
-import * as firebase from 'firebase'
+import MapMixin from './Mixins/MapMixin'
 import styles from './Styles/AddressFieldStyle'
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome'
 import { Button,Icon } from 'react-native-elements'
@@ -31,9 +30,8 @@ export default class AddressField extends MapMixin {
     this.props.input.onChange(addr)
   }
   
-  _onSubmit(e) {
+  _onSubmit = (e)=> {
     this.writePickupPosition()
-
     this.props.navigator.push({
       id: 'SetDestination',
       title: 'Set destination',
@@ -44,12 +42,12 @@ export default class AddressField extends MapMixin {
     })
   }
 
-  _onDragEnd(e) {
+  _onDragEnd = (e) => {
     this.setState({pickupPosition: e.nativeEvent.coordinate})
     this.updateAddress()
   }
 
-  renderSearchBar() {
+  renderSearchBar = () => {
     const searchBarStyle = StyleSheet.flatten([styles.searchBar, {
       top: this.layout.height - 120,
       width: this.layout.width - 30,
@@ -69,6 +67,8 @@ export default class AddressField extends MapMixin {
     )
   }
   render () {
+    if (!this.state.isReady)
+    return null
     const {
       input: {value,onChange },
       meta: {error},
@@ -82,15 +82,15 @@ export default class AddressField extends MapMixin {
     console.log(value)
     return (
       <View style={{flex:1}}>
-        <Button
-          raised
-          icon={icon}
-          buttonStyle={buttonStyle}
-          textStyle={buttonTextStyle}
-          title={title}
-          onPress={this._showAddressPicker}
-        />
-        <Text style={textStyle}>{value?value.address:''}</Text>
+        <MapView style={styles.map} region={this.state.region}
+                 onRegionChange={this.onRegionChange}
+                 onPress={this.onDragEnd}>
+
+          {this.renderPassengerPosition()}
+
+        </MapView>
+
+        {this.renderSearchBar()}
         {error && <FormValidationMessage>{error}</FormValidationMessage>}
       </View>
     )

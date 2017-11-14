@@ -5172,6 +5172,10 @@ react-native-fs@^2.3.2:
     base-64 "^0.1.0"
     utf8 "^2.1.1"
 
+react-native-geocoder@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/react-native-geocoder/-/react-native-geocoder-0.5.0.tgz#ff4b9c55d5768a4784eefccb411761c82e067579"
+
 react-native-gifted-form@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/react-native-gifted-form/-/react-native-gifted-form-0.1.0.tgz#b31476699a69108484310d73a8bcc01a8270110c"
