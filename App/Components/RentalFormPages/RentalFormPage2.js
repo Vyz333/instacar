@@ -24,6 +24,31 @@ import NextButton from '../NextButton'
 
 class RentalFormPage2 extends Component {
   render(){
+    const {
+      nextPage,
+    } = this.props
+    return (
+    <View style={{flex:1}}>
+    <Form>
+    <View style={{flex:1,backgroundColor:'blue'}}>
+    <Field name='delivery_address' component={AddressField} props={{
+      icon:{name: 'my-location'},
+      buttonStyle:{backgroundColor: Colors.primaryLight},
+      buttonTextStyle:{textAlign: 'center',padding:5},
+      textStyle:{textAlign: 'center',padding:5},
+      title:'Dirección de Entrega',
+      placeholder:'Lugar de Entrega',
+    }}/>
+    </View>
+    </Form>
+    <View style={styles.actionContainer}>
+    <NextButton title='DATOS DE RESERVACIÓN' onPress={nextPage} />
+    </View>
+    </View>
+    )
+  }
+
+  render2(){
   const {
     nextPage,
   } = this.props

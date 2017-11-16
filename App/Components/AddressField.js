@@ -49,8 +49,10 @@ export default class AddressField extends MapMixin {
 
   renderSearchBar = () => {
     const searchBarStyle = StyleSheet.flatten([styles.searchBar, {
-      top: this.layout.height - 120,
-      width: this.layout.width - 30,
+      top: 120,
+      //width: this.layout.width - 30,
+      //top: this.layout.height - 120,
+      //width: this.layout.width - 30,
     }])
 
     return (
@@ -67,8 +69,6 @@ export default class AddressField extends MapMixin {
     )
   }
   render () {
-    if (!this.state.isReady)
-    return null
     const {
       input: {value,onChange },
       meta: {error},
@@ -78,19 +78,18 @@ export default class AddressField extends MapMixin {
       textStyle,
       placeholder,
       title} = this.props
-    const  {modalVisible} = this.state
     console.log(value)
     return (
-      <View style={{flex:1}}>
+      <View style={styles.container}>
         <MapView style={styles.map} region={this.state.region}
                  onRegionChange={this.onRegionChange}
                  onPress={this.onDragEnd}>
 
-          {this.renderPassengerPosition()}
+          {this.renderPickupPosition()}
 
         </MapView>
 
-        {this.renderSearchBar()}
+        {/* {this.renderSearchBar()} */}
         {error && <FormValidationMessage>{error}</FormValidationMessage>}
       </View>
     )

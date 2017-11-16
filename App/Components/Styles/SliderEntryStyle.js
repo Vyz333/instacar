@@ -1,6 +1,6 @@
 import { StyleSheet, Dimensions, Platform } from 'react-native';
-import { colors } from './CarSwiperStyle.js';
-
+//import { colors } from './CarSwiperStyle.js';
+import Colors from '../../Themes/Colors'
 const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
 
 function wp (percentage) {
@@ -26,12 +26,12 @@ export default StyleSheet.create({
     },
     imageContainer: {
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: Colors.transparent,
         borderTopLeftRadius: entryBorderRadius,
         borderTopRightRadius: entryBorderRadius
     },
     imageContainerEven: {
-        backgroundColor: colors.black
+        backgroundColor: Colors.black
     },
     image: {
         ...StyleSheet.absoluteFillObject,
@@ -50,14 +50,14 @@ export default StyleSheet.create({
         backgroundColor: 'white'
     },
     radiusMaskEven: {
-        backgroundColor: colors.black
+        backgroundColor: Colors.black
     },
     textContainer: {
         justifyContent: 'center',
         paddingTop: 20 - entryBorderRadius,
         paddingBottom: 20,
         paddingHorizontal: 16,
-        backgroundColor: 'white',
+        backgroundColor: Colors.transparent,
         borderBottomLeftRadius: entryBorderRadius,
         borderBottomRightRadius: entryBorderRadius,
     },
@@ -74,10 +74,10 @@ export default StyleSheet.create({
         justifyContent: 'space-between',
     },
     textContainerEven: {
-        backgroundColor: colors.black
+        backgroundColor: Colors.black
     },
     title: {
-        color: colors.black,
+        color: Colors.black,
         fontSize: 13,
         fontWeight: 'bold',
         letterSpacing: 0.5
@@ -87,7 +87,7 @@ export default StyleSheet.create({
     },
     subtitle: {
         marginTop: 2,
-        color: colors.gray,
+        color: Colors.gray,
         fontSize: 12,
         fontStyle: 'italic'
     },

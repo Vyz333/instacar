@@ -44,64 +44,10 @@ export default class MapMixin extends Component {
     this.longitudeDelta = LATITUDE_DELTA
   }
 
-  componentDidMount() {
-    InteractionManager.runAfterInteractions(_ => {
-      setTimeout(() => {
-        this.renderMap()
-        InteractionManager.runAfterInteractions(_ => {
-          setTimeout(() => {
-            this.watchPassenger()
-            this.watchDrivers()
-          }, 100)
-        })
-      }, 1000)
-    })
-  }
-
-  // componentWillUnmount() {
-  //   navigator.geolocation.clearWatch(this.watchID)
-  // }
-
   renderMap() {
     this.setState({isReady: true})
   }
 
-  watchDrivers() {
-    const onChildChange = (data) => {
-      const position = data.val().position
-
-      let drivers = this.state.drivers,
-          found = false
-
-      this.state.drivers.forEach((driver, i) => {
-        if (driver.id === data.key) {
-          found = true
-          drivers[i].position = position
-        }
-      })
-
-      if (!found) {
-        drivers.push({
-          id: data.key,
-          position: position,
-        })
-      }
-
-      this.setState({drivers})
-    }
-  }
-
-  // watchPassenger() {
-  //   const positionOptions = {
-  //     enableHighAccuracy: true,
-  //     timeout: 20000,
-  //     maximumAge: 1000,
-  //   }
-
-  //   this.watchID = navigator.geolocation.watchPosition(pos => (
-  //     this.onChangePosition(pos.coords)
-  //   ), positionOptions)
-  // }
 
   onChangePosition(coords) {
     const passengerPosition = {
@@ -158,11 +104,6 @@ export default class MapMixin extends Component {
                    onDragEnd={this.onDragEnd} />
   }
 
-  renderPassengerPosition() {
-    return <Marker draggable image={dotIcon} 
-                   coordinate={this.state.passengerPosition}
-                   onDragEnd={this.onDragEnd} />
-  }
 
   renderDrivers() {
     return this.state.drivers.map(driver => (

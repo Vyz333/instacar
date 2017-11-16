@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import { View, Text, KeyboardAvoidingView } from 'react-native'
 import { connect } from 'react-redux'
 
-import LinearGradient from 'react-native-linear-gradient';
-
 
 import Colors from '../Themes/Colors'
 
@@ -29,16 +27,6 @@ class LobbyScreen extends Component {
   }
   static navigationOptions = {
     title: 'CONFIRMACIÓN',
-  }
-  get gradient () {
-    return (
-        <LinearGradient
-          colors={[Colors.silver, Colors.frost]}
-          start={{ x: 1, y: 0 }}
-          end={{ x: 0, y: 1 }}
-          style={styles.gradient}
-        />
-    );
   }
 
   buildOrder = () => {
@@ -89,7 +77,6 @@ class LobbyScreen extends Component {
     return (
       <View style={styles.mainContainer}>
       <View style={styles.container}>
-        { this.gradient }
         <RentalFormPage4
         nextPage={() => navigate('CompleteUserScreen')}
         cancel={() => navigate('SelectCarScreen')}

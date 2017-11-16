@@ -16,7 +16,7 @@ export default class NextButton extends Component {
   // Defaults for props
   static defaultProps = {
     iconName: 'navigate-next',
-    backgroundColor: Colors.darkCoal,
+    backgroundColor: Colors.primary,
   }
 
   render () {

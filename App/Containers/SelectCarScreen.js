@@ -8,7 +8,6 @@ import {
   KeyboardAvoidingView,
   Button as RNButton } from 'react-native'
 import { connect } from 'react-redux'
-import LinearGradient from 'react-native-linear-gradient'
 import Drawer from 'react-native-drawer'
 import Snackbar from 'react-native-snackbar'
 import _ from 'lodash'
@@ -26,15 +25,15 @@ class SelectCarScreen extends Component {
   static navigationOptions = {
     headerLeft: null,
   }
-  constructor(props) {
-    super(props) 
-  }
+
   _closeInventory = () => {
     this._drawer.close()
   }
+
   _openInventory = () => {
     this._drawer.open()
   }
+
   _addToInventory = () =>{
     const {inventory,addCarToInventory,removeCarFromInventory,currentCar,cars} = this.props
     addCarToInventory(currentCar)
@@ -52,10 +51,12 @@ class SelectCarScreen extends Component {
       },
     });
   }
+
   _removeFromInventory = (index) =>{
     const {inventory,removeCarFromInventory} = this.props
     removeCarFromInventory(index)
   }
+
   _next = () => {
     const { multiple, inventory } = this.props
     const {navigate} = this.props.navigation;
@@ -74,16 +75,6 @@ class SelectCarScreen extends Component {
     }
     
   }
-  get gradient () {
-      return (
-          <LinearGradient
-            colors={[Colors.silver, Colors.frost]}
-            start={{ x: 1, y: 0 }}
-            end={{ x: 0, y: 1 }}
-            style={styles.gradient}
-          />
-      );
-  }
 
   render () {
     const { cars, multiple, inventory } = this.props
@@ -101,7 +92,6 @@ class SelectCarScreen extends Component {
       >
       <View style={styles.mainContainer}>
         <View style={styles.container}>
-          { this.gradient }
           {cars && 
           <RentalFormPage1 cars={cars} 
           multiple={multiple}

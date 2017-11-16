@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import { View, Text, KeyboardAvoidingView } from 'react-native'
 import { connect } from 'react-redux'
 
-import LinearGradient from 'react-native-linear-gradient';
-
 
 import Colors from '../Themes/Colors'
 
@@ -18,16 +16,7 @@ class TripDataScreen extends Component {
   static navigationOptions = {
     title: 'DATOS DEL RECORRIDO',
   }
-  get gradient () {
-    return (
-        <LinearGradient
-          colors={[Colors.silver, Colors.frost]}
-          start={{ x: 1, y: 0 }}
-          end={{ x: 0, y: 1 }}
-          style={styles.gradient}
-        />
-    );
-  }
+
   _next = () =>{
     const {navigate} = this.props.navigation;
     const {errors} = this.props
@@ -39,7 +28,6 @@ class TripDataScreen extends Component {
     return (
     <View style={styles.mainContainer}>
       <View style={styles.container}>
-        { this.gradient }
         <RentalFormPage3 
         nextPage={this._next}
         cancel={() => navigate('SelectCarScreen')}
