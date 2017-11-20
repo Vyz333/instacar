@@ -15,7 +15,7 @@ import MapView from 'react-native-maps'
 import AddressPicker from './AddressPicker'
 //import RNGooglePlacePicker from 'react-native-google-place-picker'
 import { FormValidationMessage } from 'react-native-elements'
-export default class AddressField extends MapMixin {
+export default class AddressField extends Component {
   constructor (props) {
     super(props);
 
@@ -42,12 +42,22 @@ export default class AddressField extends MapMixin {
     })
   }
 
+
+  renderPickupPosition() {
+    const coordinate = this.state.pickupPosition || this.state.passengerPosition
+
+    return <Marker draggable image={markerIcon} 
+                   coordinate={coordinate}
+                   centerOffset={{x: 0, y: -33}}
+                   onDragEnd={this.onDragEnd} />
+  }
+
   _onDragEnd = (e) => {
     this.setState({pickupPosition: e.nativeEvent.coordinate})
     this.updateAddress()
   }
 
-  renderSearchBar = () => {
+  renderSearchBarFrom = () => {
     const searchBarStyle = StyleSheet.flatten([styles.searchBar, {
       top: 120,
       //width: this.layout.width - 30,
@@ -68,6 +78,25 @@ export default class AddressField extends MapMixin {
       </View>
     )
   }
+    renderSearchBarTo = () => 
+      // const searchBarStyle = StyleSheet.flatten([styles.searchBar, 
+      //   //width: this.layout.width - 30,
+      //   //top: this.layout.height - 120,
+      //   //width: this.layout.width - 30,
+      // ])
+      <View 
+      // style={searchBarStyle}
+      >
+        <TextInput
+          style={styles.searchInput}
+          onChangeText={(text) => this.setState({text})}
+          value={this.state.address}
+        />
+        <TouchableHighlight onPress={this.onSubmit}>
+          <Text style={styles.setPickupButton}>Set pickup location</Text>
+        </TouchableHighlight>
+      </View>
+
   render () {
     const {
       input: {value,onChange },
@@ -85,7 +114,7 @@ export default class AddressField extends MapMixin {
                  onRegionChange={this.onRegionChange}
                  onPress={this.onDragEnd}>
 
-          {this.renderPickupPosition()}
+          {/* {this.renderPickupPosition()} */}
 
         </MapView>
 

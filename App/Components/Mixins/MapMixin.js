@@ -72,7 +72,6 @@ export default class MapMixin extends Component {
       latitudeDelta: this.latitudeDelta,
       longitudeDelta: this.longitudeDelta,
     }
-
     this.setState({region})
   }
 
